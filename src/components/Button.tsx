@@ -12,11 +12,7 @@ export function Button(props: Props) {
   const { a11y, children, ...rest } = props;
 
   if (import.meta.env.DEV) {
-    const warnings: string[] = [];
-
-    if (a11y) warnings.push(...a11yChecks.button(props));
-
-    warnings.forEach((warning) => console.warn(warning));
+    if (a11y) a11yChecks.button(props)?.forEach((err) => console.warn(err));
   }
 
   return <button {...rest}>{children}</button>;

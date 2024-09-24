@@ -1,5 +1,8 @@
 import React from 'react';
-import { checkAbstractRole, containsAccessibleText } from '../../utils/a11y';
+import {
+  checkAbstractRole,
+  containsAccessibleText,
+} from '../../utils/a11y/button';
 import { messages } from '../../utils/messages';
 
 describe('Accessibility check for button', () => {
@@ -130,7 +133,7 @@ describe('Accessibility check for button', () => {
   it('should pass when button has a non-abstract role', () => {
     const props = { role: 'button', children: 'Click me' };
     const warnings = checkAbstractRole(props);
-    expect(warnings).toBeUndefined();
+    expect(warnings).toEqual('');
   });
 
   it('should fail when button has incomplete aria attributes', () => {
