@@ -1,20 +1,11 @@
 import React from 'react';
-import {
-  ABSTRACT_ROLES,
-  ARIA_LABEL,
-  ARIA_LABELLEDBY,
-  TITLE,
-} from '../../constants';
+import { ARIA_LABEL, ARIA_LABELLEDBY, TITLE } from '../../../../constants';
 import {
   containsImageElement,
   containsTextChild,
-} from '../../helper/validation';
-import { messages } from '../messages';
-
-type ButtonProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
->;
+} from '../../../../helper/validation';
+import { messages } from '../../../messages';
+import { ButtonProps } from '../types/buttonPropsType';
 
 const containsValidArrayChildren = (children?: React.ReactNode): boolean =>
   Array.isArray(children) &&
@@ -48,11 +39,5 @@ export const containsAccessibleText = (props: ButtonProps): boolean =>
   containsImageElement(props.children) ||
   containsTextualContent(props.children);
 
-const checkTextContext = (props: ButtonProps): string =>
-  !containsAccessibleText(props) ? messages.button.text : '';
-
-export const checkAbstractRole = (props: ButtonProps): string =>
-  props.role && ABSTRACT_ROLES.includes(props.role) ? messages.button.role : '';
-
-export const buttonChecks = (props: ButtonProps): string[] =>
-  [checkTextContext(props), checkAbstractRole(props)].filter((v) => v);
+export const checkTextContext = (props: ButtonProps): string | null =>
+  !containsAccessibleText(props) ? messages.button.text : null;
