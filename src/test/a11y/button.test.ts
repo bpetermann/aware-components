@@ -190,7 +190,7 @@ describe('Accessibility check for button', () => {
   it('should fail when button has switch role but no aria-checked', () => {
     const props = { role: 'switch' };
     const warnings = checkSwitchRole(props);
-    expect(warnings).toContain(messages.button.role);
+    expect(warnings).toContain(messages.button.switch);
   });
 
   it('should fail when button has switch role and aria-checked', () => {

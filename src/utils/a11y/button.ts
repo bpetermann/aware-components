@@ -58,7 +58,9 @@ export const checkAbstractRole = (props: ButtonProps): string | null =>
     : null;
 
 export const checkSwitchRole = (props: ButtonProps): string | null =>
-  props.role === 'switch' && !props[ARIA_CHECKED] ? messages.button.role : null;
+  props.role === 'switch' && !props[ARIA_CHECKED]
+    ? messages.button.switch
+    : null;
 
 export const buttonChecks = (props: ButtonProps): string[] =>
   [
