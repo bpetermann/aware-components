@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   checkAbstractRole,
+  checkSwitchRole,
   containsAccessibleText,
 } from '../../utils/a11y/button';
 import { messages } from '../../utils/messages';
@@ -133,7 +134,7 @@ describe('Accessibility check for button', () => {
   it('should pass when button has a non-abstract role', () => {
     const props = { role: 'button', children: 'Click me' };
     const warnings = checkAbstractRole(props);
-    expect(warnings).toEqual('');
+    expect(warnings).toBeNull();
   });
 
   it('should fail when button has incomplete aria attributes', () => {
@@ -184,5 +185,17 @@ describe('Accessibility check for button', () => {
     };
     const result = containsAccessibleText(props);
     expect(result).toBe(true);
+  });
+
+  it('should fail when button has switch role but no aria-checked', () => {
+    const props = { role: 'switch' };
+    const warnings = checkSwitchRole(props);
+    expect(warnings).toContain(messages.button.role);
+  });
+
+  it('should fail when button has switch role and aria-checked', () => {
+    const props = { role: 'switch', 'aria-checked': true };
+    const warnings = checkSwitchRole(props);
+    expect(warnings).toBeNull();
   });
 });

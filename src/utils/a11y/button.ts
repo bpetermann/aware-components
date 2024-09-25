@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   ABSTRACT_ROLES,
+  ARIA_CHECKED,
   ARIA_LABEL,
   ARIA_LABELLEDBY,
   TITLE,
@@ -48,11 +49,20 @@ export const containsAccessibleText = (props: ButtonProps): boolean =>
   containsImageElement(props.children) ||
   containsTextualContent(props.children);
 
-const checkTextContext = (props: ButtonProps): string =>
-  !containsAccessibleText(props) ? messages.button.text : '';
+const checkTextContext = (props: ButtonProps): string | null =>
+  !containsAccessibleText(props) ? messages.button.text : null;
 
-export const checkAbstractRole = (props: ButtonProps): string =>
-  props.role && ABSTRACT_ROLES.includes(props.role) ? messages.button.role : '';
+export const checkAbstractRole = (props: ButtonProps): string | null =>
+  props.role && ABSTRACT_ROLES.includes(props.role)
+    ? messages.button.role
+    : null;
+
+export const checkSwitchRole = (props: ButtonProps): string | null =>
+  props.role === 'switch' && !props[ARIA_CHECKED] ? messages.button.role : null;
 
 export const buttonChecks = (props: ButtonProps): string[] =>
-  [checkTextContext(props), checkAbstractRole(props)].filter((v) => v);
+  [
+    checkTextContext(props),
+    checkAbstractRole(props),
+    checkSwitchRole(props),
+  ].filter((v) => v !== null);
