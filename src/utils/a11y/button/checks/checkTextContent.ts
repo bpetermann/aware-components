@@ -1,21 +1,11 @@
 import React from 'react';
-import {
-  ABSTRACT_ROLES,
-  ARIA_CHECKED,
-  ARIA_LABEL,
-  ARIA_LABELLEDBY,
-  TITLE,
-} from '../../constants';
+import { ARIA_LABEL, ARIA_LABELLEDBY, TITLE } from '../../../../constants';
 import {
   containsImageElement,
   containsTextChild,
-} from '../../helper/validation';
-import { messages } from '../messages';
-
-type ButtonProps = React.DetailedHTMLProps<
-  React.ButtonHTMLAttributes<HTMLButtonElement>,
-  HTMLButtonElement
->;
+} from '../../../../helper/validation';
+import { messages } from '../../../messages';
+import { ButtonProps } from '../types/buttonPropsType';
 
 const containsValidArrayChildren = (children?: React.ReactNode): boolean =>
   Array.isArray(children) &&
@@ -49,22 +39,5 @@ export const containsAccessibleText = (props: ButtonProps): boolean =>
   containsImageElement(props.children) ||
   containsTextualContent(props.children);
 
-const checkTextContext = (props: ButtonProps): string | null =>
+export const checkTextContext = (props: ButtonProps): string | null =>
   !containsAccessibleText(props) ? messages.button.text : null;
-
-export const checkAbstractRole = (props: ButtonProps): string | null =>
-  props.role && ABSTRACT_ROLES.includes(props.role)
-    ? messages.button.role
-    : null;
-
-export const checkSwitchRole = (props: ButtonProps): string | null =>
-  props.role === 'switch' && !props[ARIA_CHECKED]
-    ? messages.button.switch
-    : null;
-
-export const buttonChecks = (props: ButtonProps): string[] =>
-  [
-    checkTextContext(props),
-    checkAbstractRole(props),
-    checkSwitchRole(props),
-  ].filter((v) => v !== null);

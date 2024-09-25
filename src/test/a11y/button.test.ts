@@ -1,9 +1,7 @@
 import React from 'react';
-import {
-  checkAbstractRole,
-  checkSwitchRole,
-  containsAccessibleText,
-} from '../../utils/a11y/button';
+import { checkAbstractRole } from '../../utils/a11y/button/checks/checkAbstractRole';
+import { checkSwitchRole } from '../../utils/a11y/button/checks/checkSwitchRole';
+import { containsAccessibleText } from '../../utils/a11y/button/checks/checkTextContent';
 import { messages } from '../../utils/messages';
 
 describe('Accessibility check for button', () => {
