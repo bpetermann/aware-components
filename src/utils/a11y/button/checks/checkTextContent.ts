@@ -5,7 +5,7 @@ import {
   containsTextChild,
 } from '../../../../helper/validation';
 import { messages } from '../../../messages';
-import { ButtonProps } from '../types/buttonPropsType';
+import { ButtonProps } from '../types/buttonProps';
 
 const containsValidArrayChildren = (children?: React.ReactNode): boolean =>
   Array.isArray(children) &&
