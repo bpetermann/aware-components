@@ -25,7 +25,7 @@ const getTextFromString = (text: React.ReactNode): string | null => {
 };
 
 /**
- * Recursively get the text content from any type of React node.
+ * Get the text content from any type of React node.
  * Handles strings, elements, fragments, and arrays.
  */
 export const getElementTextContent = (

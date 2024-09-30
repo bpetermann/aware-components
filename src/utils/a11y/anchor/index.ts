@@ -1,6 +1,5 @@
-export type AnchorProps = React.DetailedHTMLProps<
-  React.AnchorHTMLAttributes<HTMLAnchorElement>,
-  HTMLAnchorElement
->;
+import { checkMailLink } from './checks/checkMailLink';
+import { AnchorProps } from './types/AnchorProps';
 
-export const anchorChecks = (_props: AnchorProps): string[] => [];
+export const anchorChecks = (props: AnchorProps): string[] =>
+  [checkMailLink(props)].filter((check) => check !== null);

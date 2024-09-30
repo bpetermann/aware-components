@@ -1,5 +1,5 @@
 import React from 'react';
-import { convertToPx } from '../../../../helper/units';
+import { convertToPx } from '../../../../helper/style';
 import { messages } from '../../../messages';
 import { ButtonProps } from '../types/buttonProps';
 

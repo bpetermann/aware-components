@@ -1,5 +1,5 @@
 import React from 'react';
-import { getElementTextContent } from '../../helper/content';
+import { getElementTextContent } from '../../helper/getElementTextContent';
 
 describe('getElementTextContent', () => {
   it('should return text if the children is a string', () => {
