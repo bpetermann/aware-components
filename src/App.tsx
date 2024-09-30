@@ -25,10 +25,7 @@ function App() {
       </div>
       <div className='card'>
         <A href='mailto:john.doe@gmail.com' a11y>
-          <>
-            <span>Hello</span>
-            <span>World</span>
-          </>
+          Click!
         </A>
       </div>
       <p className='read-the-docs'>

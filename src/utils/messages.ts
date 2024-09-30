@@ -8,5 +8,7 @@ export const messages = {
   },
   anchor: {
     mail: 'Include the email address in the link text to help users who may find switching between applications difficult.',
+    generic:
+      'Avoid using generic link text, as it can be unclear to users what the link leads to. Link text: ',
   },
 } as const;
