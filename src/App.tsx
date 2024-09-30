@@ -1,5 +1,6 @@
 import './App.css';
 import reactLogo from './assets/react.svg';
+import { A } from './components/A';
 import { Button } from './components/Button';
 import viteLogo from '/vite.svg';
 
@@ -16,12 +17,19 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className='card'>
-        <Button a11y role='switch' style={{ padding: '12px' }}>
-          <>{/* <p>Click me!</p> */}</>
+        <Button a11y style={{ padding: '12px' }}>
+          <>
+            <p>Click me!</p>
+          </>
         </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+      </div>
+      <div className='card'>
+        <A href='mailto:john.doe@gmail.com' a11y>
+          <>
+            <span>Hello</span>
+            <span>World</span>
+          </>
+        </A>
       </div>
       <p className='read-the-docs'>
         Click on the Vite and React logos to learn more
