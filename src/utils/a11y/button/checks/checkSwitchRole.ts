@@ -1,6 +1,6 @@
 import { ARIA_CHECKED } from '../../../../constants';
 import { messages } from '../../../messages';
-import { ButtonProps } from '../types/buttonPropsType';
+import { ButtonProps } from '../types/buttonProps';
 
 const SWITCH = 'switch';
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import { convertToPx } from '../../../../helper/units';
+import { convertToPx } from '../../../../helper/style';
 import { messages } from '../../../messages';
-import { ButtonProps } from '../types/buttonPropsType';
+import { ButtonProps } from '../types/buttonProps';
 
 const MIN_WIDTH_PX = 24 as const;
 const MIN_WIDTH_EM = 1.5 as const;
