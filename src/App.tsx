@@ -24,8 +24,8 @@ function App() {
         </Button>
       </div>
       <div className='card'>
-        <A href='mailto:john.doe@gmail.com' a11y>
-          Click!
+        <A href='mailto:john.doe@gmail.com' aria-hidden a11y>
+          <button>Hello</button>
         </A>
       </div>
       <p className='read-the-docs'>

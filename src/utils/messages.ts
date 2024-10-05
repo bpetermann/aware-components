@@ -10,5 +10,7 @@ export const messages = {
     mail: 'Include the email address in the link text to help users who may find switching between applications difficult.',
     generic:
       'Avoid using generic link text, as it can be unclear to users what the link leads to. Link text: ',
+    hidden:
+      'A focusable element, or an element containing focusable children, should not have the aria-hidden attribute. Doing so can lead to accessibility issues, as it hides content from assistive technologies while still being interactive.',
   },
 } as const;

@@ -1,6 +1,7 @@
 export const ARIA_LABEL = 'aria-label' as const;
 export const ARIA_LABELLEDBY = 'aria-labelledby' as const;
 export const ARIA_CHECKED = 'aria-checked' as const;
+export const ARIA_HIDDEN = 'aria-hidden' as const;
 
 export const TITLE = 'title' as const;
 
