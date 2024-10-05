@@ -3,6 +3,7 @@ export const ARIA_LABEL = 'aria-label';
 export const ARIA_LABELLEDBY = 'aria-labelledby';
 export const ARIA_CHECKED = 'aria-checked';
 export const ARIA_HIDDEN = 'aria-hidden';
+export const ARIA_EXPANDED = 'aria-expanded';
 
 //** PROPS */
 export const TITLE = 'title';
