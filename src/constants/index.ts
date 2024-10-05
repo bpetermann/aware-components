@@ -1,10 +1,15 @@
-export const ARIA_LABEL = 'aria-label' as const;
-export const ARIA_LABELLEDBY = 'aria-labelledby' as const;
-export const ARIA_CHECKED = 'aria-checked' as const;
-export const ARIA_HIDDEN = 'aria-hidden' as const;
+//** Aria */
+export const ARIA_LABEL = 'aria-label';
+export const ARIA_LABELLEDBY = 'aria-labelledby';
+export const ARIA_CHECKED = 'aria-checked';
+export const ARIA_HIDDEN = 'aria-hidden';
 
-export const TITLE = 'title' as const;
+//** PROPS */
+export const TITLE = 'title';
+export const ROLE = 'role';
+export const ON_CLICK = 'onClick';
 
+//** ABSTRACT ROLES */
 export const ABSTRACT_ROLES: string[] = [
   'command',
   'composite',
@@ -18,8 +23,9 @@ export const ABSTRACT_ROLES: string[] = [
   'structure',
   'widget',
   'window',
-] as const;
+];
 
+//** GENERIC TEXTS */
 export const GENERIC_TEXTS: readonly string[] = [
   'click me',
   'click',
@@ -50,4 +56,4 @@ export const GENERIC_TEXTS: readonly string[] = [
   'OK',
   'yes',
   'no',
-] as const;
+];
