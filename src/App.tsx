@@ -2,6 +2,7 @@ import './App.css';
 import reactLogo from './assets/react.svg';
 import { A } from './components/A';
 import { Button } from './components/Button';
+import { Div } from './components/Div';
 import viteLogo from '/vite.svg';
 
 function App() {
@@ -24,10 +25,26 @@ function App() {
         </Button>
       </div>
       <div className='card'>
-        <A href='mailto:john.doe@gmail.com' aria-hidden a11y>
+        <A href='mailto:john.doe@gmail.com' aria-hidden>
           <button>Hello</button>
         </A>
       </div>
+      <Div a11y>
+        <>
+          <div>
+            <div>
+              <div>
+                <div>
+                  <div>
+                    <p>Hello, World</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </>
+      </Div>
       <p className='read-the-docs'>
         Click on the Vite and React logos to learn more
       </p>

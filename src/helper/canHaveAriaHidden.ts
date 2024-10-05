@@ -28,7 +28,6 @@ const getChildElements = (node: ReactNode): ReactElement[] => {
 };
 
 export const canHaveAriaHidden = (node: ReactNode): boolean => {
-  console.log(isValidElement(node));
   if (!isValidElement(node) || !isNotFocusable(node)) {
     return false;
   }
