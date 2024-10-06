@@ -2,7 +2,7 @@ import './App.css';
 import reactLogo from './assets/react.svg';
 import { A } from './components/A';
 import { Button } from './components/Button';
-import { Div } from './components/Div';
+import { Img } from './components/Img';
 import viteLogo from '/vite.svg';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
           <button>Hello</button>
         </A>
       </div>
-      <Div a11y>
+      {/* <Div a11y>
         <>
           <div>
             <div>
@@ -44,7 +44,10 @@ function App() {
             <div></div>
           </div>
         </>
-      </Div>
+      </Div> */}
+      <a href='https://react.dev' target='_blank'>
+        <Img src={reactLogo} className='logo react' alt='click' a11y />
+      </a>
       <p className='read-the-docs'>
         Click on the Vite and React logos to learn more
       </p>
