@@ -9,6 +9,7 @@ export const ARIA_EXPANDED = 'aria-expanded';
 export const TITLE = 'title';
 export const ROLE = 'role';
 export const ON_CLICK = 'onClick';
+export const ALT = 'alt';
 
 //** ABSTRACT ROLES */
 export const ABSTRACT_ROLES: string[] = [
