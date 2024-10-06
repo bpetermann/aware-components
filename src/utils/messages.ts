@@ -19,5 +19,8 @@ export const messages = {
       'The "aria-expanded" attribute should be applied to the element that controls the expansion, not the element being expanded.',
     button:
       'Use the native HTML <button> element instead of assigning a role="button" or adding onclick events to a <div>, unless a specific use case justifies it.',
+    hidden:
+      'A focusable element, or an element containing focusable children, should not have the aria-hidden attribute. Doing so can lead to accessibility issues, as it hides content from assistive technologies while still being interactive.',
+    role: "Don't use abstract roles in your sites and applications. They are for use by browsers.",
   },
 } as const;
