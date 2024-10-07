@@ -28,4 +28,8 @@ export const messages = {
     generic:
       'Provide meaningful alternative text that accurately describes the image content, rather than simple details like file types (e.g., .png, .jpg) or the fact that it is an image. For decorative images, use an empty alt attribute to indicate they should be ignored by assistive technologies. Text: ',
   },
+  heading: {
+    unique:
+      'Each page should have a single <h1> element that summarizes the content, similar to the purpose of the <title> element.',
+  },
 } as const;
