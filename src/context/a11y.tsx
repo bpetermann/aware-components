@@ -16,15 +16,30 @@ export const AccessibilityContext =
     },
   });
 
-const handleError = (message: string) => console.error(message);
+const logError = (message: string) => console.error(message);
 
 const A11yProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
 
+  const checkError = (heading: Heading) => {
+    if (!headings.length) return;
+
+    const isH1 = heading === 'h1';
+    const prevTag = `h${+heading[1] - 1}` as Heading;
+
+    if (
+      (isH1 && headings.includes('h1')) ||
+      (!isH1 && !headings.includes(prevTag))
+    )
+      logError(
+        isH1 ? messages.heading.unique : messages.heading.skip + heading
+      );
+  };
+
   const registerHeading = (heading: Heading) => {
-    if (headings.includes(heading)) handleError(messages.heading.unique);
+    checkError(heading);
     setHeadings((prev) => (prev.includes(heading) ? prev : [...prev, heading]));
   };
 
