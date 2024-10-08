@@ -1,13 +1,18 @@
 import './App.css';
 import reactLogo from './assets/react.svg';
-import { A } from './components/A';
-import { Button } from './components/Button';
-import { Img } from './components/Img';
+import { A, Button, H1, H3, H5, Img } from './components';
+
+import A11yProvider from './context/a11y';
 import viteLogo from '/vite.svg';
 
 function App() {
   return (
-    <>
+    <A11yProvider>
+      <H1>The page title</H1>
+      <H3>The page title</H3>
+      <H5>The page title</H5>
+      <H1>The page title</H1>
+
       <div>
         <a href='https://vitejs.dev' target='_blank'>
           <img src={viteLogo} className='logo' alt='Vite logo' />
@@ -29,29 +34,13 @@ function App() {
           <button>Hello</button>
         </A>
       </div>
-      {/* <Div a11y>
-        <>
-          <div>
-            <div>
-              <div>
-                <div>
-                  <div>
-                    <p>Hello, World</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div></div>
-          </div>
-        </>
-      </Div> */}
       <a href='https://react.dev' target='_blank'>
-        <Img src={reactLogo} className='logo react' alt='click' a11y />
+        <Img src={reactLogo} className='logo react' alt='dsfdsfsd' a11y />
       </a>
       <p className='read-the-docs'>
         Click on the Vite and React logos to learn more
       </p>
-    </>
+    </A11yProvider>
   );
 }
 
