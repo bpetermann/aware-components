@@ -5,14 +5,18 @@ type Heading = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 export type AccessibilityContextType = {
   headings: Heading[];
   registerHeading: (heading: Heading) => void;
+  sections: number;
   registerSection: () => void;
+  isCtx: boolean;
 };
 
 export const AccessibilityContext =
   React.createContext<AccessibilityContextType>({
     headings: [],
     registerHeading: () => {},
+    sections: 0,
     registerSection: () => {},
+    isCtx: false,
   });
 
 const A11yProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -30,7 +34,13 @@ const A11yProvider: React.FC<{ children: React.ReactNode }> = ({
 
   return (
     <AccessibilityContext.Provider
-      value={{ headings, registerHeading, registerSection }}
+      value={{
+        isCtx: true,
+        headings,
+        registerHeading,
+        registerSection,
+        sections,
+      }}
     >
       {children}
     </AccessibilityContext.Provider>

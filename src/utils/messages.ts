@@ -33,4 +33,8 @@ export const messages = {
     unique:
       'Each page should have a single <h1> element that summarizes the content, similar to the purpose of the <title> element.',
   },
+  section: {
+    label:
+      'When using more than one <section> element on a page, label them with aria-labelledby or aria-label to differentiate them for assistive technology users.',
+  },
 } as const;
