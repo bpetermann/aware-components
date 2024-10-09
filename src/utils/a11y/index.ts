@@ -1,6 +1,7 @@
 import { anchorChecks } from './anchor';
 import { buttonChecks } from './button';
 import { divChecks } from './div';
+import { h1Checks, headingChecks } from './heading';
 import { imgChecks } from './img';
 
 export const a11yChecks = {
@@ -8,4 +9,6 @@ export const a11yChecks = {
   button: buttonChecks,
   div: divChecks,
   img: imgChecks,
+  heading: headingChecks,
+  h1: h1Checks,
 };

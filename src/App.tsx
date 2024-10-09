@@ -1,6 +1,6 @@
 import './App.css';
 import reactLogo from './assets/react.svg';
-import { A, Button, H1, H3, H5, Img } from './components';
+import { A, Button, H1, H2, H5, Img, Section } from './components';
 
 import A11yProvider from './context/a11y';
 import viteLogo from '/vite.svg';
@@ -8,11 +8,21 @@ import viteLogo from '/vite.svg';
 function App() {
   return (
     <A11yProvider>
-      <H1>The page title</H1>
-      <H3>The page title</H3>
-      <H5>The page title</H5>
-      <H1>The page title</H1>
+      <H1 a11y>The page title</H1>
+      <H1 a11y>The page title</H1>
+      <H2>H2</H2>
 
+      <H5>H2</H5>
+      <Section aria-labelledby='test'>
+        <h1>Hello</h1>
+      </Section>
+      <Section>
+        <div>
+          <>
+            <p>Section2</p>
+          </>
+        </div>{' '}
+      </Section>
       <div>
         <a href='https://vitejs.dev' target='_blank'>
           <img src={viteLogo} className='logo' alt='Vite logo' />
