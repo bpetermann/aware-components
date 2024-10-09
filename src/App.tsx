@@ -1,6 +1,6 @@
 import './App.css';
 import reactLogo from './assets/react.svg';
-import { A, Button, H1, H2, H5, Img, Section } from './components';
+import { A, Button, H1, H2, H3, H4, H5, H6, Img, Section } from './components';
 
 import A11yProvider from './context/a11y';
 import viteLogo from '/vite.svg';
@@ -8,11 +8,13 @@ import viteLogo from '/vite.svg';
 function App() {
   return (
     <A11yProvider>
-      <H1 a11y>The page title</H1>
-      <H1 a11y>The page title</H1>
-      <H2>H2</H2>
+      <H1 a11y>H1</H1>
+      <H2 a11y>H2</H2>
+      <H3 a11y>H3</H3>
+      <H4 a11y>H4</H4>
+      <H5 a11y>H5</H5>
+      <H6 a11y>H6</H6>
 
-      <H5>H2</H5>
       <Section aria-labelledby='test'>
         <h1>Hello</h1>
       </Section>

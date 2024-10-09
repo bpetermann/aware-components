@@ -11,6 +11,15 @@ export const ROLE = 'role';
 export const ON_CLICK = 'onClick';
 export const ALT = 'alt';
 
+//** Heading */
+
+export const H_1 = 'h1';
+export const H_2 = 'h2';
+export const H_3 = 'h3';
+export const H_4 = 'h4';
+export const H_5 = 'h5';
+export const H_6 = 'h6';
+
 //** ABSTRACT ROLES */
 export const ABSTRACT_ROLES: string[] = [
   'command',

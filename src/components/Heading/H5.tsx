@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { H_5 } from '../../constants';
 import { useAccessibility } from '../../context/a11y';
 import { a11yChecks } from '../../utils/a11y';
 
@@ -15,8 +16,11 @@ export function H5(props: Props) {
   const { registerHeading, headings } = useAccessibility();
 
   if (import.meta.env.DEV) {
-    useEffect(() => registerHeading('h5'), []);
-    if (a11y) a11yChecks.heading(headings)?.forEach((err) => console.warn(err));
+    useEffect(() => registerHeading(H_5), []);
+    if (a11y)
+      a11yChecks
+        .heading([...headings, H_5])
+        ?.forEach((err) => console.warn(err));
   }
   return <h5 {...rest}>{children}</h5>;
 }
