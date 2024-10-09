@@ -7,17 +7,15 @@ interface Props
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLHeadingElement>,
     HTMLHeadingElement
-  > {
-  a11y?: boolean;
-}
+  > {}
 
 export function H2(props: Props) {
-  const { a11y, children, ...rest } = props;
-  const { registerHeading, headings } = useAccessibility();
+  const { children, ...rest } = props;
+  const { isCtx, registerHeading, headings } = useAccessibility();
 
   if (import.meta.env.DEV) {
     useEffect(() => registerHeading(H_2), []);
-    if (a11y)
+    if (isCtx)
       a11yChecks
         .heading([...headings, H_2])
         ?.forEach((err) => console.warn(err));
