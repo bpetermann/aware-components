@@ -1,4 +1,4 @@
-import { ARIA_LABEL } from '../../../constants';
+import { ARIA_LABEL, ARIA_LABELLEDBY } from '../../../constants';
 import { messages } from '../../messages';
 
 export type sectionprops = React.DetailedHTMLProps<
@@ -10,7 +10,7 @@ export const sectionChecks = (
   amount: number,
   props: sectionprops
 ): string[] => [
-  ...(amount > 1 && !(props[ARIA_LABEL] || props[ARIA_LABEL])
+  ...(amount > 1 && !(props[ARIA_LABELLEDBY] || props[ARIA_LABEL])
     ? [messages.section.label]
     : []),
 ];
