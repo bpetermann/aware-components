@@ -1,6 +1,18 @@
 import './App.css';
 import reactLogo from './assets/react.svg';
-import { A, Button, H1, H2, H3, H4, H5, H6, Img, Section } from './components';
+import {
+  A,
+  Button,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Img,
+  Nav,
+  Section,
+} from './components';
 
 import A11yProvider from './context/a11y';
 import viteLogo from '/vite.svg';
@@ -18,6 +30,9 @@ function App() {
       <Section>Section 1</Section>
 
       <H1>H1</H1>
+
+      <Nav aria-label='jshd'>Nav 1</Nav>
+      <Nav aria-label='jshd'>Nav 2</Nav>
 
       <div>
         <a href='https://vitejs.dev' target='_blank'>

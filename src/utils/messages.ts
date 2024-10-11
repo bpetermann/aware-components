@@ -37,4 +37,8 @@ export const messages = {
     label:
       'When using more than one <section> element on a page, label them with aria-labelledby or aria-label to differentiate them for assistive technology users.',
   },
+  nav: {
+    label:
+      'When using more than one <nav> element on a page, label them with aria-labelledby or aria-label to differentiate them for assistive technology users.',
+  },
 } as const;

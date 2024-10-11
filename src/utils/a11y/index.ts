@@ -3,6 +3,7 @@ import { buttonChecks } from './button';
 import { divChecks } from './div';
 import { h1Checks, headingChecks } from './heading';
 import { imgChecks } from './img';
+import { navChecks } from './nav';
 import { sectionChecks } from './section';
 
 export const a11yChecks = {
@@ -13,4 +14,5 @@ export const a11yChecks = {
   heading: headingChecks,
   h1: h1Checks,
   section: sectionChecks,
+  nav: navChecks,
 };

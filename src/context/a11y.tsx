@@ -7,6 +7,8 @@ export type AccessibilityContextType = {
   registerHeading: (heading: Heading) => void;
   sections: number;
   registerSection: () => void;
+  navigations: number;
+  registerNav: () => void;
   isCtx: boolean;
 };
 
@@ -16,6 +18,8 @@ export const AccessibilityContext =
     registerHeading: () => {},
     sections: 0,
     registerSection: () => {},
+    navigations: 0,
+    registerNav: () => {},
     isCtx: false,
   });
 
@@ -24,6 +28,7 @@ const A11yProvider: React.FC<{ children: React.ReactNode }> = ({
 }) => {
   const [headings, setHeadings] = useState<Heading[]>([]);
   const [sections, setSections] = useState<number>(0);
+  const [navigations, setNavigations] = useState<number>(0);
 
   const registerHeading = (heading: Heading) =>
     setHeadings((prev) =>
@@ -32,14 +37,18 @@ const A11yProvider: React.FC<{ children: React.ReactNode }> = ({
 
   const registerSection = () => setSections(sections + 1);
 
+  const registerNav = () => setNavigations(navigations + 1);
+
   return (
     <AccessibilityContext.Provider
       value={{
         isCtx: true,
         headings,
+        navigations,
+        sections,
         registerHeading,
         registerSection,
-        sections,
+        registerNav,
       }}
     >
       {children}
