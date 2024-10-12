@@ -12,7 +12,9 @@ interface Props
 
 export function Nav(props: Props) {
   const { a11y, children, ...rest } = props;
-  const { navigations, dispatch } = useAccessibility();
+  const { navigations: amount, dispatch } = useAccessibility();
+
+  console.log(amount);
 
   if (import.meta.env.DEV) {
     useEffect(() => {
@@ -20,7 +22,7 @@ export function Nav(props: Props) {
       return () => dispatch(deleteNav());
     }, []);
 
-    if (navigations) a11yChecks.nav(props)?.forEach((err) => console.warn(err));
+    if (amount > 1) a11yChecks.nav(props)?.forEach((err) => console.warn(err));
   }
 
   return <nav {...rest}>{children}</nav>;

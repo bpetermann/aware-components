@@ -10,7 +10,7 @@ interface Props
 
 export function Section(props: Props) {
   const { children, ...rest } = props;
-  const { sections, dispatch } = useAccessibility();
+  const { sections: amount, dispatch } = useAccessibility();
 
   if (import.meta.env.DEV) {
     useEffect(() => {
@@ -18,7 +18,7 @@ export function Section(props: Props) {
       return () => dispatch(deleteSection());
     }, []);
 
-    if (sections)
+    if (amount > 1)
       a11yChecks.section(props)?.forEach((err) => console.warn(err));
   }
 
