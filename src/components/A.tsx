@@ -1,3 +1,4 @@
+import { warn } from '../test/helper/consoleWarn';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -12,7 +13,7 @@ export function A(props: Props) {
   const { a11y, children, ...rest } = props;
 
   if (import.meta.env.DEV) {
-    if (a11y) a11yChecks.anchor(props)?.forEach((err) => console.warn(err));
+    if (a11y) a11yChecks.anchor(props)?.forEach(warn);
   }
 
   return <a {...rest}>{children}</a>;

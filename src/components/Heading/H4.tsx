@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { H_4 } from '../../constants';
 import { addHeading, useAccessibility } from '../../context';
+import { warn } from '../../test/helper/consoleWarn';
 import { a11yChecks } from '../../utils/a11y';
 
 interface Props
@@ -15,10 +16,7 @@ export function H4(props: Props) {
 
   if (import.meta.env.DEV) {
     useEffect(() => dispatch(addHeading(H_4)), []);
-    if (headings.length)
-      a11yChecks
-        .heading([...headings, H_4])
-        ?.forEach((err) => console.warn(err));
+    if (headings.length) a11yChecks.heading([...headings, H_4])?.forEach(warn);
   }
 
   return <h4 {...rest}>{children}</h4>;

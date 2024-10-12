@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { addSection, deleteSection, useAccessibility } from '../context';
+import { warn } from '../test/helper/consoleWarn';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -18,8 +19,7 @@ export function Section(props: Props) {
       return () => dispatch(deleteSection());
     }, []);
 
-    if (amount > 1)
-      a11yChecks.section(props)?.forEach((err) => console.warn(err));
+    if (amount > 1) a11yChecks.section(props)?.forEach(warn);
   }
 
   return <section {...rest}>{children}</section>;

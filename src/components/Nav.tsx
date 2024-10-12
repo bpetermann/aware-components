@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { addNav, deleteNav, useAccessibility } from '../context';
+import { warn } from '../test/helper/consoleWarn';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -22,7 +23,7 @@ export function Nav(props: Props) {
       return () => dispatch(deleteNav());
     }, []);
 
-    if (amount > 1) a11yChecks.nav(props)?.forEach((err) => console.warn(err));
+    if (amount > 1) a11yChecks.nav(props)?.forEach(warn);
   }
 
   return <nav {...rest}>{children}</nav>;
