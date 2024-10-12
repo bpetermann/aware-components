@@ -31,7 +31,7 @@ export const messages = {
   heading: {
     skip: 'Do not skip heading levels. Always start with an <h1> and follow with <h2>, <h3>, and so on. Heading: ',
     unique:
-      'Each page should have a single <h1> element that summarizes the content, similar to the purpose of the <title> element.',
+      'Each page should have a single <h1> element that summarizes the content, similar to the purpose of the <title> element. Number of <h1> elements: ',
   },
   section: {
     label:

@@ -11,7 +11,7 @@ export const headingChecks = (headings: string[]): string[] => {
 };
 
 export const h1Checks = (headings: string[]): string[] => [
-  ...(headings.filter((h) => h === 'h1')?.length > 2
-    ? [messages.heading.unique]
+  ...(headings.filter((h) => h === 'h1')?.length > 1
+    ? [messages.heading.unique + headings.filter((h) => h === 'h1').length]
     : []),
 ];
