@@ -41,4 +41,7 @@ export const messages = {
     label:
       'When using more than one <nav> element on a page, label them with aria-labelledby or aria-label to differentiate them for assistive technology users.',
   },
+  main: {
+    unique: 'Only one visible <main> element should exist on a page.',
+  },
 } as const;

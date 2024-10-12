@@ -6,6 +6,7 @@ export type A11yState = {
   headings: Heading[];
   sections: number;
   navigations: number;
+  mainAmount: number;
 };
 
 export type A11yAction = { type: string; tag?: Heading };
@@ -18,6 +19,7 @@ export const AccessibilityContext = createContext<A11yContextType>({
   headings: [],
   sections: 0,
   navigations: 0,
+  mainAmount: 0,
   dispatch: () => null,
 });
 
