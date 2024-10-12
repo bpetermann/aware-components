@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { H_5 } from '../../constants';
-import { useAccessibility } from '../../context/a11y';
+import { addHeading, useAccessibility } from '../../context';
 import { a11yChecks } from '../../utils/a11y';
 
 interface Props
@@ -11,14 +11,15 @@ interface Props
 
 export function H5(props: Props) {
   const { children, ...rest } = props;
-  const { isCtx, registerHeading, headings } = useAccessibility();
+  const { headings, dispatch } = useAccessibility();
 
   if (import.meta.env.DEV) {
-    useEffect(() => registerHeading(H_5), []);
-    if (isCtx)
+    useEffect(() => dispatch(addHeading(H_5)), []);
+    if (headings.length)
       a11yChecks
         .heading([...headings, H_5])
         ?.forEach((err) => console.warn(err));
   }
+
   return <h5 {...rest}>{children}</h5>;
 }

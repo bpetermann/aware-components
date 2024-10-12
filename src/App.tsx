@@ -13,8 +13,8 @@ import {
   Nav,
   Section,
 } from './components';
+import { A11yProvider } from './context';
 
-import A11yProvider from './context/a11y';
 import viteLogo from '/vite.svg';
 
 function App() {
@@ -28,11 +28,12 @@ function App() {
       <H6>H6</H6>
 
       <Section>Section 1</Section>
+      <Section>Section 1</Section>
 
       <H1>H1</H1>
 
-      <Nav aria-label='jshd'>Nav 1</Nav>
-      <Nav aria-label='jshd'>Nav 2</Nav>
+      <Nav>Nav 1</Nav>
+      <Nav>Nav 1</Nav>
 
       <div>
         <a href='https://vitejs.dev' target='_blank'>

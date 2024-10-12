@@ -6,11 +6,8 @@ export type sectionprops = React.DetailedHTMLProps<
   HTMLElement
 >;
 
-export const sectionChecks = (
-  amount: number,
-  props: sectionprops
-): string[] => [
-  ...(amount > 1 && !(props[ARIA_LABELLEDBY] || props[ARIA_LABEL])
+export const sectionChecks = (props: sectionprops): string[] => [
+  ...(!(props[ARIA_LABELLEDBY] || props[ARIA_LABEL])
     ? [messages.section.label]
     : []),
 ];

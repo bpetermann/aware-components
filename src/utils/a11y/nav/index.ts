@@ -6,8 +6,8 @@ type NavProps = React.DetailedHTMLProps<
   HTMLElement
 >;
 
-export const navChecks = (amount: number, props: NavProps): string[] => [
-  ...(amount > 1 && !(props[ARIA_LABELLEDBY] || props[ARIA_LABEL])
+export const navChecks = (props: NavProps): string[] => [
+  ...(!(props[ARIA_LABELLEDBY] || props[ARIA_LABEL])
     ? [messages.nav.label]
     : []),
 ];

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAccessibility } from '../context/a11y';
+import { addSection, deleteSection, useAccessibility } from '../context';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -10,12 +10,16 @@ interface Props
 
 export function Section(props: Props) {
   const { children, ...rest } = props;
-  const { isCtx, sections, registerSection } = useAccessibility();
+  const { sections, dispatch } = useAccessibility();
 
   if (import.meta.env.DEV) {
-    if (import.meta.env.DEV) useEffect(() => registerSection(), [isCtx]);
-    if (isCtx)
-      a11yChecks.section(sections, props)?.forEach((err) => console.warn(err));
+    useEffect(() => {
+      dispatch(addSection());
+      return () => dispatch(deleteSection());
+    }, []);
+
+    if (sections)
+      a11yChecks.section(props)?.forEach((err) => console.warn(err));
   }
 
   return <section {...rest}>{children}</section>;

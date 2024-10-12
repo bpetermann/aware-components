@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { useAccessibility } from '../context/a11y';
+import { addNav, deleteNav, useAccessibility } from '../context';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -12,12 +12,15 @@ interface Props
 
 export function Nav(props: Props) {
   const { a11y, children, ...rest } = props;
-  const { isCtx, navigations, registerNav } = useAccessibility();
+  const { navigations, dispatch } = useAccessibility();
 
   if (import.meta.env.DEV) {
-    if (import.meta.env.DEV) useEffect(() => registerNav(), [isCtx]);
-    if (isCtx)
-      a11yChecks.nav(navigations, props)?.forEach((err) => console.warn(err));
+    useEffect(() => {
+      dispatch(addNav());
+      return () => dispatch(deleteNav());
+    }, []);
+
+    if (navigations) a11yChecks.nav(props)?.forEach((err) => console.warn(err));
   }
 
   return <nav {...rest}>{children}</nav>;
