@@ -1,0 +1,15 @@
+import { Heading } from './context';
+
+export const ADD_SECTION = 'ADD_SECTION';
+export const DELETE_SECTION = 'DELETE_SECTION';
+export const ADD_NAV = 'ADD_NAV';
+export const DELETE_NAV = 'DELETE_NAV';
+export const ADD_HEADING = 'ADD_HEADING';
+export const DELETE_HEADING = 'DELETE_HEADING';
+
+export const addSection = () => ({ type: ADD_SECTION });
+export const deleteSection = () => ({ type: DELETE_SECTION });
+export const addNav = () => ({ type: ADD_NAV });
+export const deleteNav = () => ({ type: DELETE_NAV });
+export const addHeading = (tag: Heading) => ({ type: ADD_HEADING, tag });
+export const deleteHeading = (tag: Heading) => ({ type: DELETE_HEADING, tag });
