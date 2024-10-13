@@ -4,7 +4,7 @@ export const headingChecks = (headings: string[]): string[] => {
   const heading = headings.pop();
 
   return [
-    ...(heading && headings.length && !headings.includes(`h${+heading[1] - 1}`)
+    ...(heading && !headings.includes(`h${+heading[1] - 1}`)
       ? [messages.heading.skip + heading]
       : []),
   ];
