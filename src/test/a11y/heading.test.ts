@@ -1,4 +1,4 @@
-import { h1Checks, headingChecks } from '../../utils/a11y/heading';
+import { headingChecks } from '../../utils/a11y/heading';
 import { messages } from '../../utils/messages';
 
 describe('Accessibility checks for <h*> elements', () => {
@@ -6,14 +6,14 @@ describe('Accessibility checks for <h*> elements', () => {
     const heading = 'h2';
 
     const warnings = headingChecks([heading]);
-    expect(warnings).includes(messages.heading.skip + heading);
+    expect(warnings).includes(`[${heading}] ${messages.heading.skip}`);
   });
 
   it('warns when <h3> is present, but no <h2>', () => {
     const heading = 'h3';
 
     const warnings = headingChecks(['h1', heading]);
-    expect(warnings).includes(messages.heading.skip + heading);
+    expect(warnings).includes(`[${heading}] ${messages.heading.skip}`);
   });
 
   it('should pass, when <h2> and <h1> are present', () => {
@@ -26,7 +26,7 @@ describe('Accessibility checks for <h*> elements', () => {
   it('warn when two <h1> elements are present', () => {
     const headings = ['h1', 'h1'];
 
-    const warnings = h1Checks(headings);
+    const warnings = headingChecks(headings);
     expect(warnings).include(
       messages.heading.unique + headings.filter((h) => h === 'h1').length
     );

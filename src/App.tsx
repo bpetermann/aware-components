@@ -1,18 +1,6 @@
 import './App.css';
 import reactLogo from './assets/react.svg';
-import {
-  A,
-  Button,
-  H1,
-  H2,
-  H3,
-  H4,
-  H5,
-  H6,
-  Img,
-  Nav,
-  Section,
-} from './components';
+import { A, Button, H1, H2, H3, H4, H6, Img, Nav, Section } from './components';
 import { Main } from './components/Main';
 import { A11yProvider } from './context';
 
@@ -20,11 +8,13 @@ function App() {
   return (
     <A11yProvider>
       <Main>
-        <H1>sjfk</H1>
+        <H1 style={{ backgroundColor: '#fff', color: '#333' }}>H1</H1>
+
+        <H1>H1</H1>
         <H2>H2</H2>
         <H3>H3</H3>
         <H4>H4</H4>
-        <H5>H5</H5>
+        {/* <H5>H5</H5> */}
         <H6>H6</H6>
 
         <Section>Section 1</Section>

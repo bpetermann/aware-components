@@ -29,7 +29,7 @@ export const messages = {
       '[Img] Provide meaningful alternative text that accurately describes the image content, rather than simple details like file types (e.g., .png, .jpg) or the fact that it is an image. For decorative images, use an empty alt attribute to indicate they should be ignored by assistive technologies. Text: ',
   },
   heading: {
-    skip: 'Do not skip heading levels. Always start with an <h1> and follow with <h2>, <h3>, and so on. Heading: ',
+    skip: 'Do not skip heading levels. Always start with an <h1> and follow with <h2>, <h3>, and so on.',
     unique:
       '[H1] Each page should have a single <h1> element that summarizes the content, similar to the purpose of the <title> element. Number of <h1> elements: ',
   },

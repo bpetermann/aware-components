@@ -1,17 +1,9 @@
-import { messages } from '../../messages';
+import { checkPrevHeading } from './checks/checkPrevHeading';
+import { checkUniqueness } from './checks/checkUniqueness';
 
-export const headingChecks = (headings: string[]): string[] => {
-  const heading = headings.pop();
-
-  return [
-    ...(heading && !headings.includes(`h${+heading[1] - 1}`)
-      ? [messages.heading.skip + heading]
-      : []),
-  ];
-};
-
-export const h1Checks = (headings: string[]): string[] => [
-  ...(headings.filter((h) => h === 'h1')?.length > 1
-    ? [messages.heading.unique + headings.filter((h) => h === 'h1').length]
-    : []),
-];
+export const headingChecks = (headings: string[]): string[] =>
+  [
+    ...(headings[headings.length - 1] !== 'h1'
+      ? [checkPrevHeading(headings)]
+      : [checkUniqueness(headings)]),
+  ].filter((check) => check !== null);
