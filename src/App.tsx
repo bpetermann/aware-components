@@ -32,7 +32,7 @@ function App() {
         <Nav>Nav 1</Nav>
 
         <div className='card'>
-          <Button a11y style={{ padding: '12px' }}>
+          <Button style={{ padding: '12px' }}>
             <>
               <p>Click me!</p>
             </>
@@ -46,7 +46,7 @@ function App() {
         </div>
 
         <a href='https://react.dev' target='_blank'>
-          <Img src={reactLogo} className='logo react' alt='logo react' a11y />
+          <Img src={reactLogo} className='logo react' alt='logo react' />
         </a>
       </Main>
       <Main></Main>
