@@ -7,15 +7,11 @@ interface Props
   extends React.DetailedHTMLProps<
     React.HTMLAttributes<HTMLElement>,
     HTMLElement
-  > {
-  a11y?: boolean;
-}
+  > {}
 
 export function Nav(props: Props) {
-  const { a11y, children, ...rest } = props;
+  const { children, ...rest } = props;
   const { navigations: amount, dispatch } = useAccessibility();
-
-  console.log(amount);
 
   if (import.meta.env.DEV) {
     useEffect(() => {

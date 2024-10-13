@@ -12,7 +12,7 @@ interface Props
 }
 
 export function Main(props: Props) {
-  const { a11y, children, ...rest } = props;
+  const { a11y = true, children, ...rest } = props;
   const { mainAmount: amount, dispatch } = useAccessibility();
 
   if (import.meta.env.DEV) {

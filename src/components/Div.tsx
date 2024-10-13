@@ -10,7 +10,7 @@ interface Props
 }
 
 export function Div(props: Props) {
-  const { a11y, children, ...rest } = props;
+  const { a11y = true, children, ...rest } = props;
 
   if (import.meta.env.DEV) {
     if (a11y) a11yChecks.div(props)?.forEach(warn);

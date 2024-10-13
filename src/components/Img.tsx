@@ -10,7 +10,7 @@ interface Props
 }
 
 export function Img(props: Props) {
-  const { a11y, ...rest } = props;
+  const { a11y = true, ...rest } = props;
 
   if (import.meta.env.DEV) {
     if (a11y) a11yChecks.img(props)?.forEach(warn);
