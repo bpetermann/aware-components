@@ -1,30 +1,9 @@
-const cssColor: { [key: string]: `#${string}` } = {
-  aliceblue: '#f0f8ff',
-  antiquewhite: '#faebd7',
-  aqua: '#00ffff',
-  aquamarine: '#7fffd4',
-  azure: '#f0ffff',
-  beige: '#f5f5dc',
-  bisque: '#ffe4c4',
-  black: '#000000',
-  blue: '#0000ff',
-  brown: '#a52a2a',
-  crimson: '#dc143c',
-  cyan: '#00ffff',
-  darkblue: '#00008b',
-  darkgreen: '#006400',
-  darkred: '#8b0000',
-  green: '#008000',
-  grey: '#808080',
-  red: '#ff0000',
-  white: '#ffffff',
-  yellow: '#ffff00',
-};
+import { cssNamedColors } from './cssNamedColors';
 
 export const namedColorToRgb = (
   color: string
 ): [number, number, number] | null => {
-  const hex = cssColor[color.toLowerCase() as keyof typeof cssColor];
+  const hex = cssNamedColors[color.toLowerCase()];
   return hex ? hexToRgb(hex) : null;
 };
 
