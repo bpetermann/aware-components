@@ -32,6 +32,8 @@ export const messages = {
     skip: 'Do not skip heading levels. Always start with an <h1> and follow with <h2>, <h3>, and so on.',
     unique:
       '[H1] Each page should have a single <h1> element that summarizes the content, similar to the purpose of the <title> element. Number of <h1> elements: ',
+    contrast:
+      'Insufficient contrast between text color and background color. To meet WCAG accessibility standards, ensure that the contrast ratio is at least 4.5:1 for small text or 3:1 for large text at the AA level. For AAA level compliance, the contrast ratio should be at least 7:1 for small text and 4.5:1 for large text. Consider adjusting the text color or background color to improve readability for users with visual impairments.',
   },
   section: {
     label:

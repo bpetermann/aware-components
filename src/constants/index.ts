@@ -12,7 +12,6 @@ export const ON_CLICK = 'onClick';
 export const ALT = 'alt';
 
 //** Heading */
-
 export const H_1 = 'h1';
 export const H_2 = 'h2';
 export const H_3 = 'h3';
@@ -68,3 +67,6 @@ export const GENERIC_TEXTS: readonly string[] = [
   'yes',
   'no',
 ];
+
+//** Sizes */
+export const PX = 'px' as const;
