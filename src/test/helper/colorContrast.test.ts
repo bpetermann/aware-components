@@ -1,4 +1,4 @@
-import { isRatioOk } from '../../helper/colorContrast';
+import { expandShortHex, isRatioOk } from '../../helper/colorContrast';
 
 describe('Color contrast checker', () => {
   test('should pass for AA small text with sufficient contrast', () => {
@@ -81,5 +81,53 @@ describe('Color contrast checker', () => {
     expect(isRatioOk('invalidColor', 'white', 'AA', 'small')).toBe(true);
     expect(isRatioOk('black', 'invalidColor', 'AA', 'small')).toBe(true);
     expect(isRatioOk('invalidColor', 'invalidColor', 'AA', 'small')).toBe(true);
+  });
+});
+
+describe('expandShortHex', () => {
+  it('should expand short hex color #abc to #aabbcc', () => {
+    expect(expandShortHex('#abc')).toBe('#aabbcc');
+  });
+
+  it('should not modify long hex color #aabbcc', () => {
+    expect(expandShortHex('#aabbcc')).toBe('#aabbcc');
+  });
+
+  it('should handle edge case with all identical characters, #fff to #ffffff', () => {
+    expect(expandShortHex('#fff')).toBe('#ffffff');
+  });
+
+  it('should handle #000 and expand to #000000', () => {
+    expect(expandShortHex('#000')).toBe('#000000');
+  });
+
+  it('should handle hex colors that are already long', () => {
+    expect(expandShortHex('#123456')).toBe('#123456');
+  });
+});
+
+describe('Color contrast with mixed short hex, long hex, and named colors', () => {
+  it('should pass for #abc (expanded to #aabbcc) on white background', () => {
+    expect(isRatioOk('#abc', '#ffffff', 'AA', 'small')).toBe(false);
+  });
+
+  it('should fail for #fff (expanded to #ffffff) on white background', () => {
+    expect(isRatioOk('#fff', '#ffffff', 'AA', 'small')).toBe(false);
+  });
+
+  it('should pass for #000 (expanded to #000000) on yellow background', () => {
+    expect(isRatioOk('#000', 'yellow', 'AA', 'small')).toBe(true);
+  });
+
+  it('should pass for named color green on long hex #ffffff', () => {
+    expect(isRatioOk('green', '#ffffff', 'AA', 'small')).toBe(true);
+  });
+
+  it('should fail for named color darkred on #000000 background for AAA large text', () => {
+    expect(isRatioOk('darkred', '#000000', 'AAA', 'large')).toBe(false);
+  });
+
+  it('should pass for #123456 on named color aquamarine background for AA small text', () => {
+    expect(isRatioOk('#123456', 'aquamarine', 'AA', 'small')).toBe(true);
   });
 });

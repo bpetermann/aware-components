@@ -16,7 +16,7 @@ export const hexToRgb = (hex: Hex): [number, number, number] => [
   parseInt(hex.slice(5, 7), 16),
 ];
 
-const expandShortHex = (hex: Hex): Hex =>
+export const expandShortHex = (hex: Hex): Hex =>
   hex.length === 4
     ? (hex
         .split('')
@@ -101,11 +101,9 @@ export const isRatioOk = (
   const color1 = convertToRgb(textColor);
   const color2 = convertToRgb(bgColor);
 
-  return !color1 || !color2
-    ? true
-    : meetsContrastRequirement(
-        contrastRatio(luminance(color1), luminance(color2)),
-        level,
-        getFontSize(textSize)
-      );
+  if (!color1 || !color2) return true;
+
+  const ratio = contrastRatio(luminance(color1), luminance(color2));
+
+  return meetsContrastRequirement(ratio, level, getFontSize(textSize));
 };
