@@ -1,3 +1,5 @@
+import { BUTTON } from '../../../constants';
+import { checkColorContrast } from '../style/checkColorContrast';
 import { checkAbstractRole } from './checks/checkAbstractRole';
 import { checkMinSize } from './checks/checkMinSize';
 import { checkSwitchRole } from './checks/checkSwitchRole';
@@ -10,4 +12,5 @@ export const buttonChecks = (props: ButtonProps): string[] =>
     checkAbstractRole(props),
     checkSwitchRole(props),
     checkMinSize(props),
+    checkColorContrast(props, BUTTON),
   ].filter((check) => check !== null);

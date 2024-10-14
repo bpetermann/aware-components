@@ -1,4 +1,6 @@
+import { A } from '../../../constants';
 import { getElementTextContent } from '../../../helper/getElementTextContent';
+import { checkColorContrast } from '../style/checkColorContrast';
 import { checkAriaHidden } from './checks/checkAriaHidden';
 import { checkGenericText } from './checks/checkGenericText';
 import { checkMailLink } from './checks/checkMailLink';
@@ -11,5 +13,6 @@ export const anchorChecks = (props: AnchorProps): string[] => {
     checkMailLink(props, text),
     checkGenericText(text),
     checkAriaHidden(props),
+    checkColorContrast(props, A),
   ].filter((check) => check !== null);
 };

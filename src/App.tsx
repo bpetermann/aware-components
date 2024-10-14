@@ -1,6 +1,19 @@
 import './App.css';
 import reactLogo from './assets/react.svg';
-import { A, Button, H1, H2, H3, H4, H6, Img, Nav, Section } from './components';
+import {
+  A,
+  Button,
+  Div,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Img,
+  Nav,
+  Section,
+} from './components';
 import { Main } from './components/Main';
 import { A11yProvider } from './context';
 
@@ -8,38 +21,42 @@ function App() {
   return (
     <A11yProvider>
       <Main>
-        <H1 style={{ backgroundColor: '#000000', color: '#000000' }}>H1</H1>
-
         <H1>H1</H1>
+
+        {/* <H1>H1</H1> */}
         <H2>H2</H2>
         <H3>H3</H3>
         <H4>H4</H4>
-        {/* <H5>H5</H5> */}
+        <H5>H5</H5>
         <H6>H6</H6>
 
         <Section>Section 1</Section>
 
         <Nav>Nav 1</Nav>
 
-        <div className='card'>
-          <Button style={{ padding: '12px' }}>
+        <Div className='card'>
+          <Button
+            style={{
+              padding: '12px',
+            }}
+          >
             <>
               <p>Click me!</p>
             </>
           </Button>
-        </div>
+        </Div>
 
-        <div className='card'>
-          <A href='mailto:john.doe@gmail.com' aria-hidden>
-            <button>Hello</button>
+        <Div className='card'>
+          <A href='mailto:john.doe@gmail.com'>
+            <button>john.doe@gmail.com</button>
           </A>
-        </div>
+        </Div>
 
         <a href='https://react.dev' target='_blank'>
           <Img src={reactLogo} className='logo react' alt='logo react' />
         </a>
       </Main>
-      <Main></Main>
+      {/* <Main></Main> */}
     </A11yProvider>
   );
 }

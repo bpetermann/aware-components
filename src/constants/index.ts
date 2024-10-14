@@ -70,3 +70,8 @@ export const GENERIC_TEXTS: readonly string[] = [
 
 //** Sizes */
 export const PX = 'px' as const;
+
+//** Tags */
+export const A = 'A';
+export const BUTTON = 'Button';
+export const DIV = 'Div';

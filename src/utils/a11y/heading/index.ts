@@ -1,4 +1,4 @@
-import { checkColorContrast } from './checks/checkColorContrast';
+import { checkColorContrast } from '../style/checkColorContrast';
 import { checkPrevHeading } from './checks/checkPrevHeading';
 import { checkUniqueness } from './checks/checkUniqueness';
 import { HeadingProps } from './types/headingProps';

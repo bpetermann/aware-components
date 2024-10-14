@@ -1,3 +1,5 @@
+import { DIV } from '../../../constants';
+import { checkColorContrast } from '../style/checkColorContrast';
 import { checkAbstractRole } from './checks/checkAbstractRole';
 import { checkAriaHidden } from './checks/checkAriaHidden';
 import { checkButtonRole } from './checks/checkButtonRole';
@@ -12,4 +14,5 @@ export const divChecks = (props: DivProps): string[] =>
     checkDivSoup(props),
     checkAbstractRole(props),
     checkAriaHidden(props),
+    checkColorContrast(props, DIV),
   ].filter((check) => check !== null);
