@@ -16,7 +16,8 @@ export function H4(props: Props) {
 
   if (import.meta.env.DEV) {
     useEffect(() => dispatch(addHeading(H_4)), []);
-    if (headings.length) a11yChecks.heading([...headings, H_4])?.forEach(warn);
+    if (headings.length)
+      a11yChecks.heading([...headings, H_4], props)?.forEach(warn);
   }
 
   return <h4 {...rest}>{children}</h4>;

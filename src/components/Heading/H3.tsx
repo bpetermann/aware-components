@@ -16,7 +16,8 @@ export function H3(props: Props) {
 
   if (import.meta.env.DEV) {
     useEffect(() => dispatch(addHeading(H_3)), []);
-    if (headings.length) a11yChecks.heading([...headings, H_3])?.forEach(warn);
+    if (headings.length)
+      a11yChecks.heading([...headings, H_3], props)?.forEach(warn);
   }
 
   return <h3 {...rest}>{children}</h3>;

@@ -20,7 +20,7 @@ export function H1(props: Props) {
       return () => dispatch(deleteHeading(H_1));
     }, []);
 
-    if (headings.length) a11yChecks.heading(headings)?.forEach(warn);
+    if (headings.length) a11yChecks.heading(headings, props)?.forEach(warn);
   }
 
   return <h1 {...rest}>{children}</h1>;

@@ -8,7 +8,7 @@ function App() {
   return (
     <A11yProvider>
       <Main>
-        <H1 style={{ backgroundColor: '#fff', color: '#333' }}>H1</H1>
+        <H1 style={{ backgroundColor: '#000000', color: '#000000' }}>H1</H1>
 
         <H1>H1</H1>
         <H2>H2</H2>
