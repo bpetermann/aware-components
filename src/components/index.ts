@@ -8,5 +8,6 @@ export { H4 } from './Heading/H4';
 export { H5 } from './Heading/H5';
 export { H6 } from './Heading/H6';
 export { Img } from './Img';
+export { Main } from './Main';
 export { Nav } from './Nav';
 export { Section } from './Section';
