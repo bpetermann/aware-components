@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { DEVELOPMENT } from '../constants';
 import { addNav, deleteNav, useAccessibility } from '../context';
 import { warn } from '../test/helper/consoleWarn';
 import { a11yChecks } from '../utils/a11y';
@@ -13,7 +14,7 @@ export function Nav(props: Props) {
   const { children, ...rest } = props;
   const { navigations: amount, dispatch } = useAccessibility();
 
-  if (import.meta.env.DEV) {
+  if (DEVELOPMENT) {
     useEffect(() => {
       dispatch(addNav());
       return () => dispatch(deleteNav());

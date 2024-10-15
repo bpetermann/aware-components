@@ -1,3 +1,6 @@
+export const DEVELOPMENT =
+  import.meta.env.DEV || process.env.NODE_ENV === 'development';
+
 //** Aria */
 export const ARIA_LABEL = 'aria-label';
 export const ARIA_LABELLEDBY = 'aria-labelledby';

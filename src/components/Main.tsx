@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { DEVELOPMENT } from '../constants';
 import { addMain, deleteMain, useAccessibility } from '../context';
 import { warn } from '../test/helper/consoleWarn';
 import { a11yChecks } from '../utils/a11y';
@@ -15,7 +16,7 @@ export function Main(props: Props) {
   const { a11y = true, children, ...rest } = props;
   const { mainAmount: amount, dispatch } = useAccessibility();
 
-  if (import.meta.env.DEV) {
+  if (DEVELOPMENT) {
     useEffect(() => {
       dispatch(addMain());
       return () => dispatch(deleteMain());

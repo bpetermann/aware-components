@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { DEVELOPMENT } from '../constants';
 import { addSection, deleteSection, useAccessibility } from '../context';
 import { warn } from '../test/helper/consoleWarn';
 import { a11yChecks } from '../utils/a11y';
@@ -13,7 +14,7 @@ export function Section(props: Props) {
   const { children, ...rest } = props;
   const { sections: amount, dispatch } = useAccessibility();
 
-  if (import.meta.env.DEV) {
+  if (DEVELOPMENT) {
     useEffect(() => {
       dispatch(addSection());
       return () => dispatch(deleteSection());

@@ -1,3 +1,4 @@
+import { DEVELOPMENT } from '../constants';
 import { warn } from '../test/helper/consoleWarn';
 import { a11yChecks } from '../utils/a11y';
 
@@ -12,7 +13,7 @@ interface Props
 export function Div(props: Props) {
   const { a11y = true, children, ...rest } = props;
 
-  if (import.meta.env.DEV) {
+  if (DEVELOPMENT) {
     if (a11y) a11yChecks.div(props)?.forEach(warn);
   }
 

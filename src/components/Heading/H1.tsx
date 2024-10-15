@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { H_1 } from '../../constants';
+import { DEVELOPMENT, H_1 } from '../../constants';
 import { addHeading, deleteHeading, useAccessibility } from '../../context';
 import { warn } from '../../test/helper/consoleWarn';
 import { a11yChecks } from '../../utils/a11y';
@@ -14,7 +14,7 @@ export function H1(props: Props) {
   const { children, ...rest } = props;
   const { headings, dispatch } = useAccessibility();
 
-  if (import.meta.env.DEV) {
+  if (DEVELOPMENT) {
     useEffect(() => {
       dispatch(addHeading(H_1));
       return () => dispatch(deleteHeading(H_1));
