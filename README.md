@@ -76,11 +76,11 @@ This setup allows the components to check for accessibility issues and provide w
   - Proper use of ARIA labels
   - Nesting and structure of semantic elements
 
-##  Future Plans
+## Future Plans
 
 - Expand to more specialized components
 - Offer deeper customization for a11y checks
 
-##  Contributing
+## Contributing
 
 Contributions are welcome! If you'd like to improve the components or add new features, feel free to fork the repository, make your changes, and submit a pull request.
