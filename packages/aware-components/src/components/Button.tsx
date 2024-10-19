@@ -13,9 +13,7 @@ interface Props
 export function Button(props: Props) {
   const { a11y = true, children, ...rest } = props;
 
-  if (DEVELOPMENT) {
-    if (a11y) a11yChecks.button(props)?.forEach(warn);
-  }
+  if (DEVELOPMENT && a11y) a11yChecks.button(props)?.forEach(warn);
 
   return <button {...rest}>{children}</button>;
 }

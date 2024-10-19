@@ -13,9 +13,7 @@ interface Props
 export function A(props: Props) {
   const { a11y = true, children, ...rest } = props;
 
-  if (DEVELOPMENT) {
-    if (a11y) a11yChecks.anchor(props)?.forEach(warn);
-  }
+  if (DEVELOPMENT && a11y) a11yChecks.anchor(props)?.forEach(warn);
 
   return <a {...rest}>{children}</a>;
 }

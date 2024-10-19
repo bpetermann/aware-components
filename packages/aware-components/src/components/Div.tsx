@@ -13,9 +13,7 @@ interface Props
 export function Div(props: Props) {
   const { a11y = true, children, ...rest } = props;
 
-  if (DEVELOPMENT) {
-    if (a11y) a11yChecks.div(props)?.forEach(warn);
-  }
+  if (DEVELOPMENT && a11y) a11yChecks.div(props)?.forEach(warn);
 
   return <div {...rest}>{children}</div>;
 }

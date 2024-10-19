@@ -45,7 +45,7 @@ const isNotFocusable = (element: React.ReactElement): boolean => {
   const isLink = typeof element.type === 'string' && element.type === 'a';
 
   const getAttributeValue = (name: string): string | boolean | undefined => {
-    return element.props.hasOwnProperty(name) ? element.props[name] : undefined;
+    return element.props?.[name] ? element.props[name] : undefined;
   };
 
   const hasTabIndex = getAttributeValue(TABINDEX);

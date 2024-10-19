@@ -13,9 +13,7 @@ interface Props
 export function Img(props: Props) {
   const { a11y = true, ...rest } = props;
 
-  if (DEVELOPMENT) {
-    if (a11y) a11yChecks.img(props)?.forEach(warn);
-  }
+  if (DEVELOPMENT && a11y) a11yChecks.img(props)?.forEach(warn);
 
   return <img {...rest} />;
 }
