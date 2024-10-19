@@ -8,7 +8,7 @@ import {
   DELETE_NAV,
   DELETE_SECTION,
 } from './actions';
-import { A11yAction, A11yState } from './context';
+import { A11yAction, A11yState } from './types';
 
 export const initialState: A11yState = {
   headings: [],
