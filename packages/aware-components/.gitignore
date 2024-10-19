@@ -4,3 +4,6 @@ node_modules
 # production
 /dist
 /build
+
+# typeScript build info file
+tsconfig.tsbuildinfo
