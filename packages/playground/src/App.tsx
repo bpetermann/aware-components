@@ -10,26 +10,12 @@ function App() {
   return (
     <A11yProvider>
       <Div>
-        <Div>
-          <Div>
-            <Div>
-              <Div>
-                <Div>
-                  <a href='https://vitejs.dev' target='_blank'>
-                    <img src={viteLogo} className='logo' alt='Vite logo' />
-                  </a>
-                  <a href='https://react.dev' target='_blank'>
-                    <img
-                      src={reactLogo}
-                      className='logo react'
-                      alt='React logo'
-                    />
-                  </a>
-                </Div>
-              </Div>
-            </Div>
-          </Div>
-        </Div>
+        <a href='https://vitejs.dev' target='_blank'>
+          <img src={viteLogo} className='logo' alt='Vite logo' />
+        </a>
+        <a href='https://react.dev' target='_blank'>
+          <img src={reactLogo} className='logo react' alt='React logo' />
+        </a>
       </Div>
       <H1>Vite + React</H1>
       <Div className='card'>

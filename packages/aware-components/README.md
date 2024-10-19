@@ -15,6 +15,10 @@ The goal is to improve accessibility by ensuring proper usage of naming conventi
 - **Customizable Warnings**: Developers receive accessibility warnings during development, enabling quick fixes and improvements.
 - **Expandable**: While currently focused on accessibility, the library is designed to expand in the future.
 
+## Stability Warning ⚠️
+
+> **Note**: This is an early version of and is still under active development. Features may change, and some components may not be fully stable. Use with caution.
+
 ## Usage
 
 For optimal accessibility monitoring, wrap your entire application with the `A11yProvider`:

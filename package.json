@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "build": "npm run build -w aware-components",
-    "test": "npm run test -w aware-components"
+    "test": "npm run test -w aware-components",
+    "copy-readme": "cp ./README.md ./packages/aware-components/README.md"
   }
 }
