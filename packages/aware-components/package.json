@@ -9,11 +9,10 @@
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "prepublishOnly": "vitest run && npm run build"
   },
   "peerDependencies": {
     "react": "^18.3.1",
