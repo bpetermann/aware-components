@@ -23,12 +23,12 @@ export default tseslint.config(
         'warn',
         { allowConstantExport: true },
       ],
+      'no-unused-vars': [
+        'warn',
+        {
+          argsIgnorePattern: '^_',
+        },
+      ],
     },
-    'no-unused-vars': [
-      'warn',
-      {
-        argsIgnorePattern: '^_',
-      },
-    ],
   }
 );
