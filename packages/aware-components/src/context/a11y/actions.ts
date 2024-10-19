@@ -1,3 +1,5 @@
+import { useContext } from 'react';
+import { AccessibilityContext } from './context';
 import { Heading } from './types';
 
 export const ADD_SECTION = 'ADD_SECTION';
@@ -17,3 +19,5 @@ export const addHeading = (tag: Heading) => ({ type: ADD_HEADING, tag });
 export const deleteHeading = (tag: Heading) => ({ type: DELETE_HEADING, tag });
 export const addMain = () => ({ type: ADD_MAIN });
 export const deleteMain = () => ({ type: DELETE_MAIN });
+
+export const useAccessibility = () => useContext(AccessibilityContext);

@@ -10,4 +10,5 @@ export const useConditionalEffect = (
     if (DEVELOPMENT) {
       callback();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [deps]);

@@ -15,8 +15,6 @@ export function H1(props: Props) {
   const { children, ...rest } = props;
   const { headings, dispatch } = useAccessibility();
 
-  console.log('NEW');
-
   useEffect(() => {
     if (DEVELOPMENT) {
       dispatch(addHeading(H_1));

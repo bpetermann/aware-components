@@ -1,4 +1,4 @@
-import { createContext, useContext } from 'react';
+import { createContext } from 'react';
 import { A11yContextType } from './types';
 
 export const AccessibilityContext = createContext<A11yContextType>({
@@ -8,5 +8,3 @@ export const AccessibilityContext = createContext<A11yContextType>({
   mainAmount: 0,
   dispatch: () => null,
 });
-
-export const useAccessibility = () => useContext(AccessibilityContext);
