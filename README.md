@@ -4,7 +4,7 @@
 [![NPM version][npm-image]][npm-url]
 ![npm-typescript]
 
-**Aware Components** is an evolving React component library focused on accessibility (a11y). It provides enhanced versions of common HTML elements like `<a>`, `<button>`, `<div>`, `<h1>`-`<h6>`, `<img>`, and more, designed to automatically check for accessibility issues and provide warnings when necessary.
+**Aware Components** is an evolving React component library focused on accessibility (a11y). It provides enhanced versions of common HTML elements like `<a>`, `<button>`, `<div>`, `<h1>`-`<h6>`, `<img>`, and more, designed to automatically check for accessibility issues and provide console warnings when necessary.
 
 The goal is to improve accessibility by ensuring proper usage of naming conventions, color contrast, ARIA labeling, and the correct nesting of elements.
 
