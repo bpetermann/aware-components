@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- Expanded `<A>` tag accessibility checks, including checks for invalid attributes, `tabindex` issues, and detection of skip links.
+
 ## [0.1.1] - 2024-10-19
 
 ### Fixed
@@ -25,3 +29,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `<Nav>` component with a11y checks (e.g., ensures correct ARIA labels when multiple `<nav>` elements are present).
 - `<Section>` component with a11y checks (e.g., ensures correct ARIA labels when multiple `<section>` elements are present).
 - `<A11yProvider>` context provider component that registers the count of `<Nav>`, `<Section>`, `<Main>`, and heading elements for accessibility checks.
+
+[0.1.1]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.0.1
