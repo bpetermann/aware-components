@@ -12,6 +12,12 @@ export const messages = {
       '[A] Avoid using generic link text, as it can be unclear to users what the link leads to. Link text: ',
     hidden:
       '[A] A focusable element, or an element containing focusable children, should not have the aria-hidden attribute. Doing so can lead to accessibility issues, as it hides content from assistive technologies while still being interactive.',
+    onclick: '[A] Avoid assigning click events directly to links.',
+    href: '[A] Anchor element must have a valid href attribute.',
+    tabIndex:
+      '[A] Avoid using negative tabindex values on elements like links or buttons that require direct keyboard navigation.',
+    skipLink:
+      '[A] Consider providing a skip link, as it is essential for accessibility, allowing keyboard and screen reader users to bypass repetitive content and jump directly to the main content, improving navigation and usability.',
   },
   div: {
     soup: '[Div] Nesting too many <div>s can create complex, hard-to-navigate structures for screen readers and other assistive technologies. This can make it difficult for users with disabilities to understand the content, reducing accessibility and usability. Keep the HTML structure simple and meaningful by using proper semantic elements instead of excessive <div> nesting. Counted divs: ',

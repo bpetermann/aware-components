@@ -6,6 +6,7 @@ import { AnchorProps } from '../types/AnchorProps';
 
 export const checkAriaHidden = (props: AnchorProps): string | null =>
   props[ARIA_HIDDEN] &&
-  (props.href || !canHaveAriaHidden(React.createElement('a', props)))
+  ((props.href && !props.inert) ||
+    !canHaveAriaHidden(React.createElement('a', props)))
     ? messages.anchor.hidden
     : null;

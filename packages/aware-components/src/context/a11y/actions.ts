@@ -10,6 +10,8 @@ export const ADD_HEADING = 'ADD_HEADING';
 export const DELETE_HEADING = 'DELETE_HEADING';
 export const ADD_MAIN = 'ADD_MAIN';
 export const DELETE_MAIN = 'DELETE_MAIN';
+export const ADD_LINK = 'ADD_LINK';
+export const DELETE_LINK = 'DELETE_LINK';
 
 export const addSection = () => ({ type: ADD_SECTION });
 export const deleteSection = () => ({ type: DELETE_SECTION });
@@ -19,5 +21,7 @@ export const addHeading = (tag: Heading) => ({ type: ADD_HEADING, tag });
 export const deleteHeading = (tag: Heading) => ({ type: DELETE_HEADING, tag });
 export const addMain = () => ({ type: ADD_MAIN });
 export const deleteMain = () => ({ type: DELETE_MAIN });
+export const addLink = (href?: string) => ({ type: ADD_LINK, href });
+export const deleteLink = (href?: string) => ({ type: DELETE_LINK, href });
 
 export const useAccessibility = () => useContext(AccessibilityContext);

@@ -1,4 +1,4 @@
-import { A11yProvider, Button, Div, H1 } from 'aware-components';
+import { A, A11yProvider, Button, Div, H1 } from 'aware-components';
 import { useState } from 'react';
 import './App.css';
 import reactLogo from './assets/react.svg';
@@ -9,13 +9,14 @@ function App() {
 
   return (
     <A11yProvider>
+      <A href='#main'></A>
       <Div>
-        <a href='https://vitejs.dev' target='_blank'>
+        <A href='https://vitejs.dev' target='_blank'>
           <img src={viteLogo} className='logo' alt='Vite logo' />
-        </a>
-        <a href='https://react.dev' target='_blank'>
+        </A>
+        <A href='https://react.dev' target='_blank'>
           <img src={reactLogo} className='logo react' alt='React logo' />
-        </a>
+        </A>
       </Div>
       <H1>Vite + React</H1>
       <Div className='card'>

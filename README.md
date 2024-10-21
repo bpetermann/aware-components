@@ -1,10 +1,11 @@
 # Aware Components
 
-[![npm version](https://badge.fury.io/js/aware-components.svg)](https://badge.fury.io/js/aware-components)
 [![NPM version][npm-image]][npm-url]
 ![npm-typescript]
+![GitHub License](https://img.shields.io/github/license/bpetermann/aware-components)
+![NPM Downloads](https://img.shields.io/npm/dm/aware-components)
 
-**Aware Components** is an evolving React component library focused on accessibility (a11y). It provides enhanced versions of common HTML elements like `<a>`, `<button>`, `<div>`, `<h1>`-`<h6>`, `<img>`, and more, designed to automatically check for accessibility issues and provide warnings when necessary.
+**Aware Components** is an evolving React component library focused on accessibility (a11y). It provides enhanced versions of common HTML elements like `<a>`, `<button>`, `<div>`, `<h1>`-`<h6>`, `<img>`, and more, designed to automatically check for accessibility issues and provide console warnings when necessary.
 
 The goal is to improve accessibility by ensuring proper usage of naming conventions, color contrast, ARIA labeling, and the correct nesting of elements.
 
@@ -42,7 +43,7 @@ function App() {
 export default App;
 ```
 
-This setup allows the components to detect accessibility issues and provide warnings during development, promoting adherence to WCAG guidelines without requiring manual validation.
+The A11yProvider is required for checks that depend on the presence or number of components, such as ensuring proper heading levels or unique landmarks like <main>. Wrapping your app in A11yProvider allows these context-aware checks to function correctly.
 
 ## Current Focus
 
