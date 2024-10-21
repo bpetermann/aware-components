@@ -5,6 +5,7 @@ import { checkAriaHidden } from '../../utils/a11y/anchor/checks/checkAriaHidden'
 import { checkAttributes } from '../../utils/a11y/anchor/checks/checkAttributes';
 import { checkGenericText } from '../../utils/a11y/anchor/checks/checkGenericText';
 import { checkMailLink } from '../../utils/a11y/anchor/checks/checkMailLink';
+import { checkSkipLink } from '../../utils/a11y/anchor/checks/checkSkipLink';
 import { messages } from '../../utils/messages';
 
 describe('Anchor element accessibility checks', () => {
@@ -22,13 +23,14 @@ describe('Anchor element accessibility checks', () => {
       },
       'click'
     );
-    const warnings = anchorChecks(element.props);
-    expect(warnings.length).toBe(5);
+    const warnings = anchorChecks(element.props, ['/contact']);
+    expect(warnings.length).toBe(6);
     expect(warnings).toContain(messages.anchor.mail);
     expect(warnings).toContain(messages.anchor.onclick);
     expect(warnings).toContain(`[A] ${messages.styles.contrast}`);
     expect(warnings).toContain(messages.anchor.hidden);
     expect(warnings).toContain(messages.anchor.generic + 'click');
+    expect(warnings).toContain(messages.anchor.skipLink);
   });
 
   it('should pass when an email link is used as the anchor text', () => {
@@ -103,7 +105,7 @@ describe('Anchor element accessibility checks', () => {
       href: 'mailto:john.doe@gmail.com',
       children: 'john.doe@gmail.com',
     };
-    const warnings = anchorChecks(props);
+    const warnings = anchorChecks(props, []);
     expect(warnings).toEqual([]);
   });
 
@@ -119,7 +121,22 @@ describe('Anchor element accessibility checks', () => {
       },
       'Link'
     );
-    const warnings = anchorChecks(element.props);
+    const warnings = anchorChecks(element.props, []);
     expect(warnings).toContain(`[A] ${messages.styles.contrast}`);
+  });
+
+  it('should warn when no skip link is present', () => {
+    const warnings = checkSkipLink(['/contact']);
+    expect(warnings).toEqual(messages.anchor.skipLink);
+  });
+
+  it('should pass when no anchors are present', () => {
+    const warnings = checkSkipLink([]);
+    expect(warnings).toBeNull();
+  });
+
+  it('should pass when skip link is present', () => {
+    const warnings = checkSkipLink(['/contact', '#main']);
+    expect(warnings).toBeNull();
   });
 });
