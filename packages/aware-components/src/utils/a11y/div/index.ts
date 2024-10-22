@@ -7,11 +7,14 @@ import { checkDivSoup } from './checks/checkDivSoup';
 import { checkWrongAttributes } from './checks/checkWrongAttributes';
 import { DivProps } from './types/DivProps';
 
-export const divChecks = (props: DivProps): string[] =>
+export const divChecks = (
+  props: DivProps,
+  Div: React.ComponentType
+): string[] =>
   [
     checkButtonRole(props),
     checkWrongAttributes(props),
-    checkDivSoup(props),
+    checkDivSoup(props, Div),
     checkAbstractRole(props),
     checkAriaHidden(props),
     checkColorContrast(props, DIV),
