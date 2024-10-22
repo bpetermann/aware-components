@@ -16,12 +16,14 @@ const ignoreFragment = (element: ReactNode): ReactElement | null => {
   return element;
 };
 
-const isElementOfType = (
+const isElementOfType = <T>(
   element: ReactNode,
-  type: string
+  types: Iterable<T>
 ): element is ReactElement => {
   const el = ignoreFragment(element);
-  return isValidElement(el) && el.type === type;
+  return (
+    isValidElement(el) && Array.from(types).some((type) => el.type === type)
+  );
 };
 
 const getChild = (element: ReactElement): ReactElement | null => {
@@ -29,14 +31,17 @@ const getChild = (element: ReactElement): ReactElement | null => {
   return ignoreFragment(children[0] || null);
 };
 
-export const getSequenceLength = (node: ReactNode, type: string): number => {
+export const getSequenceLength = <T>(
+  node: ReactNode,
+  types: Iterable<T>
+): number => {
   let element: ReactElement | null = ignoreFragment(node);
 
-  if (!isElementOfType(element, type)) return 0;
+  if (!isElementOfType(element, types)) return 0;
 
   let count = 0;
 
-  while (isElementOfType(element, type)) {
+  while (isElementOfType(element, types)) {
     count++;
     element = getChild(element);
   }

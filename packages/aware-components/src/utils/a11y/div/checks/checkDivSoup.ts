@@ -4,8 +4,14 @@ import { DivProps } from '../types/DivProps';
 
 const MAX_DIV_SEQUENCE = 4;
 
-export const checkDivSoup = (props: DivProps): string | null => {
-  const divSequence = getSequenceLength(props.children, 'div');
+export const checkDivSoup = (
+  props: DivProps,
+  Div: React.ComponentType
+): string | null => {
+  const divSequence = getSequenceLength<string | React.ComponentType>(
+    props.children,
+    ['div', Div]
+  );
 
   return divSequence > MAX_DIV_SEQUENCE
     ? messages.div.soup + divSequence
