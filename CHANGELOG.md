@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 ### Added
 
 - Expanded `<A>` tag accessibility checks, including checks for invalid attributes, `tabindex` issues, and detection of skip links.
+- Expanded `<Div>` "div soup" check to include nested `<Div>` components.
 
 ## [0.1.1] - 2024-10-19
 
@@ -23,7 +24,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `<H1>` - `<H6>` components with accessibility (a11y) checks (e.g., proper heading levels, ensuring a unique `<h1>` element).
 - `<A>` component with a11y checks (e.g., correct `mailto` links, checks for generic link text).
 - `<Button>` component with a11y checks (e.g., ensures text content is present and meets minimum size requirements).
-- `<Div>` component with a11y checks (e.g., checks for “div soup,” correct attributes usage).
+- `<Div>` component with a11y checks (e.g., checks for “div soup”, correct attributes usage).
 - `<Img>` component with a11y checks (e.g., ensures `alt` text is provided and avoids generic `alt` text).
 - `<Main>` component with a11y checks (e.g., ensures there is only one unique `<main>` element).
 - `<Nav>` component with a11y checks (e.g., ensures correct ARIA labels when multiple `<nav>` elements are present).
