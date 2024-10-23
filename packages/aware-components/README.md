@@ -38,13 +38,13 @@ function App() {
 export default App;
 ```
 
-The A11yProvider is required for checks that depend on the presence or number of components, such as ensuring proper heading levels or unique landmarks like <main>. Wrapping your app in A11yProvider allows these context-aware checks to function correctly.
+The A11yProvider is required for checks that depend on the presence or number of components, such as ensuring proper heading levels or unique landmarks like `<main>`. Wrapping your app in A11yProvider allows these context-aware checks to function correctly.
 
 ## Examples
 
-Accessibility issues logged in the console:
+Accessibility issues logged in the console
 
-Example 1: Button with insufficient contrast and size issues
+**Example 1: Button with insufficient contrast and size issues**
 
 ```jsx
 import { Button, Div } from 'aware-components';
@@ -69,7 +69,7 @@ function MyButton() {
 }
 ```
 
-Example 2: Incorrect use of heading elements
+**Example 2: Incorrect use of heading elements**
 
 ```jsx
 import { H1, H3 } from 'aware-components';
