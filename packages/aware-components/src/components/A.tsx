@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 import { DEVELOPMENT } from '../constants';
 import { addLink, deleteLink, useAccessibility } from '../context';
 import { warn } from '../helper/consoleWarn';
-import { inertValue } from '../helper/inertValue';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -11,11 +10,10 @@ interface Props
     HTMLAnchorElement
   > {
   a11y?: boolean;
-  inert?: boolean;
 }
 
 export function A(props: Props) {
-  const { a11y = true, inert: isInert, children, ...rest } = props;
+  const { a11y = true, children, ...rest } = props;
   const { links, dispatch } = useAccessibility();
 
   useEffect(() => {
@@ -27,9 +25,5 @@ export function A(props: Props) {
 
   if (DEVELOPMENT && a11y) a11yChecks.anchor(props, links)?.forEach(warn);
 
-  return (
-    <a {...{ inert: isInert ? inertValue : undefined }} {...rest}>
-      {children}
-    </a>
-  );
+  return <a {...rest}>{children}</a>;
 }

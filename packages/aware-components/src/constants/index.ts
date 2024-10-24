@@ -13,6 +13,7 @@ export const TITLE = 'title';
 export const ROLE = 'role';
 export const ON_CLICK = 'onClick';
 export const ALT = 'alt';
+export const INERT = 'inert';
 
 //** Heading */
 export const H_1 = 'h1';
