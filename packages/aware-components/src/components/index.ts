@@ -1,6 +1,7 @@
 export { A } from './A';
 export { Button } from './Button';
 export { Div } from './Div';
+export { Fieldset } from './Fieldset';
 export { H1 } from './Heading/H1';
 export { H2 } from './Heading/H2';
 export { H3 } from './Heading/H3';

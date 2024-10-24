@@ -52,6 +52,10 @@ export const messages = {
   main: {
     unique: '[Main] Only one visible <main> element should exist on a page.',
   },
+  fieldset: {
+    legend:
+      '[Fieldset] Always provide a legend for the <fieldset> element. The legend should be the first child of the fieldset and not nested within other elements to ensure it provides an accessible name.',
+  },
   styles: {
     contrast:
       'Insufficient contrast between text color and background color. To meet WCAG accessibility standards, ensure that the contrast ratio is at least 4.5:1 for small text or 3:1 for large text at the AA level. For AAA level compliance, the contrast ratio should be at least 7:1 for small text and 4.5:1 for large text. Consider adjusting the text color or background color to improve readability for users with visual impairments.',

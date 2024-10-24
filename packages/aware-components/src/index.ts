@@ -2,6 +2,7 @@ export {
   A,
   Button,
   Div,
+  Fieldset,
   H1,
   H2,
   H3,

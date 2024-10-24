@@ -78,3 +78,4 @@ export const PX = 'px' as const;
 export const A = 'A';
 export const BUTTON = 'Button';
 export const DIV = 'Div';
+export const LEGEND = 'legend';
