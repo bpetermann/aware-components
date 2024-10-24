@@ -1,10 +1,11 @@
 import { A, A11yProvider, Button, Div, H1, H3 } from 'aware-components';
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 
 function App() {
+  const [count, setCount] = useState(0);
   return (
     <A11yProvider>
       <Headings />
@@ -13,37 +14,20 @@ function App() {
         <A href='https://vitejs.dev' target='_blank'>
           <img src={viteLogo} className='logo' alt='Vite logo' />
         </A>
-        <A href='https://react.dev' target='_blank'>
+        <A href='https://react.dev' target='_blank' aria-hidden>
           <img src={reactLogo} className='logo react' alt='React logo' />
         </A>
       </div>
       <H1>Vite + React</H1>
       <div className='card'>
-<<<<<<< Updated upstream
         <Button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </Button>
-=======
->>>>>>> Stashed changes
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <Div>
-<<<<<<< Updated upstream
-        <Div>
-          <div>
-            <Div>
-              <Div>
-                <Div>Hello</Div>
-              </Div>
-            </Div>
-          </div>
-        </Div>
-=======
-        <MyButton />
->>>>>>> Stashed changes
-      </Div>
+
       <p className='read-the-docs'>
         Click on the Vite and React logos to learn more
       </p>
@@ -53,7 +37,21 @@ function App() {
 
 export default App;
 
-function MyButton() {
+export function Container(props: React.PropsWithChildren) {
+  return (
+    <Div>
+      <Div>
+        <div>
+          <Div>
+            <Div>{props.children}</Div>
+          </Div>
+        </div>
+      </Div>
+    </Div>
+  );
+}
+
+export function MyButton() {
   const [, setCount] = React.useState(0);
 
   return (
