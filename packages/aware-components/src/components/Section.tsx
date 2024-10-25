@@ -11,7 +11,7 @@ interface Props
     HTMLElement
   > {}
 
-export function Dev(props: Props) {
+export function Development(props: Props) {
   const { children, ...rest } = props;
   const { sections: amount, dispatch } = useAccessibility();
 
@@ -25,9 +25,9 @@ export function Dev(props: Props) {
   return <section {...rest}>{children}</section>;
 }
 
-function Prod(props: Props) {
-  return <section {...props}>{props.children}</section>;
-}
-
 export const Section = (props: Props) =>
-  DEVELOPMENT ? <Dev {...props} /> : <Prod {...props} />;
+  DEVELOPMENT ? (
+    <Development {...props} />
+  ) : (
+    <section {...props}>{props.children}</section>
+  );

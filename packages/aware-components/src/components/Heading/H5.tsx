@@ -11,7 +11,7 @@ interface Props
     HTMLHeadingElement
   > {}
 
-export function Dev(props: Props) {
+export function Development(props: Props) {
   const { children, ...rest } = props;
   const { headings, dispatch } = useAccessibility();
 
@@ -23,9 +23,9 @@ export function Dev(props: Props) {
   return <h5 {...rest}>{children}</h5>;
 }
 
-function Prod(props: Props) {
-  return <h5 {...props}>{props.children}</h5>;
-}
-
 export const H5 = (props: Props) =>
-  DEVELOPMENT ? <Dev {...props} /> : <Prod {...props} />;
+  DEVELOPMENT ? (
+    <Development {...props} />
+  ) : (
+    <h5 {...props}>{props.children}</h5>
+  );
