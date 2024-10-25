@@ -38,7 +38,56 @@ function App() {
 export default App;
 ```
 
-The A11yProvider is required for checks that depend on the presence or number of components, such as ensuring proper heading levels or unique landmarks like <main>. Wrapping your app in A11yProvider allows these context-aware checks to function correctly.
+The A11yProvider is required for checks that depend on the presence or number of components, such as ensuring proper heading levels or unique landmarks like `<main>`. Wrapping your app in A11yProvider allows these context-aware checks to function correctly.
+
+## Examples
+
+Accessibility issues logged in the console
+
+**Example 1: Button with insufficient contrast and size issues**
+
+```jsx
+import { Button, Div } from 'aware-components';
+import React from 'react';
+
+function MyButton() {
+  const [count, setCount] = React.useState(0);
+
+  return (
+    <Div>
+      <Button
+        style={{
+          backgroundColor: '#000', // Insufficient contrast with text color
+          color: '#333', // Low contrast for readability
+          width: '1em', // Minimum touch target size not met
+        }}
+        onClick={() => setCount((count) => count + 1)}
+        // Missing visible text or aria-label
+      />
+    </Div>
+  );
+}
+```
+
+**Example 2: Incorrect use of heading elements**
+
+```jsx
+import { H1, H3 } from 'aware-components';
+
+function Headings() {
+  return (
+    <>
+      {/* Repeated <H1> elements, breaking the proper heading structure */}
+      <H1>Guide to Cooking</H1>
+      <H1>Basics of Cooking</H1>
+
+      {/* <H3> used without an <H2>, skipping heading levels */}
+      <H3>Choosing the Right Flour</H3>
+      <H3>Essential Cooking Tools</H3>
+    </>
+  );
+}
+```
 
 ## Current Focus
 

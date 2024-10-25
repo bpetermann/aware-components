@@ -6,10 +6,23 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.2.2] - 2024-10-25
+
+### Fixed
+
+- Disabled hooks in non-development mode.
+
+## [0.2.1] - 2024-10-25
+
+### Fixed
+
+- React version-independent check for `inert`
+- Corrected `<H6>`tag name
+
 ### Added
 
-- Expanded `<A>` tag accessibility checks, including checks for invalid attributes, `tabindex` issues, and detection of skip links.
-- Expanded `<Div>` "div soup" check to include nested `<Div>` components.
+- Expanded `<A>` tag accessibility checks to include checks for invalid attributes, tabindex issues, and detection of skip links.
+- Enhanced `<Div>` "div soup" check to detect nested `<Div>` components.
 
 ## [0.1.1] - 2024-10-19
 
@@ -31,4 +44,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `<Section>` component with a11y checks (e.g., ensures correct ARIA labels when multiple `<section>` elements are present).
 - `<A11yProvider>` context provider component that registers the count of `<Nav>`, `<Section>`, `<Main>`, and heading elements for accessibility checks.
 
-[0.1.1]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.0.1
+[0.1.0]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.1.1
+[0.1.1]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.1.1
+[0.2.1]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.2.1
+[0.2.2]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.2.2

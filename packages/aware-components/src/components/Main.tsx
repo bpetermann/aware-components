@@ -11,18 +11,23 @@ interface Props
     HTMLElement
   > {}
 
-export function Main(props: Props) {
+function Development(props: Props) {
   const { children, ...rest } = props;
   const { mainAmount: amount, dispatch } = useAccessibility();
 
   useEffect(() => {
-    if (DEVELOPMENT) {
-      dispatch(addMain());
-      return () => dispatch(deleteMain());
-    }
+    dispatch(addMain());
+    return () => dispatch(deleteMain());
   }, [dispatch]);
 
-  if (DEVELOPMENT && amount > 1) a11yChecks.main(amount)?.forEach(warn);
+  if (amount > 1) a11yChecks.main(amount)?.forEach(warn);
 
   return <main {...rest}>{children}</main>;
 }
+
+export const Main = (props: Props) =>
+  DEVELOPMENT ? (
+    <Development {...props} />
+  ) : (
+    <main {...props}>{props.children}</main>
+  );

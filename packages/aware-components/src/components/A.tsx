@@ -10,7 +10,6 @@ interface Props
     HTMLAnchorElement
   > {
   a11y?: boolean;
-  inert?: boolean;
 }
 
 export function A(props: Props) {

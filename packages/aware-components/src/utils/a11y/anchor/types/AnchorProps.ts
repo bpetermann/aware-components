@@ -3,5 +3,5 @@ export interface AnchorProps
     React.AnchorHTMLAttributes<HTMLAnchorElement>,
     HTMLAnchorElement
   > {
-  inert?: boolean;
+  inert?: string | boolean;
 }

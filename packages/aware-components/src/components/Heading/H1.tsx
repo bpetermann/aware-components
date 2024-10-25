@@ -11,19 +11,23 @@ interface Props
     HTMLHeadingElement
   > {}
 
-export function H1(props: Props) {
+export function Development(props: Props) {
   const { children, ...rest } = props;
   const { headings, dispatch } = useAccessibility();
 
   useEffect(() => {
-    if (DEVELOPMENT) {
-      dispatch(addHeading(H_1));
-      return () => dispatch(deleteHeading(H_1));
-    }
+    dispatch(addHeading(H_1));
+    return () => dispatch(deleteHeading(H_1));
   }, [dispatch]);
 
-  if (DEVELOPMENT && headings.length)
-    a11yChecks.heading(headings, props)?.forEach(warn);
+  if (headings.length) a11yChecks.heading(headings, props)?.forEach(warn);
 
   return <h1 {...rest}>{children}</h1>;
 }
+
+export const H1 = (props: Props) =>
+  DEVELOPMENT ? (
+    <Development {...props} />
+  ) : (
+    <h1 {...props}>{props.children}</h1>
+  );

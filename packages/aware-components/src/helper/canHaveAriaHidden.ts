@@ -4,6 +4,8 @@ import React, {
   ReactElement,
   ReactNode,
 } from 'react';
+import { INERT } from '../constants';
+import { inertValue } from './inertValue';
 
 const TABINDEX = 'tabIndex';
 const CONTENT_EDITABLE = 'contentEditable';
@@ -53,7 +55,7 @@ const isNotFocusable = (element: React.ReactElement): boolean => {
   const hasNegativeTabIndex = tabIndexValue === -1;
   const hasPositiveTabIndex = tabIndexValue !== null && tabIndexValue > -1;
 
-  const hasInert = getAttributeValue('inert') !== undefined;
+  const hasInert = element.props?.[INERT] === inertValue;
   const hasContentEditable = getAttributeValue(CONTENT_EDITABLE) === true;
   const hasButtonRole = getAttributeValue(ROLE) === 'button';
   const hasHref = getAttributeValue(HREF) !== undefined;
