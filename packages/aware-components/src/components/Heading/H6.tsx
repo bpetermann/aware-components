@@ -21,5 +21,5 @@ export function H6(props: Props) {
   if (DEVELOPMENT && headings.length)
     a11yChecks.heading([...headings, H_6], props)?.forEach(warn);
 
-  return <h5 {...rest}>{children}</h5>;
+  return <h6 {...rest}>{children}</h6>;
 }
