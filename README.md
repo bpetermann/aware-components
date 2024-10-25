@@ -1,4 +1,6 @@
-# Aware Components [![NPM version][npm-image]][npm-url] ![npm-typescript] ![GitHub License](https://img.shields.io/github/license/bpetermann/aware-components) ![NPM Downloads](https://img.shields.io/npm/dm/aware-components)
+# Aware Components
+
+[![NPM version][npm-image]][npm-url] ![npm-typescript] ![GitHub License](https://img.shields.io/github/license/bpetermann/aware-components) ![NPM Downloads](https://img.shields.io/npm/dm/aware-components)
 
 **Aware Components** is an evolving React component library focused on accessibility (a11y). It provides enhanced versions of common HTML elements like `<a>`, `<button>`, `<div>`, `<h1>`-`<h6>`, `<img>`, and more, designed to automatically check for accessibility issues and provide console warnings when necessary.
 
