@@ -6,6 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.2.1] - 2024-10-25
+
+### Fixed
+
+- React version-independent check for `inert`
+- `<H6>`tag name
+
 ### Added
 
 - Expanded `<A>` tag accessibility checks, including checks for invalid attributes, `tabindex` issues, and detection of skip links.
