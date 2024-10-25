@@ -11,18 +11,23 @@ interface Props
     HTMLElement
   > {}
 
-export function Section(props: Props) {
+export function Development(props: Props) {
   const { children, ...rest } = props;
   const { sections: amount, dispatch } = useAccessibility();
 
   useEffect(() => {
-    if (DEVELOPMENT) {
-      dispatch(addSection());
-      return () => dispatch(deleteSection());
-    }
+    dispatch(addSection());
+    return () => dispatch(deleteSection());
   }, [dispatch]);
 
-  if (DEVELOPMENT && amount > 1) a11yChecks.section(props)?.forEach(warn);
+  if (amount > 1) a11yChecks.section(props)?.forEach(warn);
 
   return <section {...rest}>{children}</section>;
 }
+
+export const Section = (props: Props) =>
+  DEVELOPMENT ? (
+    <Development {...props} />
+  ) : (
+    <section {...props}>{props.children}</section>
+  );
