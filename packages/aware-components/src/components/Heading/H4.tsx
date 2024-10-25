@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DEVELOPMENT, H_4 } from '../../constants';
 import { addHeading, useAccessibility } from '../../context';
 import { warn } from '../../helper/consoleWarn';
-import { useConditionalEffect } from '../../hooks/useConditionalEffect';
 import { a11yChecks } from '../../utils/a11y';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -12,14 +11,21 @@ interface Props
     HTMLHeadingElement
   > {}
 
-export function H4(props: Props) {
+export function Dev(props: Props) {
   const { children, ...rest } = props;
   const { headings, dispatch } = useAccessibility();
 
-  useConditionalEffect(() => dispatch(addHeading(H_4)), dispatch);
+  useEffect(() => dispatch(addHeading(H_4)), [dispatch]);
 
-  if (DEVELOPMENT && headings.length)
+  if (headings.length)
     a11yChecks.heading([...headings, H_4], props)?.forEach(warn);
 
   return <h4 {...rest}>{children}</h4>;
 }
+
+function Prod(props: Props) {
+  return <h4 {...props}>{props.children}</h4>;
+}
+
+export const H4 = (props: Props) =>
+  DEVELOPMENT ? <Dev {...props} /> : <Prod {...props} />;
