@@ -11,18 +11,23 @@ interface Props
     HTMLElement
   > {}
 
-export function Nav(props: Props) {
+function Development(props: Props) {
   const { children, ...rest } = props;
   const { navigations: amount, dispatch } = useAccessibility();
 
   useEffect(() => {
-    if (DEVELOPMENT) {
-      dispatch(addNav());
-      return () => dispatch(deleteNav());
-    }
+    dispatch(addNav());
+    return () => dispatch(deleteNav());
   }, [dispatch]);
 
-  if (DEVELOPMENT && amount > 1) a11yChecks.nav(props)?.forEach(warn);
+  if (amount > 1) a11yChecks.nav(props)?.forEach(warn);
 
   return <nav {...rest}>{children}</nav>;
 }
+
+export const Nav = (props: Props) =>
+  DEVELOPMENT ? (
+    <Development {...props} />
+  ) : (
+    <nav {...props}>{props.children}</nav>
+  );
