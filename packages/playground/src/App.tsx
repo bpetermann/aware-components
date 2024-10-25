@@ -1,4 +1,4 @@
-import { A11yProvider, Button, H1 } from 'aware-components';
+import { A11yProvider, Button, Main } from 'aware-components';
 import { useState } from 'react';
 import './App.css';
 import { Container } from './components/Container';
@@ -11,19 +11,20 @@ function App() {
 
   return (
     <A11yProvider>
-      <Headings />
       <SkipLink />
-      <Logo />
-      <H1>Vite + React</H1>
-
-      <Container>
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </Container>
+      <Main>
+        <Logo />
+        <Headings />
+        <Container>
+          <Button onClick={() => setCount((count) => count + 1)}>
+            count is {count}
+          </Button>
+          <p>
+            Edit <code>src/App.tsx</code> and save to test HMR
+          </p>
+        </Container>
+      </Main>
+      <Main></Main>
     </A11yProvider>
   );
 }
