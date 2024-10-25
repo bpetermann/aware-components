@@ -5,7 +5,7 @@ import { a11yChecks } from '../utils/a11y';
 
 interface Props
   extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLFieldSetElement>,
+    React.FieldsetHTMLAttributes<HTMLFieldSetElement>,
     HTMLFieldSetElement
   > {
   a11y?: boolean;

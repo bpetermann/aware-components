@@ -10,6 +10,8 @@ export {
   H5,
   H6,
   Img,
+  Input,
+  Label,
   Main,
   Nav,
   Section,

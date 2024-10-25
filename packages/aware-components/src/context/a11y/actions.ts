@@ -12,6 +12,8 @@ export const ADD_MAIN = 'ADD_MAIN';
 export const DELETE_MAIN = 'DELETE_MAIN';
 export const ADD_LINK = 'ADD_LINK';
 export const DELETE_LINK = 'DELETE_LINK';
+export const ADD_LABEL = 'ADD_LABEL';
+export const DELETE_LABEL = 'DELETE_LABEL';
 
 export const addSection = () => ({ type: ADD_SECTION });
 export const deleteSection = () => ({ type: DELETE_SECTION });
@@ -23,5 +25,10 @@ export const addMain = () => ({ type: ADD_MAIN });
 export const deleteMain = () => ({ type: DELETE_MAIN });
 export const addLink = (href?: string) => ({ type: ADD_LINK, href });
 export const deleteLink = (href?: string) => ({ type: DELETE_LINK, href });
+export const addLabel = (htmlFor: string) => ({ type: ADD_LABEL, htmlFor });
+export const deleteLabel = (htmlFor: string) => ({
+  type: DELETE_LABEL,
+  htmlFor,
+});
 
 export const useAccessibility = () => useContext(AccessibilityContext);

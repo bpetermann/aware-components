@@ -4,6 +4,7 @@ import { divChecks } from './div';
 import { fieldsetChecks } from './fieldset';
 import { headingChecks } from './heading';
 import { imgChecks } from './img';
+import { inputChecks } from './input';
 import { mainChecks } from './main';
 import { navChecks } from './nav';
 import { sectionChecks } from './section';
@@ -18,4 +19,5 @@ export const a11yChecks = {
   main: mainChecks,
   nav: navChecks,
   section: sectionChecks,
+  input: inputChecks,
 };

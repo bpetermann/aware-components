@@ -5,6 +5,7 @@ import { Container } from './components/Container';
 import { Headings } from './components/Headings';
 import { Logo } from './components/Logo';
 import { SkipLink } from './components/SkipLink';
+import { Tac } from './components/Tac';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -24,7 +25,7 @@ function App() {
           </p>
         </Container>
       </Main>
-      <Main></Main>
+      <Tac />
     </A11yProvider>
   );
 }

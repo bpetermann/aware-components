@@ -1,10 +1,12 @@
 import {
   ADD_HEADING,
+  ADD_LABEL,
   ADD_LINK,
   ADD_MAIN,
   ADD_NAV,
   ADD_SECTION,
   DELETE_HEADING,
+  DELETE_LABEL,
   DELETE_LINK,
   DELETE_MAIN,
   DELETE_NAV,
@@ -15,6 +17,7 @@ import { A11yAction, A11yState } from './types';
 export const initialState: A11yState = {
   headings: [],
   links: [],
+  labels: [],
   sections: 0,
   navigations: 0,
   mainAmount: 0,
@@ -64,6 +67,21 @@ export function a11yReducer(state: A11yState, action: A11yAction): A11yState {
       return {
         ...state,
         links: state.links.filter((href) => href !== action.href),
+      };
+    case ADD_LABEL:
+      return {
+        ...state,
+        labels: [
+          ...state.labels,
+          ...(action.htmlFor && !state.labels.includes(action.htmlFor)
+            ? [action.htmlFor]
+            : []),
+        ],
+      };
+    case DELETE_LABEL:
+      return {
+        ...state,
+        labels: state.labels.filter((label) => label !== action.htmlFor),
       };
     default:
       return state;

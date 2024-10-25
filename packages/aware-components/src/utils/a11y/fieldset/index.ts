@@ -4,7 +4,7 @@ import { getFirstChild } from '../../../helper/getFirstChild';
 import { messages } from '../../messages';
 
 type Props = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLFieldSetElement>,
+  React.FieldsetHTMLAttributes<HTMLFieldSetElement>,
   HTMLFieldSetElement
 >;
 
