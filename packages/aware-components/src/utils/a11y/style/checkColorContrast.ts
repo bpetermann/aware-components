@@ -7,12 +7,12 @@ export const checkColorContrast = (
     HTMLElement
   >,
   tag: string
-): string | null =>
-  !isRatioOk(
-    props.style?.color,
-    props.style?.backgroundColor,
-    'AA',
-    props.style?.fontSize
-  )
+): string | null => {
+  const { color, backgroundColor, fontSize } = props.style || {};
+
+  if (!color || !backgroundColor) return null;
+
+  return !isRatioOk(color, backgroundColor, 'AA', fontSize)
     ? `[${tag}] ${messages.styles.contrast}`
     : null;
+};

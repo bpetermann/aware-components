@@ -27,13 +27,9 @@ export const expandShortHex = (hex: Hex): Hex =>
 const isHex = (color: string): color is Hex => color.startsWith('#');
 
 export const convertToRgb = (
-  color: Hex | string | undefined
+  color: Hex | string
 ): [number, number, number] | null =>
-  color
-    ? isHex(color)
-      ? hexToRgb(expandShortHex(color))
-      : namedColorToRgb(color)
-    : null;
+  isHex(color) ? hexToRgb(expandShortHex(color)) : namedColorToRgb(color);
 
 export const luminance = (rgb: [number, number, number]) => {
   const [r, g, b] = rgb.map((v) => {
@@ -93,8 +89,8 @@ const getFontSize = (size: string | number | undefined) =>
  * const isAccessible = isRatioOk('#555555', '#ffffff', 'AAA', 'large'); // true
  */
 export const isRatioOk = (
-  textColor: Hex | string | undefined,
-  bgColor: Hex | string | undefined,
+  textColor: Hex | string,
+  bgColor: Hex | string,
   level: 'AA' | 'AAA',
   textSize?: string | number | undefined
 ): boolean => {
