@@ -6,6 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- `<Fieldset>` components with accessibility (a11y) checks (e.g., existing `<legend>`).
+- `<Input>` components with accessibility (a11y) checks (e.g., existing color contrast and existing `<Label>` or `aria-labelledby`).
+- `<Textarea>` components with accessibility (a11y) checks (e.g., existing color contrast and existing `<Label>` or `aria-labelledby`).
+- `<Select>` components with accessibility (a11y) checks (e.g., existing color contrast and existing `<Label>` or `aria-labelledby` and check for `<optgroup>`).
+- `<Optgroup>` components with obligatory `label` attribute.
+
 ## [0.2.2] - 2024-10-25
 
 ### Fixed
