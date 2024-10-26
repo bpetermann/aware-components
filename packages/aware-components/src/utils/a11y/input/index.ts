@@ -11,7 +11,7 @@ export const checkLabel = (
   props: InputProps,
   labels: string[]
 ): string | null =>
-  !labels.includes(props.id || '') && !props[ARIA_LABELLEDBY]
+  labels.length && !labels.includes(props.id || '') && !props[ARIA_LABELLEDBY]
     ? `${messages.input.label}"${props?.id || ''}"`
     : null;
 

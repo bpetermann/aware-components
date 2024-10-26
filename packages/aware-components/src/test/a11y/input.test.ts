@@ -8,7 +8,7 @@ describe('Accessibility check for input', () => {
       id: 'name',
       style: { color: 'black', backgroundColor: 'black' },
     };
-    const labels = [];
+    const labels = [''];
 
     const warnings = inputChecks(props, labels);
     expect(warnings.length).toEqual(2);
@@ -18,7 +18,7 @@ describe('Accessibility check for input', () => {
 
   it('warns when <input> has no label nor aria-labelledby', () => {
     const props = { id: 'name' };
-    const labels = [];
+    const labels = [''];
 
     const warnings = inputChecks(props, labels);
     expect(warnings).toContain(`${messages.input.label}"${props?.id || ''}"`);

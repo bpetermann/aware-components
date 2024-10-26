@@ -17,7 +17,7 @@ export function Development(props: Props) {
   const { a11y = true, id, children, ...rest } = props;
   const { labels } = useAccessibility();
 
-  if (a11y && labels.length) a11yChecks.textarea(props, labels)?.forEach(warn);
+  if (a11y) a11yChecks.textarea(props, labels)?.forEach(warn);
 
   return (
     <textarea {...rest} id={id}>

@@ -17,7 +17,7 @@ export function Development(props: Props) {
   const { a11y = true, id, ...rest } = props;
   const { labels } = useAccessibility();
 
-  if (a11y && labels.length) a11yChecks.input(props, labels)?.forEach(warn);
+  if (a11y) a11yChecks.input(props, labels)?.forEach(warn);
 
   return <input {...rest} id={id} />;
 }

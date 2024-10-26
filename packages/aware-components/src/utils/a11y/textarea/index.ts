@@ -11,7 +11,7 @@ export const checkLabel = (
   props: TextareaProps,
   labels: string[]
 ): string | null =>
-  !labels.includes(props.id || '') && !props[ARIA_LABELLEDBY]
+  labels.length && !labels.includes(props.id || '') && !props[ARIA_LABELLEDBY]
     ? `${messages.textarea.label}"${props?.id || ''}"`
     : null;
 
