@@ -15,6 +15,7 @@ export {
   Main,
   Nav,
   Section,
+  Select,
   Textarea,
 } from './components';
 export { A11yProvider } from './context';

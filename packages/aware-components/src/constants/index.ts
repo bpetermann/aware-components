@@ -82,3 +82,5 @@ export const DIV = 'Div';
 export const LEGEND = 'Legend';
 export const INPUT = 'Input';
 export const TEXTAREA = 'Textarea';
+export const SELECT = 'Select';
+export const OPTGROUP = 'optgroup';

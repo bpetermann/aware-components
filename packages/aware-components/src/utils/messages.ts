@@ -68,4 +68,10 @@ export const messages = {
     label:
       '[Textarea] Ensure textarea elements have accessible labels by either nesting them within a <label> element, placing the label as a sibling, or using "aria-labelledby" to associate the label. Missing label for input: ',
   },
+  select: {
+    label:
+      '[Select] Ensure select elements have accessible labels by either nesting them within a <label> element, placing the label as a sibling, or using "aria-labelledby" to associate the label. Missing label for input: ',
+    optgroup:
+      '[Select] Each <optgroup> in a <select> must have a label to ensure screen readers can accurately convey option groups to users.',
+  },
 } as const;
