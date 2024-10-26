@@ -14,6 +14,7 @@ export {
   Label,
   Main,
   Nav,
+  Optgroup,
   Section,
   Select,
   Textarea,

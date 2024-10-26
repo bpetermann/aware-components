@@ -1,4 +1,4 @@
-import { Label, Select } from 'aware-components';
+import { Label, Optgroup, Select } from 'aware-components';
 
 export function FoodSelect() {
   return (
@@ -13,11 +13,11 @@ export function FoodSelect() {
             <option value='cherry'>Cherries</option>
             <option value='damson'>Damsons</option>
           </optgroup>
-          <optgroup>
+          <Optgroup label='Vegetables'>
             <option value='artichoke'>Artichokes</option>
             <option value='broccoli'>Broccoli</option>
             <option value='cabbage'>Cabbages</option>
-          </optgroup>
+          </Optgroup>
           <optgroup label='Meat'>
             <option value='beef'>Beef</option>
             <option value='chicken'>Chicken</option>

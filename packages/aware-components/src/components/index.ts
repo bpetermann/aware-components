@@ -13,6 +13,7 @@ export { Input } from './Input';
 export { Label } from './Label';
 export { Main } from './Main';
 export { Nav } from './Nav';
+export { Optgroup } from './Optgroup';
 export { Section } from './Section';
 export { Select } from './Select';
 export { Textarea } from './Textarea';
