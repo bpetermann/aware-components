@@ -9,7 +9,7 @@ type Props = React.DetailedHTMLProps<
 >;
 
 export const fieldsetChecks = (props: Props): string[] => [
-  ...(getFirstChild(props.children)?.type !== LEGEND
+  ...(getFirstChild(props.children)?.type !== LEGEND.toLowerCase()
     ? [messages.fieldset.legend]
     : []),
 ];

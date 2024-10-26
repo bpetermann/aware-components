@@ -14,3 +14,4 @@ export { Label } from './Label';
 export { Main } from './Main';
 export { Nav } from './Nav';
 export { Section } from './Section';
+export { Textarea } from './Textarea';

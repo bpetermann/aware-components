@@ -1,7 +1,7 @@
 import { Input, Label } from 'aware-components';
 import { useState } from 'react';
 
-export function Tac() {
+export function TermsAndConditions() {
   const [checked, setChecked] = useState<boolean>(false);
 
   return (

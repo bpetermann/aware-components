@@ -1,11 +1,11 @@
-import { A11yProvider, Button, Main } from 'aware-components';
+import { A11yProvider, Button, Main, Textarea } from 'aware-components';
 import { useState } from 'react';
 import './App.css';
 import { Container } from './components/Container';
 import { Headings } from './components/Headings';
 import { Logo } from './components/Logo';
 import { SkipLink } from './components/SkipLink';
-import { Tac } from './components/Tac';
+import { TermsAndConditions } from './components/TermsAndConditions';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,7 +25,8 @@ function App() {
           </p>
         </Container>
       </Main>
-      <Tac />
+      <TermsAndConditions />
+      <Textarea id='description'></Textarea>
     </A11yProvider>
   );
 }

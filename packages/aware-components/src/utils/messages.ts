@@ -64,4 +64,8 @@ export const messages = {
     label:
       '[Input] Ensure input elements have accessible labels by either nesting them within a <label> element, placing the label as a sibling, or using "aria-labelledby" to associate the label. Missing label for input: ',
   },
+  textarea: {
+    label:
+      '[Textarea] Ensure textarea elements have accessible labels by either nesting them within a <label> element, placing the label as a sibling, or using "aria-labelledby" to associate the label. Missing label for input: ',
+  },
 } as const;
