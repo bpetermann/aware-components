@@ -16,6 +16,8 @@ export const getChildren = (element: ReactNode): ReactElement[] => {
 
 const getOptGroups = (props: SelectProps): ReactElement[] => {
   const children = getChildren(props.children);
+  console.log(children);
+
   return children.filter(
     (child) => isValidElement(child) && child.type === OPTGROUP
   );
