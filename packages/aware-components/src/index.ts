@@ -2,6 +2,7 @@ export {
   A,
   Button,
   Div,
+  Fieldset,
   H1,
   H2,
   H3,
@@ -9,8 +10,13 @@ export {
   H5,
   H6,
   Img,
+  Input,
+  Label,
   Main,
   Nav,
+  Optgroup,
   Section,
+  Select,
+  Textarea,
 } from './components';
 export { A11yProvider } from './context';
