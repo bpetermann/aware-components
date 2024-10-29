@@ -54,8 +54,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `<Section>` component with a11y checks (e.g., ensures correct ARIA labels when multiple `<section>` elements are present).
 - `<A11yProvider>` context provider component that registers the count of `<Nav>`, `<Section>`, `<Main>`, and heading elements for accessibility checks.
 
-[0.1.0]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.1.1
-[0.1.1]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.1.1
-[0.2.1]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.2.1
-[0.2.2]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.2.2
-[0.3.2]: https://github.com/bpetermann/vscode-zugang/releases/tag/v0.3.2
+[0.1.0]: https://github.com/bpetermann/aware-components/releases/tag/v0.1.1
+[0.1.1]: https://github.com/bpetermann/aware-components/releases/tag/v0.1.1
+[0.2.1]: https://github.com/bpetermann/aware-components/releases/tag/v0.2.1
+[0.2.2]: https://github.com/bpetermann/aware-components/releases/tag/v.0.2.2
+[0.3.2]: https://github.com/bpetermann/aware-components/releases/tag/v0.3.2
