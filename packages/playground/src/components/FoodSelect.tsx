@@ -23,12 +23,14 @@ export function FoodSelect() {
             <option value='chicken'>Chicken</option>
             <option value='pork'>Pork</option>
           </optgroup>
-          <optgroup label='Fish'>
-            <option value='cod'>Cod</option>
-            <option value='haddock'>Haddock</option>
-            <option value='salmon'>Salmon</option>
-            <option value='turbot'>Turbot</option>
-          </optgroup>
+          <>
+            <optgroup>
+              <option value='cod'>Cod</option>
+              <option value='haddock'>Haddock</option>
+              <option value='salmon'>Salmon</option>
+              <option value='turbot'>Turbot</option>
+            </optgroup>
+          </>
         </>
       </Select>
     </>
