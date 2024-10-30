@@ -21,7 +21,7 @@ const getType = (node: React.ReactNode) => {
   return isValidElement(node) ? node.type.toString() : '';
 };
 
-const headingCheck = ({ children }: Props): string | null => {
+export const headingCheck = ({ children }: Props): string | null => {
   const childrenArray = React.Children.toArray(children);
   const type = getType(childrenArray[0]);
 
