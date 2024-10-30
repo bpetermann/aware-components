@@ -1,4 +1,4 @@
-import { A11yProvider, Button, Main } from 'aware-components';
+import { A11yProvider, Button, Main, P } from 'aware-components';
 import { useState } from 'react';
 import './App.css';
 import { Container } from './components/Container';
@@ -21,9 +21,12 @@ function App() {
           <Button onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </Button>
-          <p>
+          <P>
             Edit <code>src/App.tsx</code> and save to test HMR
-          </p>
+          </P>
+          <P>
+            <strong>Should be a header</strong>
+          </P>
         </Container>
       </Main>
       <TermsAndConditions />

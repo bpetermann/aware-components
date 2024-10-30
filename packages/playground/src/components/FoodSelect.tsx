@@ -24,7 +24,7 @@ export function FoodSelect() {
             <option value='pork'>Pork</option>
           </optgroup>
           <>
-            <optgroup>
+            <optgroup label='Fish'>
               <option value='cod'>Cod</option>
               <option value='haddock'>Haddock</option>
               <option value='salmon'>Salmon</option>

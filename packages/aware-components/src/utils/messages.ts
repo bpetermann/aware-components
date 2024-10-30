@@ -74,4 +74,8 @@ export const messages = {
     optgroup:
       '[Select] Each <optgroup> in a <select> must have a label to ensure screen readers can accurately convey option groups to users.',
   },
+  p: {
+    heading:
+      '[P] If all text within this <p> element is wrapped in a presentational tag (e.g., <b>, <i>, <u>, <span>, <font>, <em> or <strong>), consider using a heading tag instead, if the content serves as a title or section label. Wrapper type: ',
+  },
 } as const;
