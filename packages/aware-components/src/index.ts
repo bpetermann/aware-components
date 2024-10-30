@@ -15,6 +15,7 @@ export {
   Main,
   Nav,
   Optgroup,
+  P,
   Section,
   Select,
   Textarea,

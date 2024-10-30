@@ -7,6 +7,7 @@ import { imgChecks } from './img';
 import { inputChecks } from './input';
 import { mainChecks } from './main';
 import { navChecks } from './nav';
+import { paragraphChecks } from './paragraph';
 import { sectionChecks } from './section';
 import { selectChecks } from './select';
 import { textareaChecks } from './textarea';
@@ -24,4 +25,5 @@ export const a11yChecks = {
   input: inputChecks,
   textarea: textareaChecks,
   select: selectChecks,
+  paragraph: paragraphChecks,
 };
