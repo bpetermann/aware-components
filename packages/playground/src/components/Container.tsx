@@ -6,7 +6,7 @@ export function Container(props: React.PropsWithChildren) {
       <Div>
         <div>
           <Div>
-            <Div>{props.children}</Div>
+            <div>{props.children}</div>
           </Div>
         </div>
       </Div>

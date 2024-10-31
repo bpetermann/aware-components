@@ -2,7 +2,7 @@
 
 [![NPM version][npm-image]][npm-url] ![npm-typescript] ![GitHub License](https://img.shields.io/github/license/bpetermann/aware-components) ![NPM Downloads](https://img.shields.io/npm/dm/aware-components)
 
-**Aware Components** is an evolving React component library focused on accessibility (a11y). It provides enhanced versions of common HTML elements like `<a>`, `<button>`, `<div>`, `<h1>`-`<h6>`, `<img>`, and more, designed to automatically check for accessibility issues and provide console warnings when necessary.
+**Aware Components** is an unstyled React component library focused on accessibility (a11y). It provides enhanced versions of common HTML elements like `<a>`, `<button>`, `<div>`, `<h1>`-`<h6>`, `<img>`, and more. These components are designed to automatically check for accessibility issues and display console warnings during development as needed.
 
 The goal is to improve accessibility by ensuring proper usage of naming conventions, color contrast, ARIA labeling, and the correct nesting of elements.
 
@@ -87,6 +87,30 @@ function Headings() {
       <H3>Choosing the Right Flour</H3>
       <H3>Essential Cooking Tools</H3>
     </>
+  );
+}
+```
+
+## Mix and Match
+
+Most components can be used alongside standard HTML elements. This flexibility allows for easy integration, but for the most comprehensive accessibility insights, consider using `aware-components` for all core elements in your component tree.
+
+**Example:** The following mix of `<Div>` components and HTML `<div>` elements will still correctly detect and count nested divs.
+
+```jsx
+import { Div } from 'aware-components';
+
+export function Container(props: React.PropsWithChildren) {
+  return (
+    <Div>
+      <Div>
+        <div>
+          <Div>
+            <div>{props.children}</div>
+          </Div>
+        </div>
+      </Div>
+    </Div>
   );
 }
 ```
