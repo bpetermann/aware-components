@@ -1,37 +1,12 @@
-import React, { isValidElement } from 'react';
-import {
-  BOLD,
-  EM,
-  FONT,
-  ITALIC,
-  P,
-  SPAN,
-  STRONG,
-  UNDERLINE,
-} from '../../../constants';
-import { messages } from '../../messages';
+import { P } from '../../../constants';
 import { checkColorContrast } from '../style/checkColorContrast';
+import { checkFontSize } from './checks/checkFontSize';
+import { checkHeading } from './checks/checkHeading';
+import { ParagraphProps } from './types';
 
-type Props = React.DetailedHTMLProps<
-  React.HTMLAttributes<HTMLParagraphElement>,
-  HTMLParagraphElement
->;
-
-const getType = (node: React.ReactNode) => {
-  return isValidElement(node) ? node.type.toString() : '';
-};
-
-export const headingCheck = ({ children }: Props): string | null => {
-  const childrenArray = React.Children.toArray(children);
-  const type = getType(childrenArray[0]);
-
-  return childrenArray.length === 1 &&
-    [BOLD, ITALIC, UNDERLINE, STRONG, SPAN, FONT, EM].includes(type)
-    ? `${messages.p.heading}<${type}>`
-    : null;
-};
-
-export const paragraphChecks = (props: Props): string[] =>
-  [headingCheck(props), checkColorContrast(props, P)].filter(
-    (check) => check !== null
-  );
+export const paragraphChecks = (props: ParagraphProps): string[] =>
+  [
+    checkHeading(props),
+    checkFontSize(props),
+    checkColorContrast(props, P),
+  ].filter((check) => check !== null);
