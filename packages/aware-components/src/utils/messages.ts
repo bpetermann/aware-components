@@ -77,5 +77,6 @@ export const messages = {
   p: {
     heading:
       '[P] If all text within this <p> element is wrapped in a presentational tag (e.g., <b>, <i>, <u>, <span>, <font>, <em> or <strong>), consider using a heading tag instead, if the content serves as a title or section label. Wrapper type: ',
+    min: '[P] Font sizes smaller than 9px may be difficult to read for many users, particularly those with low vision or on high-resolution screens. Ensuring text is at least 9px (0.563em/rem) helps maintain readability and accessibility across diverse displays and user needs.',
   },
 } as const;

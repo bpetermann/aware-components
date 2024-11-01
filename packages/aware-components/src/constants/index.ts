@@ -72,8 +72,16 @@ export const GENERIC_TEXTS: readonly string[] = [
   'no',
 ];
 
-//** Sizes */
-export const PX = 'px' as const;
+//** Styles */
+export const PX = 'px';
+export const REM = 'rem';
+
+export const WIDTH = 'width';
+export const HEIGHT = 'height';
+export const MAX_WIDTH = 'maxWidth';
+export const MAX_HEIGHT = 'maxHeight';
+export const PADDING = 'padding';
+export const FONTSIZE = 'fontSize';
 
 //** Tags */
 export const A = 'A';
