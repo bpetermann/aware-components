@@ -1,11 +1,14 @@
 import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { checkAbstractRole } from '../../utils/a11y/button/checks/checkAbstractRole';
+import { checkMinSize } from '../../utils/a11y/button/checks/checkMinSize';
 import { checkSwitchRole } from '../../utils/a11y/button/checks/checkSwitchRole';
 import { containsAccessibleText } from '../../utils/a11y/button/checks/checkTextContent';
 import { messages } from '../../utils/messages';
 
 describe('Accessibility check for button', () => {
+  const mockProps = (style: { [k: string]: string }) => ({ style }); // Helper to mock style props
+
   it('should pass when button has aria-label', () => {
     const props = { 'aria-label': 'Submit' };
     const result = containsAccessibleText(props);
@@ -196,5 +199,39 @@ describe('Accessibility check for button', () => {
     const props = { role: 'switch', 'aria-checked': true };
     const warnings = checkSwitchRole(props);
     expect(warnings).toBeNull();
+  });
+
+  it('should warn if width is below the minimum threshold', () => {
+    const props = mockProps({ width: '20px' });
+    const warning = checkMinSize(props);
+    expect(warning).toEqual(messages.button.min);
+  });
+
+  it('should warn if height is below the minimum threshold', () => {
+    const props = mockProps({ height: '20px' });
+    const warning = checkMinSize(props);
+    expect(warning).toEqual(messages.button.min);
+  });
+
+  it('should warn if both width and height are below the minimum', () => {
+    const props = mockProps({ width: '20px', height: '20px' });
+    const warning = checkMinSize(props);
+    expect(warning).toEqual(messages.button.min);
+  });
+
+  it('should not warn if width, height, and padding meet minimum requirements', () => {
+    const props = mockProps({ width: '24px', height: '24px', padding: '12px' });
+    const warning = checkMinSize(props);
+    expect(warning).toBeNull();
+  });
+
+  it('should accept em/rem values above the minimum size threshold', () => {
+    const props = mockProps({
+      width: '1.6em',
+      height: '1.5em',
+      padding: '0.8em',
+    });
+    const warning = checkMinSize(props);
+    expect(warning).toBeNull();
   });
 });
