@@ -208,9 +208,15 @@ describe('Accessibility check for button', () => {
   });
 
   it('should warn if height is below the minimum threshold', () => {
-    const props = mockProps({ height: '20px' });
+    const props = mockProps({ height: '20' });
     const warning = checkMinSize(props);
     expect(warning).toEqual(messages.button.min);
+  });
+
+  it('should pass if height is meet the minimum threshold', () => {
+    const props = mockProps({ height: '32' });
+    const warning = checkMinSize(props);
+    expect(warning).toEqual(null);
   });
 
   it('should warn if both width and height are below the minimum', () => {
@@ -219,7 +225,7 @@ describe('Accessibility check for button', () => {
     expect(warning).toEqual(messages.button.min);
   });
 
-  it('should not warn if width, height, and padding meet minimum requirements', () => {
+  it('should pass if width, height, and padding meet minimum requirements', () => {
     const props = mockProps({ width: '24px', height: '24px', padding: '12px' });
     const warning = checkMinSize(props);
     expect(warning).toBeNull();

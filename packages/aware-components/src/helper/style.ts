@@ -23,6 +23,7 @@ export const isTooSmall = (
   minPx: number,
   minEm: number
 ): boolean =>
+  (size && !isNaN(+size) && +size < minPx) ||
   (size?.endsWith(PX) && +size.split(PX)[0] < minPx) ||
   (size?.endsWith(EM) && +size.split(EM)[0] < minEm) ||
   (size?.endsWith(REM) && +size.split(REM)[0] < minEm);

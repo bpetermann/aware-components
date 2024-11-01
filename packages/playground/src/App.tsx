@@ -1,6 +1,7 @@
 import { A11yProvider, Button, Main, P } from 'aware-components';
 import { useState } from 'react';
 import './App.css';
+import { BoldText } from './components/BoldText';
 import { Container } from './components/Container';
 import { FoodSelect } from './components/FoodSelect';
 import { Heading } from './components/Heading';
@@ -24,9 +25,7 @@ function App() {
           <P>
             Edit <code>src/App.tsx</code> and save to test HMR
           </P>
-          <P>
-            <strong>Should be a header</strong>
-          </P>
+          <BoldText>Should be a header</BoldText>
         </Container>
       </Main>
       <TermsAndConditions />
