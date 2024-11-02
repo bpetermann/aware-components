@@ -1,4 +1,5 @@
 import { anchorChecks } from './anchor';
+import { audioChecks } from './audio';
 import { buttonChecks } from './button';
 import { divChecks } from './div';
 import { fieldsetChecks } from './fieldset';
@@ -14,6 +15,7 @@ import { textareaChecks } from './textarea';
 
 export const a11yChecks = {
   anchor: anchorChecks,
+  audio: audioChecks,
   button: buttonChecks,
   div: divChecks,
   fieldset: fieldsetChecks,

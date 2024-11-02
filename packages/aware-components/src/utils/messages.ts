@@ -79,4 +79,13 @@ export const messages = {
       '[P] If all text within this <p> element is wrapped in a presentational tag (e.g., <b>, <i>, <u>, <span>, <font>, <em> or <strong>), consider using a heading tag instead, if the content serves as a title or section label. Wrapper type: ',
     min: '[P] Font sizes smaller than 9px may be difficult to read for many users, particularly those with low vision or on high-resolution screens. Ensuring text is at least 9px (0.563em/rem) helps maintain readability and accessibility across diverse displays and user needs.',
   },
+  audio: {
+    autoplay:
+      '[Audio] Autoplay can disrupt screen readers, overwhelm users with cognitive disabilities, and may cause seizures in sensitive individuals.',
+    controls:
+      '[Audio] Include the controls attribute on audio elements to allow users to control playback as needed.',
+    loop: '[Audio] Avoid looping audio without user controls, as repetitive audio can be distracting.',
+    transcript:
+      '[Audio] Audio elements should have a transcript available to ensure content is accessible to users with hearing impairments. Consider adding aria-describedby or a nearby transcript link.',
+  },
 } as const;

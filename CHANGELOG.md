@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ### Added
 
-- `<P>` components with accessibility (a11y) checks (e.g., used as `<header>`).
+- `<P>` components with accessibility (a11y) checks (e.g., used as `<header>`, color contrast and font min size).
 
 ## [0.3.2] - 2024-10-29
 
