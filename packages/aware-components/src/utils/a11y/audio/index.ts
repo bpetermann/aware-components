@@ -20,13 +20,13 @@ const hasTranscriptSibling = ({ parentNode }: HTMLAudioElement) =>
     )
   );
 
-const checkAutoPlay = (props: AudioProps): string | null =>
+export const checkAutoPlay = (props: AudioProps): string | null =>
   props.autoPlay && !props.muted ? messages.audio.autoplay : null;
 
-const checkControls = (props: AudioProps): string | null =>
+export const checkControls = (props: AudioProps): string | null =>
   !hasVisibleControls(props) ? messages.audio.controls : null;
 
-const checkLoop = (props: AudioProps): string | null =>
+export const checkLoop = (props: AudioProps): string | null =>
   props.loop && props.autoPlay && !hasVisibleControls(props)
     ? messages.audio.loop
     : null;
@@ -39,11 +39,10 @@ const checkTranscript = (element: HTMLAudioElement): string | null =>
 export const audioChecks = (
   props: AudioProps,
   element: HTMLAudioElement
-): string[] => {
-  return [
+): string[] =>
+  [
     checkAutoPlay(props),
     checkControls(props),
     checkLoop(props),
     checkTranscript(element),
   ].filter((check) => check !== null);
-};

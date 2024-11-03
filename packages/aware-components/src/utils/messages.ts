@@ -81,11 +81,11 @@ export const messages = {
   },
   audio: {
     autoplay:
-      '[Audio] Autoplay can disrupt screen readers, overwhelm users with cognitive disabilities, and may cause seizures in sensitive individuals.',
+      '[Audio] Autoplay can disrupt screen readers, overwhelm users with cognitive disabilities, and may cause seizures in sensitive individuals. If autoplay is essential, ensure "muted" is also enabled to minimize disruption.',
     controls:
       '[Audio] Include the controls attribute on audio elements to allow users to control playback as needed.',
     loop: '[Audio] Avoid looping audio without user controls, as repetitive audio can be distracting.',
     transcript:
-      '[Audio] Audio elements should have a transcript available to ensure content is accessible to users with hearing impairments. Consider adding aria-describedby or a nearby transcript link.',
+      '[Audio] Audio elements should have a transcript available to ensure content is accessible to users with hearing impairments. If a transcript is already available, make sure that it is recognized as such by including a keyword such as “transcript” in the sibling element, or provide a relevant aria-describedby attribute.',
   },
 } as const;
