@@ -12,6 +12,7 @@ import { paragraphChecks } from './paragraph';
 import { sectionChecks } from './section';
 import { selectChecks } from './select';
 import { textareaChecks } from './textarea';
+import { videoChecks } from './video';
 
 export const a11yChecks = {
   anchor: anchorChecks,
@@ -28,4 +29,5 @@ export const a11yChecks = {
   textarea: textareaChecks,
   select: selectChecks,
   paragraph: paragraphChecks,
+  video: videoChecks,
 };

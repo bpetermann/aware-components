@@ -19,3 +19,4 @@ export { P } from './P';
 export { Section } from './Section';
 export { Select } from './Select';
 export { Textarea } from './Textarea';
+export { Video } from './Video';

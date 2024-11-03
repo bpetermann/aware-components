@@ -4,7 +4,7 @@ import {
   checkAutoPlay,
   checkControls,
   checkLoop,
-} from '../../utils/a11y/audio';
+} from '../../utils/a11y/media';
 import { messages } from '../../utils/messages';
 
 describe('Audio element accessibility checks', () => {
@@ -13,7 +13,7 @@ describe('Audio element accessibility checks', () => {
       autoPlay: true,
     });
 
-    const warning = checkAutoPlay(element.props);
+    const warning = checkAutoPlay(element.props, 'audio');
     expect(warning).toEqual(messages.audio.autoplay);
   });
 
@@ -23,7 +23,7 @@ describe('Audio element accessibility checks', () => {
       muted: true,
     });
 
-    const warning = checkAutoPlay(element.props);
+    const warning = checkAutoPlay(element.props, 'audio');
     expect(warning).toBeNull();
   });
 
@@ -33,7 +33,7 @@ describe('Audio element accessibility checks', () => {
       autoPlay: true,
     });
 
-    const warning = checkLoop(element.props);
+    const warning = checkLoop(element.props, 'audio');
     expect(warning).toEqual(messages.audio.loop);
   });
 
@@ -44,7 +44,7 @@ describe('Audio element accessibility checks', () => {
       controls: true,
     });
 
-    const warning = checkLoop(element.props);
+    const warning = checkLoop(element.props, 'audio');
     expect(warning).toBeNull();
   });
 
@@ -54,14 +54,14 @@ describe('Audio element accessibility checks', () => {
       style: { display: 'none' },
     });
 
-    const warning = checkControls(element.props);
+    const warning = checkControls(element.props, 'audio');
     expect(warning).toEqual(messages.audio.controls);
   });
 
   it('should warn if controls are not enabled', () => {
     const element = React.createElement('audio', {});
 
-    const warning = checkControls(element.props);
+    const warning = checkControls(element.props, 'audio');
     expect(warning).toEqual(messages.audio.controls);
   });
 
@@ -70,7 +70,7 @@ describe('Audio element accessibility checks', () => {
       controls: true,
     });
 
-    const warning = checkControls(element.props);
+    const warning = checkControls(element.props, 'audio');
     expect(warning).toBeNull();
   });
 });

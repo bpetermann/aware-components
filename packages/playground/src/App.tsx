@@ -4,7 +4,6 @@ import './App.css';
 import { FoodSelect } from './components/FoodSelect';
 import { Heading } from './components/Heading';
 import { Logo } from './components/Logo';
-import { MyAudio } from './components/MyAudio';
 import { SkipLink } from './components/SkipLink';
 import { TermsAndConditions } from './components/TermsAndConditions';
 
@@ -25,7 +24,8 @@ function App() {
             Edit <code>src/App.tsx</code> and save to test HMR
           </P>
         </Div>
-        <MyAudio />
+        {/* <MyAudio /> */}
+        {/* <MyVideo /> */}
       </Main>
       <TermsAndConditions />
       <FoodSelect />

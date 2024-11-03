@@ -6,9 +6,15 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Fixed
+
+- Enhanced `getChildren` helper function to support arrays, ensuring it handles both single elements and arrays consistently.
+
 ### Added
 
-- `<P>` components with accessibility (a11y) checks (e.g., used as `<header>`, color contrast and font min size).
+- `<Audio>` components with accessibility (a11y) checks (e.g., warnings for autoplay without muted, visible controls, loop, and checks for a transcript or accessible label).
+- `<Video>` components with accessibility (a11y) checks (e.g., warnings for autoplay without muted, visible controls, loop, and checks for a `<track>` element of kind captions).
+- `<P>` components with accessibility (a11y) checks (e.g., warnings for use within `<header>`, color contrast issues, and minimum font size enforcement).
 
 ## [0.3.2] - 2024-10-29
 
