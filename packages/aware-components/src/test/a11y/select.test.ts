@@ -115,4 +115,22 @@ describe('Accessibility check for <select> element', () => {
     const warnings = checkOptGroup(select.props);
     expect(warnings).toBeNull();
   });
+
+  it('should work if <select> children are not wrapped in a fragment', () => {
+    const select = React.createElement(
+      'select',
+      {},
+      React.createElement('option', {}, 'Choose a food'),
+      React.createElement(
+        'optgroup',
+        {},
+        React.createElement('option', { value: 'apply' }, 'Apple'),
+        React.createElement('option', { value: 'banana' }, 'Banana'),
+        React.createElement('option', { value: 'cherry' }, 'Cherry')
+      )
+    );
+
+    const warnings = checkOptGroup(select.props);
+    expect(warnings).toEqual(messages.select.optgroup);
+  });
 });

@@ -1,15 +1,8 @@
-import React, { ReactElement, ReactNode, isValidElement } from 'react';
-import { Fragment } from 'react/jsx-runtime';
+import { ReactElement, isValidElement } from 'react';
 import { OPTGROUP } from '../../../../constants';
+import { getChildren } from '../../../../helper/children';
 import { messages } from '../../../messages';
 import { SelectProps } from '../types';
-
-export const getChildren = (element: ReactNode): ReactElement[] =>
-  !isValidElement(element)
-    ? []
-    : element.type === Fragment
-    ? React.Children.toArray(element.props.children).flatMap(getChildren)
-    : [element];
 
 const getOptGroups = (props: SelectProps): ReactElement[] =>
   getChildren(props.children)?.filter(

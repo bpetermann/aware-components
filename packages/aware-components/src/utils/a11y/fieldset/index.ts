@@ -1,6 +1,6 @@
 import React from 'react';
 import { LEGEND } from '../../../constants';
-import { getFirstChild } from '../../../helper/getFirstChild';
+import { getFirstChild } from '../../../helper/children';
 import { messages } from '../../messages';
 
 type Props = React.DetailedHTMLProps<

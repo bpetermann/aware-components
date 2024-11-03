@@ -12,3 +12,12 @@ export const getFirstChild = (element: ReactNode): ReactElement | null => {
 
   return element;
 };
+
+export const getChildren = (element: ReactNode): ReactElement[] =>
+  Array.isArray(element)
+    ? element.flatMap(getChildren)
+    : isValidElement(element)
+    ? element.type === Fragment
+      ? React.Children.toArray(element.props.children).flatMap(getChildren)
+      : [element]
+    : [];
