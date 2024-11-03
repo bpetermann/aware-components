@@ -1,4 +1,5 @@
 export { A } from './A';
+export { Audio } from './Audio';
 export { Button } from './Button';
 export { Div } from './Div';
 export { Fieldset } from './Fieldset';

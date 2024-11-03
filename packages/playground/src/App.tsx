@@ -1,11 +1,10 @@
-import { A11yProvider, Button, Main, P } from 'aware-components';
+import { A11yProvider, Button, Div, Main, P } from 'aware-components';
 import { useState } from 'react';
 import './App.css';
-import { BoldText } from './components/BoldText';
-import { Container } from './components/Container';
 import { FoodSelect } from './components/FoodSelect';
 import { Heading } from './components/Heading';
 import { Logo } from './components/Logo';
+import { MyAudio } from './components/MyAudio';
 import { SkipLink } from './components/SkipLink';
 import { TermsAndConditions } from './components/TermsAndConditions';
 
@@ -18,15 +17,15 @@ function App() {
       <Main>
         <Logo />
         <Heading />
-        <Container>
+        <Div>
           <Button onClick={() => setCount((count) => count + 1)}>
             count is {count}
           </Button>
           <P>
             Edit <code>src/App.tsx</code> and save to test HMR
           </P>
-          <BoldText>Should be a header</BoldText>
-        </Container>
+        </Div>
+        <MyAudio />
       </Main>
       <TermsAndConditions />
       <FoodSelect />

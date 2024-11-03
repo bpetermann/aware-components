@@ -1,5 +1,6 @@
 export {
   A,
+  Audio,
   Button,
   Div,
   Fieldset,
