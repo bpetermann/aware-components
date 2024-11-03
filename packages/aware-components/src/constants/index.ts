@@ -14,6 +14,7 @@ export const ROLE = 'role';
 export const ON_CLICK = 'onClick';
 export const ALT = 'alt';
 export const INERT = 'inert';
+export const CAPTIONS = 'captions';
 
 //** Heading */
 export const H_1 = 'h1';
@@ -100,3 +101,6 @@ export const SPAN = 'span';
 export const FONT = 'font';
 export const EM = 'em';
 export const P = 'P';
+export const AUDIO = 'audio';
+export const VIDEO = 'video';
+export const TRACK = 'track';

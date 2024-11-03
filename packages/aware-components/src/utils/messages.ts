@@ -88,4 +88,13 @@ export const messages = {
     transcript:
       '[Audio] Audio elements should have a transcript available to ensure content is accessible to users with hearing impairments. If a transcript is already available, make sure that it is recognized as such by including a keyword such as “transcript” in the sibling element, or provide a relevant aria-describedby attribute.',
   },
+  video: {
+    autoplay:
+      '[Video] Autoplay can disrupt screen readers, overwhelm users with cognitive disabilities, and may cause seizures in sensitive individuals. If autoplay is essential, ensure "muted" is also enabled to minimize disruption.',
+    controls:
+      '[Video] Include the controls attribute on audio elements to allow users to control playback as needed.',
+    loop: '[Video] Avoid looping audio without user controls, as repetitive audio can be distracting.',
+    captions:
+      '[Video] Ensure the video includes captions with a <track> element of kind="captions". Captions should convey all meaningful content, including dialogue, speaker identification, sound effects, and musical cues.',
+  },
 } as const;

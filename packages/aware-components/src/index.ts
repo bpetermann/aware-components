@@ -20,5 +20,6 @@ export {
   Section,
   Select,
   Textarea,
+  Video,
 } from './components';
 export { A11yProvider } from './context';
