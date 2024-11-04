@@ -1,7 +1,7 @@
 {
   "name": "aware-components",
   "private": false,
-  "version": "0.3.2",
+  "version": "0.4.2",
   "description": "React components with built-in accessibility checks for common HTML elements.",
   "type": "module",
   "main": "dist/index.umd.js",

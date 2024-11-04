@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.4.2] - 2024-11-04
+
 ### Fixed
 
 - Enhanced `getChildren` helper function to support arrays, ensuring it handles both single elements and arrays consistently.
@@ -69,3 +71,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [0.2.1]: https://github.com/bpetermann/aware-components/releases/tag/v0.2.1
 [0.2.2]: https://github.com/bpetermann/aware-components/releases/tag/v.0.2.2
 [0.3.2]: https://github.com/bpetermann/aware-components/releases/tag/v0.3.2
+[0.4.2]: https://github.com/bpetermann/aware-components/releases/tag/v0.4.2
