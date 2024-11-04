@@ -1,11 +1,13 @@
 import {
   ADD_HEADING,
+  ADD_HR,
   ADD_LABEL,
   ADD_LINK,
   ADD_MAIN,
   ADD_NAV,
   ADD_SECTION,
   DELETE_HEADING,
+  DELETE_HR,
   DELETE_LABEL,
   DELETE_LINK,
   DELETE_MAIN,
@@ -21,6 +23,7 @@ export const initialState: A11yState = {
   sections: 0,
   navigations: 0,
   mainAmount: 0,
+  hrAmount: 0,
 };
 
 export function a11yReducer(state: A11yState, action: A11yAction): A11yState {
@@ -83,6 +86,10 @@ export function a11yReducer(state: A11yState, action: A11yAction): A11yState {
         ...state,
         labels: state.labels.filter((label) => label !== action.htmlFor),
       };
+    case ADD_HR:
+      return { ...state, hrAmount: state.hrAmount + 1 };
+    case DELETE_HR:
+      return { ...state, hrAmount: state.hrAmount - 1 };
     default:
       return state;
   }

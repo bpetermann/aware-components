@@ -9,6 +9,7 @@ export { H3 } from './Heading/H3';
 export { H4 } from './Heading/H4';
 export { H5 } from './Heading/H5';
 export { H6 } from './Heading/H6';
+export { HR } from './HR';
 export { Img } from './Img';
 export { Input } from './Input';
 export { Label } from './Label';

@@ -97,4 +97,8 @@ export const messages = {
     captions:
       '[Video] Ensure the video includes captions with a <track> element of kind="captions". Captions should convey all meaningful content, including dialogue, speaker identification, sound effects, and musical cues.',
   },
+  hr: {
+    amount:
+      '[HR] Excessive use of `<hr>` elements can be disruptive for screen reader users. Use `<hr>` only to denote meaningful thematic breaks between sections.',
+  },
 } as const;

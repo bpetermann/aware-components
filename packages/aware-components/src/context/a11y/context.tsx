@@ -8,5 +8,6 @@ export const AccessibilityContext = createContext<A11yContextType>({
   sections: 0,
   navigations: 0,
   mainAmount: 0,
+  hrAmount: 0,
   dispatch: () => null,
 });
