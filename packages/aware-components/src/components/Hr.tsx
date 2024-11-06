@@ -26,5 +26,5 @@ export function Development(props: Props) {
   return <hr {...rest} />;
 }
 
-export const HR = (props: Props) =>
+export const Hr = (props: Props) =>
   DEVELOPMENT ? <Development {...props} /> : <hr {...props} />;

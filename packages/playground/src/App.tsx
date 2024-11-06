@@ -24,8 +24,6 @@ function App() {
             Edit <code>src/App.tsx</code> and save to test HMR
           </P>
         </Div>
-        {/* <MyAudio /> */}
-        {/* <MyVideo /> */}
       </Main>
       <TermsAndConditions />
       <FoodSelect />
