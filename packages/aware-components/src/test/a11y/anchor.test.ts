@@ -61,7 +61,7 @@ describe('Anchor element accessibility checks', () => {
 
   it('should pass when anchor is hidden with both aria-hidden and inert attributes', () => {
     const element = React.createElement('a', {
-      // An empty string "" is truthy for inert prop, before react version 19
+      /** An empty string "" is truthy for inert prop, before react version 19 */
       inert: '',
       href: '/contact',
       'aria-hidden': true,
