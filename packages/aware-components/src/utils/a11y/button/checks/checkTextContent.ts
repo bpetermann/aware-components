@@ -3,7 +3,7 @@ import { ARIA_LABEL, ARIA_LABELLEDBY, TITLE } from '../../../../constants';
 import {
   containsImageElement,
   containsTextChild,
-} from '../../../../helper/validation';
+} from '../../../../helper/children';
 import { messages } from '../../../messages';
 import { ButtonProps } from '../types/buttonProps';
 

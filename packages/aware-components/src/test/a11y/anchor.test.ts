@@ -61,7 +61,7 @@ describe('Anchor element accessibility checks', () => {
 
   it('should pass when anchor is hidden with both aria-hidden and inert attributes', () => {
     const element = React.createElement('a', {
-      // An empty string "" is truthy for inert prop, before react version 19
+      /** An empty string "" is truthy for inert prop, before react version 19 */
       inert: '',
       href: '/contact',
       'aria-hidden': true,
@@ -92,12 +92,12 @@ describe('Anchor element accessibility checks', () => {
   });
 
   it('should warn when anchor uses generic text like "click"', () => {
-    const warnings = checkGenericText('click');
+    const warnings = checkGenericText({}, 'click');
     expect(warnings).toEqual(messages.anchor.generic + 'click');
   });
 
   it('should pass when anchor text is descriptive (non-generic)', () => {
-    const warnings = checkGenericText('Learn more about our services');
+    const warnings = checkGenericText({}, 'Learn more about our services');
     expect(warnings).toBeNull();
   });
 
