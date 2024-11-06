@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest';
-import { containsImageElement } from '../../helper/validation';
+import { containsImageElement } from '../../helper/children';
 
 import React, { Fragment } from 'react';
 

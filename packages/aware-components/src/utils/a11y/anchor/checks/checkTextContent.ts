@@ -1,5 +1,5 @@
 import { ARIA_LABEL, ARIA_LABELLEDBY } from '../../../../constants';
-import { containsImageElement } from '../../../../helper/validation';
+import { containsImageElement } from '../../../../helper/children';
 import { messages } from '../../../messages';
 import { AnchorProps } from '../types/AnchorProps';
 
