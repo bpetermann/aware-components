@@ -7,6 +7,7 @@ export type A11yState = {
   sections: number;
   navigations: number;
   mainAmount: number;
+  hrAmount: number;
 };
 
 export type A11yAction = {

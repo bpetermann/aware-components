@@ -10,6 +10,7 @@ export {
   H4,
   H5,
   H6,
+  Hr,
   Img,
   Input,
   Label,

@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+- `<Hr>` component with a11y checks (e.g., excessive usage).
+
 ## [0.4.2] - 2024-11-04
 
 ### Fixed
