@@ -6,7 +6,14 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-- `<Hr>` component with a11y checks (e.g., excessive usage).
+### Changed
+
+- Enhanced accessibility check for generic text in the `<A>` component to include applicable ARIA roles.
+
+### Added
+
+- `<Hr>` component with accessibility checks to prevent excessive usage.
+- Accessibility check in `<A>` component to flag empty text content.
 
 ## [0.4.2] - 2024-11-04
 
