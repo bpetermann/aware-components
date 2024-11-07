@@ -11,6 +11,7 @@ The goal is to improve accessibility by ensuring proper usage of naming conventi
 - **Built-in Accessibility Checks**: Each component provides real-time accessibility feedback, including warnings about heading levels, contrast issues, ARIA labels, and more.
 - **Common HTML Elements**: Components are based on familiar HTML elements, making them easy to integrate into existing projects.
 - **Customizable Warnings**: Developers receive accessibility warnings during development, enabling quick fixes and improvements.
+- **Standalone Accessibility Checks**: In addition to components, several standalone accessibility checks are exported for broader use.
 - **Expandable**: While currently focused on accessibility, the library is designed to expand in the future.
 
 ## Stability Warning ⚠️
@@ -89,6 +90,17 @@ function Headings() {
     </>
   );
 }
+```
+
+**Example 3: Standalone Accessibility checks**
+
+In addition to the components, some standalone accessibility checks are exported.
+
+```jsx
+import { isRatioOk, canHaveAriaHidden } from 'aware-components';
+
+console.log(isRatioOk('white', 'black', 'AAA', 18)); // Checks if the contrast ratio between text and background colors meets WCAG level AA or AAA, based on text size.
+console.log(canHaveAriaHidden(SomeComponent())); // Checks if the aria-hidden attribute can be applied to the component.
 ```
 
 ## Mix and Match

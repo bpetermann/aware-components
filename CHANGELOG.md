@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+## [0.5.0] - 2024-11-07
+
 ### Changed
 
 - Enhanced accessibility check for generic text in the `<A>` component to include applicable ARIA roles.
@@ -84,3 +86,4 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [0.2.2]: https://github.com/bpetermann/aware-components/releases/tag/v.0.2.2
 [0.3.2]: https://github.com/bpetermann/aware-components/releases/tag/v0.3.2
 [0.4.2]: https://github.com/bpetermann/aware-components/releases/tag/v0.4.2
+[0.5.0]: https://github.com/bpetermann/aware-components/releases/tag/v0.4.2
