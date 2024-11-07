@@ -1,6 +1,7 @@
 import React from 'react';
 import { describe, expect, it } from 'vitest';
 import { anchorChecks } from '../../utils/a11y/anchor/';
+import { checkAllCaps } from '../../utils/a11y/anchor/checks/checkAllCaps';
 import { checkAriaHidden } from '../../utils/a11y/anchor/checks/checkAriaHidden';
 import { checkAttributes } from '../../utils/a11y/anchor/checks/checkAttributes';
 import { checkGenericText } from '../../utils/a11y/anchor/checks/checkGenericText';
@@ -10,6 +11,7 @@ import { messages } from '../../utils/messages';
 
 describe('Anchor element accessibility checks', () => {
   it('should return all warnings when all checks fail', () => {
+    const text = 'CLICK';
     const element = React.createElement(
       'a',
       {
@@ -21,16 +23,17 @@ describe('Anchor element accessibility checks', () => {
           backgroundColor: 'black',
         },
       },
-      'click'
+      text
     );
     const warnings = anchorChecks(element.props, ['/contact']);
-    expect(warnings.length).toBe(6);
+    expect(warnings.length).toBe(7);
     expect(warnings).toContain(messages.anchor.mail);
     expect(warnings).toContain(messages.anchor.onclick);
     expect(warnings).toContain(`[A] ${messages.styles.contrast}`);
     expect(warnings).toContain(messages.anchor.hidden);
-    expect(warnings).toContain(messages.anchor.generic + 'click');
+    expect(warnings).toContain(messages.anchor.generic + text);
     expect(warnings).toContain(messages.anchor.skipLink);
+    expect(warnings).toContain(messages.anchor.uppercase + text);
   });
 
   it('should pass when an email link is used as the anchor text', () => {
@@ -139,5 +142,17 @@ describe('Anchor element accessibility checks', () => {
   it('should pass when skip link is present', () => {
     const warnings = checkSkipLink(['/contact', '#main']);
     expect(warnings).toBeNull();
+  });
+
+  it('should warn when anchor text uses all caps', () => {
+    const text = 'THIS TEXT IS HARD TO READ!';
+    const warnings = checkAllCaps(text);
+    expect(warnings).toEqual(messages.anchor.uppercase + text);
+  });
+
+  it('should mot warn if no text provided', () => {
+    const text = '';
+    const warnings = checkAllCaps(text);
+    expect(warnings).toEqual(null);
   });
 });

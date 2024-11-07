@@ -19,6 +19,8 @@ export const messages = {
     skipLink:
       '[A] Consider providing a skip link, as it is essential for accessibility, allowing keyboard and screen reader users to bypass repetitive content and jump directly to the main content, improving navigation and usability.',
     text: '[A] Links should have accessible text, either as visible text content, an image with descriptive alt text, or an `aria-label`/`aria-labelledby` attribute for screen reader users.',
+    uppercase:
+      '[A] Avoid using all caps in link text. It can cause issues with screen readers and be harder to read, especially for people with reading disabilities. Link text: ',
   },
   div: {
     soup: '[Div] Nesting too many <div>s can create complex, hard-to-navigate structures for screen readers and other assistive technologies. This can make it difficult for users with disabilities to understand the content, reducing accessibility and usability. Keep the HTML structure simple and meaningful by using proper semantic elements instead of excessive <div> nesting. Counted divs: ',

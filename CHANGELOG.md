@@ -14,7 +14,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 - `<Hr>` component with accessibility checks to prevent excessive usage.
 - Accessibility check in `<A>` component to flag empty text content.
-- Provides the `isRatioOk` check. This function verifies if the contrast ratio between a text color and background color meets WCAG accessibility standards (level AA or AAA) for small or large text
+- Accessibility check in `<A>` component to flag all caps text content.
+- Exports the `isRatioOk` check, which verifies if the contrast ratio between a text color and background color meets WCAG accessibility standards (level AA or AAA) for small or large text
+- Exports the `canHaveAriaHidden` check, which verifies if the aria-hidden attribute can be applied to the component.
 
 ## [0.4.2] - 2024-11-04
 

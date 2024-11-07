@@ -1,6 +1,7 @@
 import { A } from '../../../constants';
 import { getElementTextContent } from '../../../helper/getElementTextContent';
 import { checkColorContrast } from '../style/checkColorContrast';
+import { checkAllCaps } from './checks/checkAllCaps';
 import { checkAriaHidden } from './checks/checkAriaHidden';
 import { checkAttributes } from './checks/checkAttributes';
 import { checkGenericText } from './checks/checkGenericText';
@@ -20,5 +21,6 @@ export const anchorChecks = (props: AnchorProps, links: string[]): string[] => {
     checkAttributes(props),
     checkSkipLink(links),
     checkTextContext(props, text),
+    checkAllCaps(text),
   ].filter((check) => check !== null);
 };
