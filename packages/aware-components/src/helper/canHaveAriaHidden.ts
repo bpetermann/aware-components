@@ -4,6 +4,7 @@ import React, {
   ReactElement,
   ReactNode,
 } from 'react';
+import { A, Button, Input, Select, Textarea } from '../components';
 import { INERT } from '../constants';
 import { inertValue } from './inertValue';
 
@@ -12,6 +13,8 @@ const CONTENT_EDITABLE = 'contentEditable';
 const ROLE = 'role';
 const DISABLED = 'disabled';
 const HREF = 'href';
+
+const FORM_ELEMENTS = ['input', 'button', 'textarea', 'select'];
 
 const getChildElements = (node: ReactNode): ReactElement[] => {
   if (!isValidElement(node)) return [];
@@ -39,12 +42,13 @@ export const canHaveAriaHidden = (node: ReactNode): boolean => {
   return childElements.every((child) => canHaveAriaHidden(child));
 };
 
-const isNotFocusable = (element: React.ReactElement): boolean => {
-  const formElements: string[] = ['input', 'button', 'textarea', 'select'];
-  const isFormControl =
-    typeof element.type === 'string' && formElements.includes(element.type);
+const isFormControl = (element: React.ReactElement) =>
+  (typeof element.type === 'string' && FORM_ELEMENTS.includes(element.type)) ||
+  [Input, Button, Select, Textarea].some((type) => element.type === type);
 
-  const isLink = typeof element.type === 'string' && element.type === 'a';
+const isNotFocusable = (element: React.ReactElement): boolean => {
+  const isFormElement = isFormControl(element);
+  const isLink = element.type === 'a' || element.type === A;
 
   const getAttributeValue = (name: string): string | boolean | undefined => {
     return element.props?.[name] ? element.props[name] : undefined;
@@ -62,7 +66,7 @@ const isNotFocusable = (element: React.ReactElement): boolean => {
   const isDisabled = getAttributeValue(DISABLED) !== undefined;
 
   return !(
-    (isFormControl && !hasNegativeTabIndex && !isDisabled && !hasInert) ||
+    (isFormElement && !hasNegativeTabIndex && !isDisabled && !hasInert) ||
     (isLink && hasHref && !hasInert) ||
     hasContentEditable ||
     hasPositiveTabIndex ||

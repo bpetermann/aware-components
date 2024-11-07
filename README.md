@@ -92,21 +92,15 @@ function Headings() {
 }
 ```
 
-**Example 3: Contrast Ratio Check for Accessibility**
+**Example 3: Standalone Accessibility checks**
 
-In addition to the components, some standalone accessibility checks are exported:
-
-The `isRatioOk` function verifies if the contrast ratio between a text and background color meets WCAG standards (level AA or AAA), based on text size.
+In addition to the components, some standalone accessibility checks are exported.
 
 ```jsx
-import { isRatioOk } from 'aware-components';
+import { isRatioOk, canHaveAriaHidden } from 'aware-components';
 
-function App() {
-  const isAccessible = isRatioOk('white', 'black', 'AAA', 18);
-  console.log(isAccessible); // true or false based on accessibility check
-
-  return <></>;
-}
+console.log(isRatioOk('white', 'black', 'AAA', 18)); // Checks if the contrast ratio between text and background colors meets WCAG level AA or AAA, based on text size.
+console.log(canHaveAriaHidden(SomeComponent())); // Checks if the aria-hidden attribute can be applied to the component.
 ```
 
 ## Mix and Match

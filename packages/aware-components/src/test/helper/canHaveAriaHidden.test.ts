@@ -1,5 +1,6 @@
 import React from 'react';
 import { describe, expect, it } from 'vitest';
+import { A, Button } from '../../components';
 import { canHaveAriaHidden } from '../../helper/canHaveAriaHidden';
 
 describe('canHaveAriaHidden', () => {
@@ -115,5 +116,25 @@ describe('canHaveAriaHidden', () => {
       )
     );
     expect(canHaveAriaHidden(fragment)).toBe(true);
+  });
+
+  it('should return false for nested elements with custom component <A>', () => {
+    const nested = React.createElement(
+      'div',
+      null,
+      React.createElement('span', null, 'Non-focusable'),
+      React.createElement(A, { href: '/contact' }, 'Focusable button')
+    );
+    expect(canHaveAriaHidden(nested)).toBe(false);
+  });
+
+  it('should return false for nested elements with custom component <Button>', () => {
+    const nested = React.createElement(
+      'div',
+      null,
+      React.createElement('span', null, 'Non-focusable'),
+      React.createElement(Button, null, 'Focusable button')
+    );
+    expect(canHaveAriaHidden(nested)).toBe(false);
   });
 });
