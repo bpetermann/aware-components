@@ -24,3 +24,5 @@ export {
   Video,
 } from './components';
 export { A11yProvider } from './context';
+export { canHaveAriaHidden } from './helper/canHaveAriaHidden';
+export { isRatioOk } from './helper/colorContrast';
