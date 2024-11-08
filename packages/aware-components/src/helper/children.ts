@@ -44,3 +44,12 @@ export const containsImageElement = (children?: React.ReactNode): boolean =>
 
 export const containsTextChild = (children?: React.ReactNode): boolean =>
   typeof children === 'string' && children.trim().length > 0;
+
+export const getTextChildren = (element: ReactNode): string[] =>
+  Array.isArray(element)
+    ? element.flatMap(getTextChildren)
+    : isValidElement(element)
+    ? React.Children.toArray(element.props.children).flatMap(getTextChildren)
+    : typeof element === 'string'
+    ? element.split(' ')
+    : [];
