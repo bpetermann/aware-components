@@ -19,5 +19,6 @@ export { Optgroup } from './Optgroup';
 export { P } from './P';
 export { Section } from './Section';
 export { Select } from './Select';
+export { Table } from './Table';
 export { Textarea } from './Textarea';
 export { Video } from './Video';
