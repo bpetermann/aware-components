@@ -11,6 +11,7 @@ import { navChecks } from './nav';
 import { paragraphChecks } from './paragraph';
 import { sectionChecks } from './section';
 import { selectChecks } from './select';
+import { tableChecks } from './table';
 import { textareaChecks } from './textarea';
 import { videoChecks } from './video';
 
@@ -30,4 +31,5 @@ export const a11yChecks = {
   select: selectChecks,
   paragraph: paragraphChecks,
   video: videoChecks,
+  table: tableChecks,
 };
