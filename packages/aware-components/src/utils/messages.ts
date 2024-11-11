@@ -105,4 +105,10 @@ export const messages = {
     amount:
       '[HR] Excessive use of `<hr>` elements can be disruptive for screen reader users. Use `<hr>` only to denote meaningful thematic breaks between sections.',
   },
+  table: {
+    col: '[Table] Table headers are essential for screen readers to convey the table`s structure and purpose. If visible headers are unnecessary for sighted users, consider visually hiding them instead.',
+    row: "[Table] For tables with both row and column headers, each <th> should include a scope attribute (scope='row' or scope='col') to clarify header roles. This allows screen readers to accurately interpret the structure and improve accessibility for all users.",
+    multi:
+      '[Table] For complex tables with nested headers, each header should include a unique id and a scope attribute to define its role, while data cells should use a headers attribute listing relevant header IDs. This markup clarifies header relationships, making tables accessible for screen readers to announce all applicable headers for each cell.',
+  },
 } as const;

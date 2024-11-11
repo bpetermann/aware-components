@@ -20,6 +20,7 @@ export {
   P,
   Section,
   Select,
+  Table,
   Textarea,
   Video,
 } from './components';
