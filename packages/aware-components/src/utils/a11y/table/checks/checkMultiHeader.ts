@@ -1,16 +1,23 @@
 import { ReactElement } from 'react';
+import {
+  hasColumnGroupScope,
+  validateHeadersAttribute,
+  validateIdAttribute,
+  validateScopeAttribute,
+} from '../../../../helper/tables';
 import { messages } from '../../../messages';
 
-export const hasScopeAndId = (header: ReactElement) =>
-  header.props.scope && header.props.id;
-
 export const checkMultiHeader = (
-  col: ReactElement[],
-  row: ReactElement[],
-  colHeaders: number
+  colHeaders: ReactElement[],
+  rowHeaders: ReactElement[],
+  headerCount: number,
+  rows: ReactElement[]
 ) =>
-  row.length &&
-  colHeaders > 1 &&
-  [...col, ...row].some((header) => !hasScopeAndId(header))
+  rowHeaders.length &&
+  headerCount > 1 &&
+  ((!validateScopeAttribute([...colHeaders, ...rowHeaders]) &&
+    !hasColumnGroupScope([...colHeaders, ...rowHeaders])) ||
+    !validateHeadersAttribute(rows) ||
+    !validateIdAttribute([...colHeaders, ...rowHeaders]))
     ? messages.table.multi
     : null;
