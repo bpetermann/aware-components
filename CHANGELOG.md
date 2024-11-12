@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+- Added `<Table>` components with accessibility checks, ensuring presence of `<th>` elements, `scope` attributes when multiple headers are used, and both `id` and `headers` attributes in complex tables for enhanced screen reader support.
+
 ## [0.5.0] - 2024-11-07
 
 ### Changed

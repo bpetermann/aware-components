@@ -5,6 +5,7 @@ import { FoodSelect } from './components/FoodSelect';
 import { Heading } from './components/Heading';
 import { Logo } from './components/Logo';
 import { SkipLink } from './components/SkipLink';
+import { MyTable } from './components/Table';
 import { TermsAndConditions } from './components/TermsAndConditions';
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
       </Main>
       <TermsAndConditions />
       <FoodSelect />
+      <MyTable />
     </A11yProvider>
   );
 }
