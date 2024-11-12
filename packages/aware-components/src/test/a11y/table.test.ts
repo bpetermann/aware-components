@@ -43,7 +43,7 @@ describe('tableChecks utility functions', () => {
   describe('checkMultiHeader', () => {
     it('should return null if all headers have scope and id for multi-level headers', () => {
       expect(
-        checkMultiHeader(colHeaders, rowHeaders, headerColumns.length)
+        checkMultiHeader(colHeaders, rowHeaders, headerColumns.length, [])
       ).toBe(null);
     });
 
@@ -51,7 +51,8 @@ describe('tableChecks utility functions', () => {
       const result = checkMultiHeader(
         [invalidHeaderNoScope],
         rowHeaders,
-        headerColumns.length
+        headerColumns.length,
+        []
       );
       expect(result).toBe(messages.table.multi);
     });

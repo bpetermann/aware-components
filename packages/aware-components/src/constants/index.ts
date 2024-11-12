@@ -106,3 +106,4 @@ export const VIDEO = 'video';
 export const TRACK = 'track';
 export const TABLE_DATA = 'td';
 export const TABLE_HEADER = 'th';
+export const TABLE_ROW = 'tr';
