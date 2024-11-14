@@ -6,9 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
-- `<Table>` Component: Added accessibility checks to ensure `<th>` elements are present, `scope` attributes are used with multiple headers, and `id` and `headers` attributes are included in complex tables for improved screen reader support.
-- `<Th>` Component: Implemented accessibility checks to validate necessary attributes based on the complexity of table headers.
-- `<Td>` Component: Enhanced to support registering associated table headers.
+- `<Table>` components with accessibility (a11y) checks to ensure `<th>` elements are present, `scope` attributes are used with multiple headers, and `id` and `headers` attributes are included in complex tables for improved screen reader support.
+- `<Th>` components with accessibility (a11y) checks to validate necessary attributes based on the complexity of table headers.
+- `<Td>` components with accessibility (a11y) checks to validate necessary attributes based on the complexity of table headers.
+- `<Tr>` components to support registering associated table headers.
 - `<TableProvider>` Component: Introduced a context provider for more fine-grained table accessibility checks.
 
 ## [0.5.0] - 2024-11-07
