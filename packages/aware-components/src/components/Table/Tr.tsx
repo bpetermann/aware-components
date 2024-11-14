@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import { DEVELOPMENT } from '../constants';
-import { addHeader, deleteHeader, useTable } from '../context/table/actions';
-import { getHeaderScope } from '../helper/tables';
+import { DEVELOPMENT } from '../../constants';
+import { addHeader, deleteHeader, useTable } from '../../context/table/actions';
+import { getHeaderScope } from '../../helper/tables';
 
 interface Props
   extends React.DetailedHTMLProps<
