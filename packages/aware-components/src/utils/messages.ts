@@ -113,6 +113,10 @@ export const messages = {
   th: {
     two: "[Th] For tables with both row and column headers, each <th> should have a scope attribute (scope='row' or scope='col'). When using subheadings marked with scope='colgroup' or scope='rowgroup', include a headers attribute on <th> to associate headers correctly with data cells. Element: ",
     multi:
-      "[Th]For complex tables with nested headers, each header should have a unique id and a scope attribute to define its role, or use a subheading for clarity. When using subheadings marked with scope='colgroup' or scope='rowgroup', include a headers attribute on <th> to associate headers correctly with data cells. Element: ",
+      "[Th] For complex tables with nested headers, each header should have a unique id and a scope attribute to define its role, or use a subheading for clarity. When using subheadings marked with scope='colgroup' or scope='rowgroup', include a headers attribute on <th> to associate headers correctly with data cells. Element: ",
+  },
+  td: {
+    multi:
+      "[Td] For complex tables with nested headers, each <td> cell should have a 'headers' attribute that lists the id values of the associated header cells. Element: ",
   },
 } as const;

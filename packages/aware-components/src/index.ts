@@ -21,6 +21,7 @@ export {
   Section,
   Select,
   Table,
+  Td,
   Textarea,
   Th,
   Tr,

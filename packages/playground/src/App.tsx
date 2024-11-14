@@ -5,8 +5,7 @@ import { FoodSelect } from './components/FoodSelect';
 import { Heading } from './components/Heading';
 import { Logo } from './components/Logo';
 import { SkipLink } from './components/SkipLink';
-import { HalfAwareTable } from './components/Tables/HalfAwareTable';
-import { TwoHeaderTable } from './components/Tables/TwoHeaderTable';
+import { MultiHeaderTable } from './components/Tables/MultiHeaderTable';
 import { TermsAndConditions } from './components/TermsAndConditions';
 
 function App() {
@@ -29,8 +28,8 @@ function App() {
       </Main>
       <TermsAndConditions />
       <FoodSelect />
-      <TwoHeaderTable />
-      <HalfAwareTable />
+
+      <MultiHeaderTable />
     </A11yProvider>
   );
 }

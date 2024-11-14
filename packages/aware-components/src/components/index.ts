@@ -20,6 +20,7 @@ export { P } from './P';
 export { Section } from './Section';
 export { Select } from './Select';
 export { Table } from './Table/Table';
+export { Td } from './Table/Td';
 export { Th } from './Table/Th';
 export { Tr } from './Table/Tr';
 export { Textarea } from './Textarea';

@@ -49,4 +49,11 @@ describe('Accessibility check for <Th>', () => {
 
     expect(warnings).toContain(twoLevelHeaderWarning);
   });
+
+  it('should pass, if no headers are present', () => {
+    const props = {};
+    const warnings = thChecks(props, []);
+
+    expect(warnings.length).toEqual(0);
+  });
 });

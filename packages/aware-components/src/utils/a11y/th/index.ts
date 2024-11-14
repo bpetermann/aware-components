@@ -1,5 +1,5 @@
 import { Scope } from '../../../context/table/types';
-import { hasMultiLevelHeader, hasTwoLevelHeader } from '../../../helper/tables';
+import { isMultiHeaderTable, isTwoHeadingTable } from '../../../helper/tables';
 import { messages } from '../../messages';
 
 type Props = React.DetailedHTMLProps<
@@ -8,11 +8,11 @@ type Props = React.DetailedHTMLProps<
 >;
 
 export const thChecks = (props: Props, header: Scope[]): string[] => [
-  ...(hasTwoLevelHeader(header) && !(props.scope || props.headers)
-    ? [`${messages.th.two}"${props.children}"`]
+  ...(isTwoHeadingTable(header) && !(props.scope || props.headers)
+    ? [`${messages.th.two}"${props.children || ''}"`]
     : []),
-  ...(hasMultiLevelHeader(header) &&
+  ...(isMultiHeaderTable(header) &&
   (!props.id || !(props.scope || props.headers))
-    ? [`${messages.th.multi}"${props.children}"`]
+    ? [`${messages.th.multi}"${props.children || ''}"`]
     : []),
 ];

@@ -1,15 +1,31 @@
 import React, { ReactElement, ReactNode, isValidElement } from 'react';
-import { Th, Tr } from '../components';
+import { Td, Th, Tr } from '../components';
 import { COLUMN, ROW, TABLE_DATA, TABLE_HEADER, TABLE_ROW } from '../constants';
 import { Scope } from '../context/table/types';
+
+type ValidElement =
+  | React.ReactPortal
+  | React.ReactElement<unknown, string | React.JSXElementConstructor<unknown>>;
+
+const idTableData = (element: ValidElement) =>
+  element.type === TABLE_DATA || element.type === Td;
+
+const idTableHeader = (element: ValidElement) =>
+  element.type === TABLE_HEADER || element.type === Th;
+
+const isTableRow = (element: ValidElement) =>
+  element.type === TABLE_ROW || element.type === Tr;
+
+const toChildArray = (element: ValidElement) =>
+  React.Children.toArray(element.props.children);
 
 export const getTableRows = (element: ReactNode): ReactElement[] =>
   Array.isArray(element)
     ? element.flatMap(getTableRows)
     : isValidElement(element)
-    ? element.type === TABLE_ROW || element.type === Tr
+    ? isTableRow(element)
       ? [element]
-      : React.Children.toArray(element.props.children).flatMap(getTableRows)
+      : toChildArray(element).flatMap(getTableRows)
     : [];
 
 export const filterTableCells = (
@@ -18,7 +34,7 @@ export const filterTableCells = (
 ): ReactElement[] =>
   rows.filter((row) => {
     const children = React.Children.toArray(row.props.children);
-    const cellElement = cellType === TABLE_HEADER ? Th : null;
+    const cellElement = cellType === TABLE_HEADER ? Th : Td;
     const cellCount = children.filter(
       (child) =>
         isValidElement(child) &&
@@ -29,12 +45,10 @@ export const filterTableCells = (
 
 export const extractHeaderCells = (rows: ReactElement[]): ReactElement[] =>
   rows.flatMap((row) => {
-    const childArray = React.Children.toArray(row.props.children).filter(
-      (child) => isValidElement(child)
+    const childArray = toChildArray(row).filter((child) =>
+      isValidElement(child)
     );
-    return childArray.filter(
-      (child) => child.type === TABLE_HEADER || child.type === Th
-    );
+    return childArray.filter((child) => idTableHeader(child));
   });
 
 export const hasColumnGroupScope = (headers: ReactElement[]) =>
@@ -48,9 +62,9 @@ export const validateIdAttribute = (headers: ReactElement[]) =>
 
 export const validateHeadersAttribute = (rows: ReactElement[]): boolean =>
   rows.every((row) =>
-    React.Children.toArray(row.props.children).every((child) =>
+    toChildArray(row).every((child) =>
       isValidElement(child) &&
-      child.type === TABLE_DATA &&
+      idTableData(child) &&
       Object.keys(child.props).length
         ? child.props.headers
         : true
@@ -61,9 +75,9 @@ export const extractChildTypes = (children: React.ReactNode) =>
   React.Children.toArray(children)
     .map((child) =>
       React.isValidElement(child)
-        ? child.type === TABLE_HEADER || child.type === Th
+        ? idTableHeader(child)
           ? TABLE_HEADER
-          : child.type === TABLE_DATA
+          : idTableData(child)
           ? TABLE_DATA
           : null
         : null
@@ -88,8 +102,8 @@ export const getHeaderScope = (
 const getCount = (scopes: Scope[], type: Scope) =>
   scopes.filter((scope) => scope === type).length;
 
-export const hasTwoLevelHeader = (scopes: Scope[]): boolean =>
+export const isTwoHeadingTable = (scopes: Scope[]): boolean =>
   getCount(scopes, COLUMN) === 1 && !!getCount(scopes, ROW);
 
-export const hasMultiLevelHeader = (scopes: Scope[]): boolean =>
+export const isMultiHeaderTable = (scopes: Scope[]): boolean =>
   getCount(scopes, COLUMN) > 1 && !!getCount(scopes, ROW);
