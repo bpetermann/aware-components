@@ -4,6 +4,7 @@ import {
   filterTableCells,
   getTableRows,
 } from '../../../helper/tables';
+import { checkCaption } from './checks/checkCaption';
 import { checkColHeader } from './checks/checkColHeader';
 import { checkMultiHeader } from './checks/checkMultiHeader';
 import { checkRowHeader } from './checks/checkRowHeader';
@@ -22,5 +23,6 @@ export const tableChecks = (props: TableProps) => {
     checkColHeader(colHeaders),
     checkRowHeader(colHeaders, rowHeaders),
     checkMultiHeader(colHeaders, rowHeaders, headerCells.length, rows),
+    checkCaption(props, rowHeaders, headerCells.length),
   ].filter((check) => check !== null);
 };

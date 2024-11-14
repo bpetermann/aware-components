@@ -1,6 +1,6 @@
 import { Table } from 'aware-components';
 
-export function MyTable() {
+export function HalfAwareTable() {
   return (
     <Table>
       <caption>Delivery slots:</caption>
@@ -27,6 +27,8 @@ export function MyTable() {
             Paris
           </th>
         </tr>
+      </thead>
+      <tbody>
         <tr>
           <th headers='par' id='pbed1'>
             1 bedroom

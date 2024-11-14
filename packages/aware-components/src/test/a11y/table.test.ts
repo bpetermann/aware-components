@@ -6,7 +6,7 @@ import { checkMultiHeader } from '../../utils/a11y/table/checks/checkMultiHeader
 import { checkRowHeader } from '../../utils/a11y/table/checks/checkRowHeader';
 import { messages } from '../../utils/messages';
 
-describe('tableChecks utility functions', () => {
+describe('Table element accessibility checks', () => {
   const createElementWithScopeAndId = (
     type: 'th' | 'td',
     scope?: string,
@@ -61,13 +61,14 @@ describe('tableChecks utility functions', () => {
   describe('tableChecks', () => {
     it('should return an empty array if all checks pass', () => {
       const mockTableProps = {
-        children: React.createElement('table', { key: 'table1' }, [
+        children: [
+          React.createElement('caption', {}, 'Caption'),
           React.createElement('tr', { key: 'table1' }, [
             createElementWithScopeAndId('th', 'col', 'header1'),
             createElementWithScopeAndId('th', 'col', 'header1'),
             createElementWithScopeAndId('td', undefined, 'data1'),
           ]),
-        ]),
+        ],
       };
 
       const result = tableChecks(mockTableProps);

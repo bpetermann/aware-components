@@ -12,7 +12,9 @@ import { paragraphChecks } from './paragraph';
 import { sectionChecks } from './section';
 import { selectChecks } from './select';
 import { tableChecks } from './table';
+import { tdChecks } from './td';
 import { textareaChecks } from './textarea';
+import { thChecks } from './th';
 import { videoChecks } from './video';
 
 export const a11yChecks = {
@@ -30,6 +32,8 @@ export const a11yChecks = {
   textarea: textareaChecks,
   select: selectChecks,
   paragraph: paragraphChecks,
-  video: videoChecks,
   table: tableChecks,
+  th: thChecks,
+  td: tdChecks,
+  video: videoChecks,
 };
