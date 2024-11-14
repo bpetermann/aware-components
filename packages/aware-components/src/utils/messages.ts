@@ -102,12 +102,17 @@ export const messages = {
   },
   hr: {
     amount:
-      '[HR] Excessive use of `<hr>` elements can be disruptive for screen reader users. Use `<hr>` only to denote meaningful thematic breaks between sections.',
+      '[Hr] Excessive use of `<hr>` elements can be disruptive for screen reader users. Use `<hr>` only to denote meaningful thematic breaks between sections.',
   },
   table: {
     col: '[Table] Table headers are essential for screen readers to convey the table`s structure and purpose. If visible headers are unnecessary for sighted users, consider visually hiding them instead.',
-    row: "[Table] For tables with both row and column headers, each <th> should include a scope attribute (scope='row' or scope='col') to clarify header roles. This allows screen readers to accurately interpret the structure and improve accessibility for all users.",
+    row: "[Table] For tables with both row and column headers, each <th> should include a scope attribute (scope='row' or scope='col'), or a subheading marked with scope='colgroup' or scope='rowgroup', to clarify header roles. This structure helps screen readers interpret the table accurately, enhancing accessibility.",
     multi:
-      '[Table] For complex tables with nested headers, each header should include a unique id and a scope attribute to define its role, while data cells should use a headers attribute listing relevant header IDs. This markup clarifies header relationships, making tables accessible for screen readers to announce all applicable headers for each cell.',
+      '[Table] For complex tables with nested headers, each header should have a unique id and a scope attribute to define its role, or use a subheading for clarity. Data cells should use a headers attribute listing applicable header IDs. This markup ensures screen readers can announce all relevant headers for each cell.',
+  },
+  th: {
+    two: "[Th] For tables with both row and column headers, each <th> should have a scope attribute (scope='row' or scope='col'). When using subheadings marked with scope='colgroup' or scope='rowgroup', include a headers attribute on <th> to associate headers correctly with data cells. Element: ",
+    multi:
+      "[Th]For complex tables with nested headers, each header should have a unique id and a scope attribute to define its role, or use a subheading for clarity. When using subheadings marked with scope='colgroup' or scope='rowgroup', include a headers attribute on <th> to associate headers correctly with data cells. Element: ",
   },
 } as const;

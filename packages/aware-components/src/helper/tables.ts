@@ -1,6 +1,6 @@
 import React, { ReactElement, ReactNode, isValidElement } from 'react';
 import { Th, Tr } from '../components';
-import { TABLE_DATA, TABLE_HEADER, TABLE_ROW } from '../constants';
+import { COLUMN, ROW, TABLE_DATA, TABLE_HEADER, TABLE_ROW } from '../constants';
 import { Scope } from '../context/table/types';
 
 export const getTableRows = (element: ReactNode): ReactElement[] =>
@@ -37,11 +37,6 @@ export const extractHeaderCells = (rows: ReactElement[]): ReactElement[] =>
     );
   });
 
-export const extractChildTypes = (children: React.ReactNode) =>
-  React.Children.toArray(children)
-    .map((child) => (React.isValidElement(child) ? child.type : null))
-    .filter(Boolean);
-
 export const hasColumnGroupScope = (headers: ReactElement[]) =>
   headers.some((header) => header.props?.scope === 'colgroup');
 
@@ -62,6 +57,19 @@ export const validateHeadersAttribute = (rows: ReactElement[]): boolean =>
     )
   );
 
+export const extractChildTypes = (children: React.ReactNode) =>
+  React.Children.toArray(children)
+    .map((child) =>
+      React.isValidElement(child)
+        ? child.type === TABLE_HEADER || child.type === Th
+          ? TABLE_HEADER
+          : child.type === TABLE_DATA
+          ? TABLE_DATA
+          : null
+        : null
+    )
+    .filter(Boolean);
+
 export const getHeaderScope = (
   children: React.ReactNode
 ): Scope | undefined => {
@@ -71,21 +79,17 @@ export const getHeaderScope = (
   const cellCount = React.Children.toArray(children).length;
 
   return header.length === 1 && cellCount > 1
-    ? 'row'
+    ? ROW
     : header.length >= Math.ceil(cellCount / 2)
-    ? 'col'
+    ? COLUMN
     : undefined;
 };
 
-export const getTableLevel = (
-  scopes: Scope[]
-): 'one' | 'two' | 'multi' | undefined => {
-  const rowCount = scopes.filter((scope) => scope === 'row').length;
-  const colCount = scopes.filter((scope) => scope === 'col').length;
+const getCount = (scopes: Scope[], type: Scope) =>
+  scopes.filter((scope) => scope === type).length;
 
-  if (colCount === 1) {
-    return rowCount ? 'two' : 'one';
-  } else if (colCount > 1 && rowCount) {
-    return 'multi';
-  }
-};
+export const hasTwoLevelHeader = (scopes: Scope[]): boolean =>
+  getCount(scopes, COLUMN) === 1 && !!getCount(scopes, ROW);
+
+export const hasMultiLevelHeader = (scopes: Scope[]): boolean =>
+  getCount(scopes, COLUMN) > 1 && !!getCount(scopes, ROW);

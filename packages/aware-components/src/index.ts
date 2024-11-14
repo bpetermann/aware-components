@@ -22,6 +22,8 @@ export {
   Select,
   Table,
   Textarea,
+  Th,
+  Tr,
   Video,
 } from './components';
 export { A11yProvider } from './context';

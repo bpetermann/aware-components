@@ -24,6 +24,10 @@ export const H_4 = 'h4';
 export const H_5 = 'h5';
 export const H_6 = 'h6';
 
+//** Attributes */
+export const COLUMN = 'col';
+export const ROW = 'row';
+
 //** ABSTRACT ROLES */
 export const ABSTRACT_ROLES: string[] = [
   'command',

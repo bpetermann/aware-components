@@ -21,4 +21,6 @@ export { Section } from './Section';
 export { Select } from './Select';
 export { Table } from './Table';
 export { Textarea } from './Textarea';
+export { Th } from './Th';
+export { Tr } from './Tr';
 export { Video } from './Video';

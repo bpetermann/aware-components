@@ -6,7 +6,7 @@ import { checkMultiHeader } from '../../utils/a11y/table/checks/checkMultiHeader
 import { checkRowHeader } from '../../utils/a11y/table/checks/checkRowHeader';
 import { messages } from '../../utils/messages';
 
-describe('tableChecks utility functions', () => {
+describe('Table element accessibility checks', () => {
   const createElementWithScopeAndId = (
     type: 'th' | 'td',
     scope?: string,
