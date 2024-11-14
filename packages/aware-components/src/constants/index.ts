@@ -7,6 +7,7 @@ export const ARIA_LABELLEDBY = 'aria-labelledby';
 export const ARIA_CHECKED = 'aria-checked';
 export const ARIA_HIDDEN = 'aria-hidden';
 export const ARIA_EXPANDED = 'aria-expanded';
+export const ARIA_DESCRIBEDBY = 'aria-describedby';
 
 //** PROPS */
 export const TITLE = 'title';
@@ -111,3 +112,4 @@ export const TRACK = 'track';
 export const TABLE_DATA = 'td';
 export const TABLE_HEADER = 'th';
 export const TABLE_ROW = 'tr';
+export const CAPTION = 'caption';

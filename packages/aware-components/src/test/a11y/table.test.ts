@@ -61,13 +61,14 @@ describe('Table element accessibility checks', () => {
   describe('tableChecks', () => {
     it('should return an empty array if all checks pass', () => {
       const mockTableProps = {
-        children: React.createElement('table', { key: 'table1' }, [
+        children: [
+          React.createElement('caption', {}, 'Caption'),
           React.createElement('tr', { key: 'table1' }, [
             createElementWithScopeAndId('th', 'col', 'header1'),
             createElementWithScopeAndId('th', 'col', 'header1'),
             createElementWithScopeAndId('td', undefined, 'data1'),
           ]),
-        ]),
+        ],
       };
 
       const result = tableChecks(mockTableProps);

@@ -109,6 +109,8 @@ export const messages = {
     row: "[Table] For tables with both row and column headers, each <th> should include a scope attribute (scope='row' or scope='col'), or a subheading marked with scope='colgroup' or scope='rowgroup', to clarify header roles. This structure helps screen readers interpret the table accurately, enhancing accessibility.",
     multi:
       '[Table] For complex tables with nested headers, each header should have a unique id and a scope attribute to define its role, or use a subheading for clarity. Data cells should use a headers attribute listing applicable header IDs. This markup ensures screen readers can announce all relevant headers for each cell.',
+    caption:
+      '[Table] Complex tables should include a <caption> as the first child or use aria-describedby to ensure screen readers provide context. Move any existing caption to the first position for optimal accessibility.',
   },
   th: {
     two: "[Th] For tables with both row and column headers, each <th> should have a scope attribute (scope='row' or scope='col'). When using subheadings marked with scope='colgroup' or scope='rowgroup', include a headers attribute on <th> to associate headers correctly with data cells. Element: ",

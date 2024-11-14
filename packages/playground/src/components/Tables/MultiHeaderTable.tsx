@@ -3,7 +3,9 @@ import { Table, Td, Th, Tr } from 'aware-components';
 export function MultiHeaderTable() {
   return (
     <Table>
-      <caption>Delivery slots:</caption>
+      <>
+        <caption>Delivery slots:</caption>
+      </>
 
       <thead>
         <Tr>

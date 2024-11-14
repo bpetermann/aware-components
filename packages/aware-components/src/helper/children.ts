@@ -3,6 +3,8 @@ import { Fragment } from 'react/jsx-runtime';
 import { Img } from '../components';
 
 export const getFirstChild = (element: ReactNode): ReactElement | null => {
+  element = Array.isArray(element) ? element[0] : element;
+
   if (!isValidElement(element)) return null;
 
   if (element.type === Fragment) {
