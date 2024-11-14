@@ -1,6 +1,6 @@
 import { Table, Th, Tr } from 'aware-components';
 
-export function MyTable() {
+export function MultiHeaderTable() {
   return (
     <Table>
       <caption>Delivery slots:</caption>
