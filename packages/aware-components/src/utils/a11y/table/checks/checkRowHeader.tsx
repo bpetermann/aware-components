@@ -1,8 +1,5 @@
 import { ReactElement } from 'react';
-import {
-  hasColumnGroupScope,
-  validateScopeAttribute,
-} from '../../../../helper/tables';
+import { validateScopeAttribute } from '../../../../helper/tables';
 import { messages } from '../../../messages';
 
 export const checkRowHeader = (
@@ -11,7 +8,6 @@ export const checkRowHeader = (
 ) =>
   colHeaders.length &&
   rowHeaders.length &&
-  !validateScopeAttribute([...colHeaders, ...rowHeaders]) &&
-  !hasColumnGroupScope([...colHeaders, ...rowHeaders])
+  !validateScopeAttribute([...colHeaders, ...rowHeaders])
     ? messages.table.row
     : null;
