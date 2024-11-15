@@ -105,5 +105,8 @@ const getCount = (scopes: Scope[], type: Scope) =>
 export const isTwoHeadingTable = (scopes: Scope[]): boolean =>
   getCount(scopes, COLUMN) === 1 && !!getCount(scopes, ROW);
 
-export const isMultiHeaderTable = (scopes: Scope[]): boolean =>
+export const isMultiHeadingTable = (scopes: Scope[]): boolean =>
   getCount(scopes, COLUMN) > 1 && !!getCount(scopes, ROW);
+
+export const hasColHeading = (scopes: Scope[]): boolean =>
+  scopes.includes(COLUMN);

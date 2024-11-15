@@ -7,15 +7,11 @@ import {
 import { messages } from '../../../messages';
 
 export const checkMultiHeader = (
-  colHeaders: ReactElement[],
-  rowHeaders: ReactElement[],
-  headerCount: number,
+  headings: ReactElement[],
   rows: ReactElement[]
 ) =>
-  rowHeaders.length &&
-  headerCount > 1 &&
-  (!validateScopeAttribute([...colHeaders, ...rowHeaders]) ||
-    !validateHeadersAttribute(rows) ||
-    !validateIdAttribute([...colHeaders, ...rowHeaders]))
+  !validateScopeAttribute(headings) ||
+  !validateIdAttribute(headings) ||
+  !validateHeadersAttribute(rows)
     ? messages.table.multi
     : null;

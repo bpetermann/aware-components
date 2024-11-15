@@ -21,37 +21,34 @@ describe('Table element accessibility checks', () => {
 
   describe('checkRowHeader', () => {
     it('should return null if all row headers have scope', () => {
-      expect(checkRowHeader(colHeaders, rowHeaders)).toBe(null);
+      expect(checkRowHeader([...colHeaders, ...rowHeaders])).toBe(null);
     });
 
     it('should return a message if any row header is missing scope', () => {
-      const result = checkRowHeader(colHeaders, [invalidHeaderNoScope]);
+      const result = checkRowHeader([...colHeaders, invalidHeaderNoScope]);
       expect(result).toBe(messages.table.row);
     });
   });
 
   describe('checkColHeader', () => {
     it('should return a message if no column headers are provided', () => {
-      expect(checkColHeader([])).toBe(messages.table.col);
+      expect(checkColHeader(false)).toBe(messages.table.col);
     });
 
     it('should return null if column headers are provided', () => {
-      expect(checkColHeader(headerColumns)).toBe(null);
+      expect(checkColHeader(!!headerColumns.length)).toBe(null);
     });
   });
 
   describe('checkMultiHeader', () => {
     it('should return null if all headers have scope and id for multi-level headers', () => {
-      expect(
-        checkMultiHeader(colHeaders, rowHeaders, headerColumns.length, [])
-      ).toBe(null);
+      expect(checkMultiHeader([...colHeaders, ...rowHeaders], [])).toBe(null);
     });
 
     it('should return a message if any header in multi-level headers is missing scope or id', () => {
       const result = checkMultiHeader(
-        [invalidHeaderNoScope],
-        rowHeaders,
-        headerColumns.length,
+        [invalidHeaderNoScope, ...rowHeaders],
+
         []
       );
       expect(result).toBe(messages.table.multi);
@@ -71,7 +68,7 @@ describe('Table element accessibility checks', () => {
         ],
       };
 
-      const result = tableChecks(mockTableProps);
+      const result = tableChecks(mockTableProps, ['col']);
       expect(result).toEqual([]);
     });
   });
