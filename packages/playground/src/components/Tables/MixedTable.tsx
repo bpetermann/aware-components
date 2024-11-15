@@ -1,6 +1,6 @@
 import { Table } from 'aware-components';
 
-export function HalfAwareTable() {
+export function MixedTable() {
   return (
     <Table>
       <caption>Delivery slots:</caption>
