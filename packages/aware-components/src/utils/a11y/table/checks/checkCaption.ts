@@ -3,7 +3,9 @@ import { getFirstChild } from '../../../../helper/children';
 import { messages } from '../../../messages';
 import { TableProps } from '../types';
 
-export const checkCaption = (props: TableProps) =>
-  getFirstChild(props.children)?.type !== CAPTION && !props[ARIA_DESCRIBEDBY]
+export const checkCaption = (props: TableProps, caption: boolean | undefined) =>
+  getFirstChild(props.children)?.type !== CAPTION &&
+  !caption &&
+  !props[ARIA_DESCRIBEDBY]
     ? messages.table.caption
     : null;

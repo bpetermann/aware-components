@@ -15,11 +15,9 @@ interface Props
 
 export function Development(props: Props) {
   const { a11y = true, children, ...rest } = props;
-  const { header } = useTable();
+  const { header, caption } = useTable();
 
-  console.log(header);
-
-  if (a11y) a11yChecks?.table?.(props, header)?.forEach(warn);
+  if (a11y) a11yChecks?.table?.(props, header, caption)?.forEach(warn);
 
   return <table {...rest}>{children}</table>;
 }

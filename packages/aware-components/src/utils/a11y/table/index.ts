@@ -20,7 +20,11 @@ const getHeadings = (rows: number, columns: number, header: Scope[]) => ({
   hasMultiHeadings: (columns > 1 && !!rows) || isMultiHeadingTable(header),
 });
 
-export const tableChecks = (props: TableProps, header: Scope[]) => {
+export const tableChecks = (
+  props: TableProps,
+  header: Scope[],
+  caption: boolean | undefined
+) => {
   const rows = getTableRows(props.children);
 
   const dataCells = filterTableCells(rows, TABLE_DATA);
@@ -41,6 +45,6 @@ export const tableChecks = (props: TableProps, header: Scope[]) => {
     checkColHeader(hasColHeading),
     ...(hastwoHeadings ? [checkRowHeader(headings)] : []),
     ...(hasMultiHeadings ? [checkMultiHeader(headings, rows)] : []),
-    ...(hasMultiHeadings ? [checkCaption(props)] : []),
+    ...(hasMultiHeadings ? [checkCaption(props, caption)] : []),
   ].filter((check) => check !== null);
 };

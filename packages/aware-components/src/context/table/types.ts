@@ -2,6 +2,7 @@ export type Scope = 'col' | 'row';
 
 export type TableState = {
   header: Scope[];
+  caption: boolean | undefined;
 };
 
 export type TableAction = {
