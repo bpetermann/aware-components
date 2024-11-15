@@ -1,5 +1,6 @@
 import React from 'react';
 import { describe, expect, it } from 'vitest';
+import { checkAbbrText } from '../../utils/a11y/paragraph/checks/checkAbbrText';
 import { checkFontSize } from '../../utils/a11y/paragraph/checks/checkFontSize';
 import { checkHeading } from '../../utils/a11y/paragraph/checks/checkHeading';
 import { messages } from '../../utils/messages';
@@ -161,5 +162,19 @@ describe('Accessibility check for paragraph', () => {
     };
     const result = checkFontSize(props);
     expect(result).toBeNull();
+  });
+
+  it('should detect children that would be better suited inside an <abbr> element', () => {
+    const abbr = 'HTML';
+    const props = {
+      children: React.createElement(
+        React.Fragment,
+        {},
+        React.createElement(React.Fragment, {}, abbr)
+      ),
+    };
+
+    const result = checkAbbrText(props);
+    expect(result).toEqual(messages.p.abbr + abbr);
   });
 });
