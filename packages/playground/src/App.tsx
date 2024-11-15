@@ -5,7 +5,7 @@ import { FoodSelect } from './components/FoodSelect';
 import { Heading } from './components/Heading';
 import { Logo } from './components/Logo';
 import { SkipLink } from './components/SkipLink';
-import { MultiHeaderTable } from './components/Tables/MultiHeaderTable';
+import { MultiHeadingTable } from './components/Tables/MultiHeadingTable';
 import { TermsAndConditions } from './components/TermsAndConditions';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       <TermsAndConditions />
       <FoodSelect />
 
-      <MultiHeaderTable />
+      <MultiHeadingTable />
     </A11yProvider>
   );
 }

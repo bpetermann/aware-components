@@ -1,8 +1,14 @@
-import { ADD_HEADER, DELETE_HEADER } from './actions';
+import {
+  ADD_CAPTION,
+  ADD_HEADER,
+  DELETE_CAPTION,
+  DELETE_HEADER,
+} from './actions';
 import { TableAction, TableState } from './types';
 
 export const initialState: TableState = {
   header: [],
+  caption: undefined,
 };
 
 export function tableReducer(
@@ -30,7 +36,10 @@ export function tableReducer(
             ]
           : state.header,
       };
-
+    case ADD_CAPTION:
+      return { ...state, caption: true };
+    case DELETE_CAPTION:
+      return { ...state, caption: false };
     default:
       return state;
   }

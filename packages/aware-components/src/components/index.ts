@@ -19,6 +19,7 @@ export { Optgroup } from './Optgroup';
 export { P } from './P';
 export { Section } from './Section';
 export { Select } from './Select';
+export { Caption } from './Table/Caption';
 export { Table } from './Table/Table';
 export { Td } from './Table/Td';
 export { Th } from './Table/Th';

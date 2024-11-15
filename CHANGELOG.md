@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - `<Th>` components with accessibility (a11y) checks to validate necessary attributes based on the complexity of table headers.
 - `<Td>` components with accessibility (a11y) checks to validate necessary attributes based on the complexity of table headers.
 - `<Tr>` components to support registering associated table headers.
+- `<Caption>` components to detect a nested `<caption>` indside a `<TableProvider>`.
 - `<TableProvider>` Component: Introduced a context provider for more fine-grained table accessibility checks.
 
 ## [0.5.0] - 2024-11-07

@@ -1,10 +1,11 @@
 import { Table, Td, Th, Tr } from 'aware-components';
+import { Description } from './Description';
 
-export function MultiHeaderTable() {
+export function MultiHeadingTable() {
   return (
     <Table>
       <>
-        <caption>Delivery slots:</caption>
+        <Description />
       </>
 
       <thead>

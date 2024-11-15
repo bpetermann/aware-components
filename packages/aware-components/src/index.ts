@@ -2,6 +2,7 @@ export {
   A,
   Audio,
   Button,
+  Caption,
   Div,
   Fieldset,
   H1,
