@@ -1,4 +1,4 @@
-import { Table, TABLE_DATA, TABLE_HEADER } from '../../../constants';
+import { TABLE, TABLE_DATA, TABLE_HEADER } from '../../../constants';
 import { Scope } from '../../../context/table/types';
 import {
   extractHeaderCells,
@@ -62,7 +62,7 @@ export const tableChecks = (
 
   return [
     checkColHeader(hasColHeading),
-    checkColorContrast(props, Table),
+    checkColorContrast(props, TABLE),
     ...(hastwoHeadings ? [checkRowHeader(headings)] : []),
     ...(hasMultiHeadings ? [checkMultiHeader(headings, rows)] : []),
     ...(hasMultiHeadings ? [checkCaption(props, caption)] : []),
