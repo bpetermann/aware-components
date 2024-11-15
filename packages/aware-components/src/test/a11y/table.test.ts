@@ -1,75 +1,142 @@
 import React from 'react';
 import { describe, expect, it } from 'vitest';
-import { tableChecks } from '../../utils/a11y/table';
-import { checkColHeader } from '../../utils/a11y/table/checks/checkColHeader';
-import { checkMultiHeader } from '../../utils/a11y/table/checks/checkMultiHeader';
-import { checkRowHeader } from '../../utils/a11y/table/checks/checkRowHeader';
+import { Scope } from '../../context/table/types';
+import { tableChecks } from '../../utils/a11y/table/index';
 import { messages } from '../../utils/messages';
 
-describe('Table element accessibility checks', () => {
-  const createElementWithScopeAndId = (
-    type: 'th' | 'td',
-    scope?: string,
-    id?: string
-  ) => React.createElement(type, { scope, id, key: id ?? '1' });
+describe('Accessibility check for table', () => {
+  const colHeading: Scope[] = ['col'];
+  const twoHeadings: Scope[] = ['col', 'row'];
+  const multiHeadings: Scope[] = ['col', 'col', 'row', 'row'];
 
-  const validHeader = createElementWithScopeAndId('th', 'col', 'header1');
-  const invalidHeaderNoScope = createElementWithScopeAndId('th');
-  const rowHeaders = [validHeader];
-  const colHeaders = [validHeader];
-  const headerColumns = [validHeader, validHeader];
+  const caption = React.createElement('caption', {}, 'Caption');
 
-  describe('checkRowHeader', () => {
-    it('should return null if all row headers have scope', () => {
-      expect(checkRowHeader([...colHeaders, ...rowHeaders])).toBe(null);
-    });
+  const createThead = (
+    children: React.DetailedReactHTMLElement<object, HTMLElement>
+  ) => React.createElement('thead', {}, children);
 
-    it('should return a message if any row header is missing scope', () => {
-      const result = checkRowHeader([...colHeaders, invalidHeaderNoScope]);
-      expect(result).toBe(messages.table.row);
-    });
+  const createTr = (
+    children: React.DetailedReactHTMLElement<object, HTMLElement>[]
+  ) => React.createElement('tr', {}, ...children);
+
+  const createTh = () => React.createElement('th', {});
+
+  const createTd = () => React.createElement('td', {});
+
+  const createThWithScope = () => React.createElement('th', { scope: 'scope' });
+
+  const createThWithAttributes = () =>
+    React.createElement('th', { scope: 'scope', id: 'id' });
+
+  const tableHeader = {
+    children: [createThead(createTr([createTh(), createTh(), createTh()]))],
+  };
+
+  const thWithScopeAndId = {
+    children: [
+      createThead(
+        createTr(
+          Array(3)
+            .fill(undefined)
+            .map(() => createThWithAttributes())
+        )
+      ),
+    ],
+  };
+
+  const thWithScope = {
+    children: [
+      createThead(
+        createTr(
+          Array(3)
+            .fill(undefined)
+            .map(() => createThWithScope()) as React.DetailedReactHTMLElement<
+            object,
+            HTMLElement
+          >[]
+        )
+      ),
+    ],
+  };
+
+  const tableBody = {
+    children: createTr(
+      Array(5)
+        .fill(undefined)
+        .map((_, i) => (i === 0 ? createTh() : createTd()))
+    ),
+  };
+
+  it('warns if no column heading is provided', () => {
+    const warnings = tableChecks({}, [], undefined);
+    expect(warnings).toContain(messages.table.col);
   });
 
-  describe('checkColHeader', () => {
-    it('should return a message if no column headers are provided', () => {
-      expect(checkColHeader(false)).toBe(messages.table.col);
-    });
-
-    it('should return null if column headers are provided', () => {
-      expect(checkColHeader(!!headerColumns.length)).toBe(null);
-    });
+  it('passes if column heading is defined by scope', () => {
+    const warnings = tableChecks({}, colHeading, undefined);
+    expect(warnings.length).toEqual(0);
   });
 
-  describe('checkMultiHeader', () => {
-    it('should return null if all headers have scope and id for multi-level headers', () => {
-      expect(checkMultiHeader([...colHeaders, ...rowHeaders], [])).toBe(null);
-    });
-
-    it('should return a message if any header in multi-level headers is missing scope or id', () => {
-      const result = checkMultiHeader(
-        [invalidHeaderNoScope, ...rowHeaders],
-
-        []
-      );
-      expect(result).toBe(messages.table.multi);
-    });
+  it('passes if column heading is defined via props', () => {
+    const warnings = tableChecks(tableHeader, [], undefined);
+    expect(warnings.length).toEqual(0);
   });
 
-  describe('tableChecks', () => {
-    it('should return an empty array if all checks pass', () => {
-      const mockTableProps = {
-        children: [
-          React.createElement('caption', {}, 'Caption'),
-          React.createElement('tr', { key: 'table1' }, [
-            createElementWithScopeAndId('th', 'col', 'header1'),
-            createElementWithScopeAndId('th', 'col', 'header1'),
-            createElementWithScopeAndId('td', undefined, 'data1'),
-          ]),
-        ],
-      };
+  it('warns if two-heading table lacks `scope`', () => {
+    const warnings = tableChecks(
+      { children: [...tableHeader.children, tableBody.children] },
+      [],
+      undefined
+    );
+    expect(warnings).toContain(messages.table.row);
+  });
 
-      const result = tableChecks(mockTableProps, ['col']);
-      expect(result).toEqual([]);
-    });
+  it('warns if two-heading table has no `scope`', () => {
+    const warnings = tableChecks(tableBody, twoHeadings, undefined);
+    expect(warnings).toContain(messages.table.row);
+  });
+
+  it('passes if all <th> elements in two-heading table have `scope`', () => {
+    const warnings = tableChecks(thWithScope, twoHeadings, undefined);
+    expect(warnings.length).toEqual(0);
+  });
+
+  it('warns if <th> in multi-heading table lacks `scope`', () => {
+    const warnings = tableChecks(tableHeader, multiHeadings, undefined);
+    expect(warnings).toContain(messages.table.multi);
+  });
+
+  it('passes if all <th> elements in multi-heading table have `scope`', () => {
+    const warnings = tableChecks(
+      { children: [caption, ...thWithScopeAndId.children] },
+      multiHeadings,
+      undefined
+    );
+    expect(warnings.length).toEqual(0);
+  });
+
+  it('warns if multi-heading table lacks `caption`', () => {
+    const warnings = tableChecks(thWithScopeAndId, multiHeadings, undefined);
+    expect(warnings).toContain(messages.table.caption);
+  });
+
+  it('passes if `caption` is provided via context in multi-heading table', () => {
+    const warnings = tableChecks(thWithScopeAndId, multiHeadings, true);
+    expect(warnings.length).toEqual(0);
+  });
+
+  it('issues one warning if no headings exist in table', () => {
+    const warnings = tableChecks({}, [], undefined);
+    expect(warnings.length).toEqual(1);
+  });
+
+  it('issues one warning if a two-heading table fails checks', () => {
+    const warnings = tableChecks(tableHeader, twoHeadings, undefined);
+    expect(warnings.length).toEqual(1);
+  });
+
+  it('issues two warnings if multi-heading table fails checks', () => {
+    const warnings = tableChecks(tableHeader, multiHeadings, undefined);
+    expect(warnings.length).toEqual(2);
   });
 });
