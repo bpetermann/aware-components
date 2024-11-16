@@ -3,13 +3,10 @@ import { DEVELOPMENT } from '../../constants';
 import { addHeader, deleteHeader, useTable } from '../../context/table/actions';
 import { getHeaderScope } from '../../helper/tables';
 
-interface Props
-  extends React.DetailedHTMLProps<
-    React.HTMLAttributes<HTMLTableRowElement>,
-    HTMLTableRowElement
-  > {
-  a11y?: boolean;
-}
+type Props = React.DetailedHTMLProps<
+  React.HTMLAttributes<HTMLTableRowElement>,
+  HTMLTableRowElement
+>;
 
 export function Development(props: Props) {
   const { children, ...rest } = props;

@@ -114,3 +114,5 @@ export const TABLE_HEADER = 'th';
 export const TABLE_ROW = 'tr';
 export const CAPTION = 'caption';
 export const TABLE = 'Table';
+export const TD = 'Td';
+export const TH = 'Th';
