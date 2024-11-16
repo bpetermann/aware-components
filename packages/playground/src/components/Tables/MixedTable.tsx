@@ -27,8 +27,6 @@ export function MixedTable() {
             Paris
           </th>
         </tr>
-      </thead>
-      <tbody>
         <tr>
           <th headers='par' id='pbed1'>
             1 bedroom
