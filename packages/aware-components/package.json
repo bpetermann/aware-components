@@ -18,6 +18,7 @@
     "a11y",
     "accessibility"
   ],
+  "license": "MIT",
   "scripts": {
     "build": "tsc -b && vite build",
     "lint": "eslint .",
