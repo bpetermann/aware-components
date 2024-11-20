@@ -6,6 +6,7 @@ import { fieldsetChecks } from './fieldset';
 import { headingChecks } from './heading';
 import { imgChecks } from './img';
 import { inputChecks } from './input';
+import { liCheck } from './li';
 import { mainChecks } from './main';
 import { navChecks } from './nav';
 import { paragraphChecks } from './paragraph';
@@ -36,4 +37,5 @@ export const a11yChecks = {
   th: thChecks,
   td: tdChecks,
   video: videoChecks,
+  li: liCheck,
 };

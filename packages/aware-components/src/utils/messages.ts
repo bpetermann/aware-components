@@ -122,4 +122,7 @@ export const messages = {
     multi:
       "[Td] For complex tables with nested headers, each <td> cell should have a 'headers' attribute that lists the id values of the associated header cells. Element: ",
   },
+  li: {
+    list: '[Li] List item elements must be nested within an <Ul>, <Ol>, or <Menu> component from aware-components to ensure proper detection and accessibility validation. Make sure to use these components as parents for <Li> elements.',
+  },
 } as const;
