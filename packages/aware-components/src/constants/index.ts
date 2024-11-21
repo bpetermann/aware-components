@@ -116,3 +116,4 @@ export const CAPTION = 'caption';
 export const TABLE = 'Table';
 export const TD = 'Td';
 export const TH = 'Th';
+export const LI = 'li';

@@ -125,4 +125,8 @@ export const messages = {
   li: {
     list: '[Li] List item elements must be nested within an <Ul>, <Ol>, or <Menu> component from aware-components to ensure proper detection and accessibility validation. Make sure to use these components as parents for <Li> elements.',
   },
+  ul: {
+    children:
+      '[Ul] Lists should only contain <li> elements as direct children. Using other elements violates HTML semantics and can impact accessibility. Found element: ',
+  },
 } as const;

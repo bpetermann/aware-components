@@ -16,6 +16,7 @@ import { tableChecks } from './table';
 import { tdChecks } from './td';
 import { textareaChecks } from './textarea';
 import { thChecks } from './th';
+import { ulChecks } from './ul';
 import { videoChecks } from './video';
 
 export const a11yChecks = {
@@ -38,4 +39,5 @@ export const a11yChecks = {
   td: tdChecks,
   video: videoChecks,
   li: liCheck,
+  ul: ulChecks,
 };
