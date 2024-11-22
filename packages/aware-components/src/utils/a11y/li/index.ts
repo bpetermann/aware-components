@@ -1,5 +1,5 @@
 import { messages } from '../../messages';
 
-export const liCheck = (isInsideList: boolean) => [
+export const liChecks = (isInsideList: boolean) => [
   ...(!isInsideList ? [messages.li.list] : []),
 ];
