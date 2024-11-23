@@ -1,18 +1,15 @@
 import React from 'react';
-import { getNoneListItem } from '../../../helper/list';
-import { messages } from '../../messages';
+import { OL } from '../../../constants';
+import { formatWarning, getNoneListItem } from '../../../helper/list';
+import { checkColorContrast } from '../style/checkColorContrast';
 
 type Props = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLUListElement>,
   HTMLUListElement
 >;
 
-const formatWarning = (
-  el: React.ReactElement<unknown, string | React.JSXElementConstructor<unknown>>
-) => `${messages.ul.children}"${el.type}"`;
-
-export const olChecks = (props: Props) => {
-  const noneLiItem = getNoneListItem(props.children);
-
-  return [...(noneLiItem ? [formatWarning(noneLiItem)] : [])];
-};
+export const olChecks = (props: Props) =>
+  [
+    ...[formatWarning(getNoneListItem(props.children))],
+    checkColorContrast(props, OL),
+  ].filter((check) => check !== null);
