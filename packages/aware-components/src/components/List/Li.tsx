@@ -14,9 +14,9 @@ interface Props
 
 export function Development(props: Props) {
   const { a11y = true, children, ...rest } = props;
-  const { isList } = useList();
+  const { isList, bg } = useList();
 
-  if (a11y) a11yChecks?.li?.(isList)?.forEach(warn);
+  if (a11y) a11yChecks?.li?.(props, isList, bg)?.forEach(warn);
 
   return <li {...rest}>{children}</li>;
 }
