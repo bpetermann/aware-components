@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { DEVELOPMENT } from '../../constants';
+import { useList } from '../../context/list/actions';
 import ListProvider from '../../context/list/provider';
 import { warn } from '../../helper/consoleWarn';
 import { a11yChecks } from '../../utils/a11y';
@@ -14,19 +15,24 @@ interface Props
 
 function Development(props: Props) {
   const { a11y = true, children, ...rest } = props;
+  const { setBg } = useList();
+
+  const foo = props.style?.backgroundColor;
+
+  useEffect(() => {
+    if (foo) setBg(foo);
+  }, [foo, setBg]);
 
   if (a11y) a11yChecks?.ul?.(props)?.forEach(warn);
 
-  return (
-    <ListProvider>
-      <ul {...rest}>{children}</ul>
-    </ListProvider>
-  );
+  return <ul {...rest}>{children}</ul>;
 }
 
 export const Ul = (props: Props) =>
   DEVELOPMENT ? (
-    <Development {...props} />
+    <ListProvider>
+      <Development {...props} />
+    </ListProvider>
   ) : (
     <ul {...props}>{props.children}</ul>
   );
