@@ -6,13 +6,16 @@ export const checkColorContrast = (
     React.HTMLAttributes<HTMLElement>,
     HTMLElement
   >,
-  tag: string
+  tag: string,
+  bgColor?: string
 ): string | null => {
   const { color, backgroundColor, fontSize } = props.style || {};
 
-  if (!color || !backgroundColor) return null;
+  const bg = backgroundColor || bgColor;
 
-  return !isRatioOk(color, backgroundColor, 'AA', fontSize)
+  if (!color || !bg) return null;
+
+  return !isRatioOk(color, bg, 'AA', fontSize)
     ? `[${tag}] ${messages.styles.contrast}`
     : null;
 };
