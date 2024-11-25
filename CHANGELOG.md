@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 
 ## [Unreleased]
 
+### Added
+
+- `<Li>` component with accessibility (a11y) checks to ensure it is a child of `<Ul>`, `<Ol>`, or `<Menu>` and to recommend using a native `<li>` over elements with role="listitem".
+- `<Ul>` and `<Ol>` components with a11y checks to validate that all children are `<Li>` elements or equivalent elements with role="listitem".
+- `<ListProvider>` to manage list hierarchy and enable comprehensive a11y checks across nested list structures.
+
 ## [0.6.0] - 2024-11-18
 
 ### Added
