@@ -4,8 +4,8 @@ import './App.css';
 import { FoodSelect } from './components/FoodSelect';
 import { Heading } from './components/Heading';
 import { Logo } from './components/Logo';
+import { MyList } from './components/MyList';
 import { SkipLink } from './components/SkipLink';
-import { MultiHeadingTable } from './components/Tables/MultiHeadingTable';
 import { TermsAndConditions } from './components/TermsAndConditions';
 
 function App() {
@@ -29,7 +29,7 @@ function App() {
       <TermsAndConditions />
       <FoodSelect />
 
-      <MultiHeadingTable />
+      <MyList />
     </A11yProvider>
   );
 }
