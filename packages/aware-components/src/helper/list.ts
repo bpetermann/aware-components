@@ -1,6 +1,6 @@
 import { Children, ReactElement, ReactNode, isValidElement } from 'react';
 import { Li } from '../components';
-import { LI, ROLE } from '../constants';
+import { LI, OL, ROLE, UL } from '../constants';
 import { messages } from '../utils/messages';
 
 const LISTITEM = 'listitem';
@@ -22,7 +22,11 @@ export const getNoneListItem = (
   );
 
 export const formatWarning = (
-  el:
+  element:
     | React.ReactElement<unknown, string | React.JSXElementConstructor<unknown>>
-    | undefined
-) => (el ? `${messages.ul.children}"${el.type}"` : null);
+    | undefined,
+  type: typeof UL | typeof OL
+) =>
+  element
+    ? `${messages[type.toLowerCase() as 'ul' | 'ol'].children}"${element.type}"`
+    : null;

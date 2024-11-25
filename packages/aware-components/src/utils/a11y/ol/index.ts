@@ -10,6 +10,6 @@ type Props = React.DetailedHTMLProps<
 
 export const olChecks = (props: Props) =>
   [
-    ...[formatWarning(getNoneListItem(props.children))],
+    ...[formatWarning(getNoneListItem(props.children), OL)],
     checkColorContrast(props, OL),
   ].filter((check) => check !== null);

@@ -124,9 +124,14 @@ export const messages = {
   },
   li: {
     list: '[Li] List item elements must be nested within an <Ul>, <Ol>, or <Menu> component from aware-components to ensure proper detection and accessibility validation. Make sure to use these components as parents for <Li> elements.',
+    role: '[Li] Consider using a native <li> element instead of an element with role="listitem". While using role="listitem" is valid, it sacrifices semantic richness, making it harder for assistive technologies to fully understand the content. Native HTML elements provide better accessibility and should be preferred when possible.',
   },
   ul: {
     children:
       '[Ul] Lists should only contain <li> elements as direct children. Using other elements violates HTML semantics and can impact accessibility. Found element: ',
+  },
+  ol: {
+    children:
+      '[Ol] Lists should only contain <li> elements as direct children. Using other elements violates HTML semantics and can impact accessibility. Found element: ',
   },
 } as const;
