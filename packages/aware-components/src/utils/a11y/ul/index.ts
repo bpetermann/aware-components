@@ -1,6 +1,10 @@
 import React from 'react';
 import { UL } from '../../../constants';
-import { formatWarning, getNoneListItem } from '../../../helper/list';
+import {
+  formatWarning,
+  getNoneListItem,
+  getRoleListItem,
+} from '../../../helper/list';
 import { checkColorContrast } from '../style/checkColorContrast';
 
 type Props = React.DetailedHTMLProps<
@@ -10,6 +14,7 @@ type Props = React.DetailedHTMLProps<
 
 export const ulChecks = (props: Props) =>
   [
-    ...[formatWarning(getNoneListItem(props.children), UL)],
+    ...[formatWarning(getNoneListItem(props.children), UL, 'children')],
+    ...[formatWarning(getRoleListItem(props.children), UL, 'role')],
     checkColorContrast(props, UL),
   ].filter((check) => check !== null);
