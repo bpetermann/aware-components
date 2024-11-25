@@ -23,9 +23,7 @@ The goal is to improve accessibility by ensuring proper usage of naming conventi
 For optimal accessibility monitoring, wrap your entire application with the `A11yProvider`:
 
 ```jsx
-import React from 'react';
-import { A11yProvider } from './context/a11y';
-import { H1, Button } from './components';
+import { A11yProvider, H1, Button } from 'aware-components';
 
 function App() {
   return (
@@ -51,7 +49,6 @@ Accessibility issues logged in the console
 
 ```jsx
 import { Button, Div } from 'aware-components';
-import React from 'react';
 
 function MyButton() {
   const [count, setCount] = React.useState(0);
@@ -126,6 +123,37 @@ export function Container(props: React.PropsWithChildren) {
   );
 }
 ```
+
+**Example:** Using the `<Table>` Component
+
+The `<Table>` component from `aware-components` checks for accessibility issues like missing `<headers>` and `<scope>` attributes based on the table's structure. While you can use native HTML elements like `<caption>` inside `<Table>`, accessibility checks may not detect these elements if they are wrapped in custom components.
+
+To ensure all elements, including nested ones, are detected and provide detailed warnings, use `aware-components` like `<Caption>`, `<Th>`, and `<Td>`.
+
+```jsx
+import { Table, Caption } from 'aware-components';
+
+// This caption won't be detected, and a warning will be issued.
+export function Description() {
+  return <caption>Delivery slots:</caption>;
+}
+
+// This caption will be detected, and no warning will be issued.
+export function Description() {
+  return <Caption>Delivery slots:</Caption>;
+}
+
+export function MyTable() {
+  return (
+    <Table>
+      <Description />
+      ...
+    </Table>
+  );
+}
+```
+
+By using all `aware-components` for table elements, you enable comprehensive accessibility checks and ensure detailed feedback on potential issues.
 
 ## Current Focus
 
