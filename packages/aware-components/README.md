@@ -134,12 +134,12 @@ To ensure all elements, including nested ones, are detected and provide detailed
 import { Table, Caption } from 'aware-components';
 
 // This caption won't be detected, and a warning will be issued.
-export function Description() {
+function Description() {
   return <caption>Delivery slots:</caption>;
 }
 
 // This caption will be detected, and no warning will be issued.
-export function Description() {
+function Description() {
   return <Caption>Delivery slots:</Caption>;
 }
 

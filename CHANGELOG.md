@@ -4,13 +4,19 @@ All notable changes to the "aware-components" library will be documented in this
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [0.7.0] - 2024-11-28
 
 ### Added
 
 - `<Li>` component with accessibility (a11y) checks to ensure it is a child of `<Ul>`, `<Ol>`, or `<Menu>` and to recommend using a native `<li>` over elements with role="listitem".
 - `<Ul>` and `<Ol>` components with a11y checks to validate that all children are `<Li>` elements or equivalent elements with role="listitem".
 - `<ListProvider>` to manage list hierarchy and enable comprehensive a11y checks across nested list structures.
+
+## [0.6.1] - 2024-11-18
+
+### Fixed
+
+- Import in readme.md file
 
 ## [0.6.0] - 2024-11-18
 
@@ -105,3 +111,5 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 [0.4.2]: https://github.com/bpetermann/aware-components/releases/tag/v0.4.2
 [0.5.0]: https://github.com/bpetermann/aware-components/releases/tag/v0.5.0
 [0.6.0]: https://github.com/bpetermann/aware-components/releases/tag/v0.6.0
+[0.6.1]: https://github.com/bpetermann/aware-components/releases/tag/v0.6.0
+[0.7.0]: https://github.com/bpetermann/aware-components/releases/tag/v0.7.0
