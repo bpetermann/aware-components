@@ -1,9 +1,9 @@
 import '@testing-library/jest-dom';
-import { cleanup, render } from '@testing-library/react';
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Button } from '../../components';
 import { messages } from '../../utils/messages';
+import { cleanup, render } from '../utils';
 
 const originalEnv = process.env.NODE_ENV;
 
