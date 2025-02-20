@@ -1,5 +1,4 @@
 import '@testing-library/jest-dom';
-import test from 'node:test';
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Caption, Table, Td, Th, Tr } from '../../components';
@@ -19,7 +18,7 @@ afterEach(() => {
 });
 
 describe('Table Component', () => {
-  it('two heading table', () => {
+  it('warns when a table has an incorrectly formatted heading', () => {
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const th = 'Wednesday';
 
@@ -61,7 +60,7 @@ describe('Table Component', () => {
     expect(warnSpy).toHaveBeenCalledWith(`${messages.th.two}"${th}"`);
   });
 
-  test('multi heading table', () => {
+  it('warns when a table contains multiple heading structures', () => {
     const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
 
     render(
