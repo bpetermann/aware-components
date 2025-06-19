@@ -21,6 +21,7 @@
   "license": "MIT",
   "scripts": {
     "build": "tsc -b && vite build",
+    "dev": "tsc -p tsconfig.dev.json --watch",
     "lint": "eslint .",
     "test": "vitest",
     "prepublishOnly": "vitest run && npm run build"
