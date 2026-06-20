@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Main } from '../../components';
 import { messages } from '../../utils/messages';
@@ -29,5 +29,21 @@ describe('Main Component', () => {
     );
 
     expect(warnSpy).toHaveBeenCalledWith(messages.main.unique);
+  });
+
+  it('warns once per <main> under StrictMode, not once per render', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    render(
+      <StrictMode>
+        <Main></Main>
+        <Main></Main>
+      </StrictMode>
+    );
+
+    const uniqueWarnings = warnSpy.mock.calls.filter(
+      ([message]) => message === messages.main.unique
+    );
+    expect(uniqueWarnings).toHaveLength(2);
   });
 });

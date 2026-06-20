@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import React from 'react';
+import React, { StrictMode } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { Button } from '../../components';
 import { messages } from '../../utils/messages';
@@ -62,5 +62,20 @@ describe('Button Component', () => {
     render(<Button aria-label='Submit' />);
 
     expect(warnSpy.mock.calls.length).toEqual(0);
+  });
+
+  it('does not double-fire a warning under StrictMode', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    render(
+      <StrictMode>
+        <Button />
+      </StrictMode>
+    );
+
+    const textWarnings = warnSpy.mock.calls.filter(
+      ([message]) => message === messages.button.text
+    );
+    expect(textWarnings).toHaveLength(1);
   });
 });
