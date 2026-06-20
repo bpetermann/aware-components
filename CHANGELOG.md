@@ -5,6 +5,12 @@ All notable changes to the "aware-components" library will be documented in this
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 
+## [Unreleased]
+
+### Changed
+
+- Accessibility checks now run in a post-commit effect instead of during render, so each warning fires exactly once per issue (including under React StrictMode) and no longer reads stale shared state.
+
 ## [0.7.1] - 2025-10-25
 
 ### Fixed
