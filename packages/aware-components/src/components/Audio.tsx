@@ -1,6 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import { DEVELOPMENT } from '../constants';
-import { warn } from '../helper/consoleWarn';
+import { useA11yWarnings } from '../hooks/useA11yWarnings';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -15,10 +15,10 @@ export function Development(props: Props) {
   const { a11y = true, children, ...rest } = props;
   const ref = useRef(null);
 
-  useEffect(() => {
-    if (DEVELOPMENT && a11y && ref.current)
-      a11yChecks.audio(props, ref.current)?.forEach(warn);
-  }, [a11y, props]);
+  useA11yWarnings(
+    () => (a11y && ref.current ? a11yChecks.audio(props, ref.current) : null),
+    [props, a11y]
+  );
 
   return (
     <audio ref={ref} {...rest}>

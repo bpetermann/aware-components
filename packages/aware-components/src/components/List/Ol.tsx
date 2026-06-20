@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { DEVELOPMENT } from '../../constants';
 import { useList } from '../../context/list/actions';
 import ListProvider from '../../context/list/provider';
-import { warn } from '../../helper/consoleWarn';
+import { useA11yWarnings } from '../../hooks/useA11yWarnings';
 import { a11yChecks } from '../../utils/a11y';
 
 interface Props
@@ -23,7 +23,7 @@ function Development(props: Props) {
     if (bg) setBg(bg);
   }, [bg, setBg]);
 
-  if (a11y) a11yChecks?.ol?.(props)?.forEach(warn);
+  useA11yWarnings(() => (a11y ? a11yChecks?.ol?.(props) : null), [props, a11y]);
 
   return <ol {...rest}>{children}</ol>;
 }

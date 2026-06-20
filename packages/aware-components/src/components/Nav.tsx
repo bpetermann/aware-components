@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { DEVELOPMENT } from '../constants';
 import { addNav, deleteNav, useAccessibility } from '../context';
-import { warn } from '../helper/consoleWarn';
+import { useA11yWarnings } from '../hooks/useA11yWarnings';
 import { a11yChecks } from '../utils/a11y';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -20,7 +20,10 @@ function Development(props: Props) {
     return () => dispatch(deleteNav());
   }, [dispatch]);
 
-  if (amount > 1) a11yChecks.nav(props)?.forEach(warn);
+  useA11yWarnings(
+    () => (amount > 1 ? a11yChecks.nav(props) : null),
+    [props, amount]
+  );
 
   return <nav {...rest}>{children}</nav>;
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { DEVELOPMENT } from '../../constants';
 import { useList } from '../../context/list/actions';
-import { warn } from '../../helper/consoleWarn';
+import { useA11yWarnings } from '../../hooks/useA11yWarnings';
 import { a11yChecks } from '../../utils/a11y';
 
 interface Props
@@ -16,7 +16,10 @@ export function Development(props: Props) {
   const { a11y = true, children, ...rest } = props;
   const { isList, bg } = useList();
 
-  if (a11y) a11yChecks?.li?.(props, isList, bg)?.forEach(warn);
+  useA11yWarnings(
+    () => (a11y ? a11yChecks?.li?.(props, isList, bg) : null),
+    [props, a11y, isList, bg]
+  );
 
   return <li {...rest}>{children}</li>;
 }

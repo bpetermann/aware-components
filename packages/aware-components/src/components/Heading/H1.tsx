@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { DEVELOPMENT, H_1 } from '../../constants';
 import { addHeading, deleteHeading, useAccessibility } from '../../context';
-import { warn } from '../../helper/consoleWarn';
+import { useA11yWarnings } from '../../hooks/useA11yWarnings';
 import { a11yChecks } from '../../utils/a11y';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -20,7 +20,10 @@ export function Development(props: Props) {
     return () => dispatch(deleteHeading(H_1));
   }, [dispatch]);
 
-  if (headings.length) a11yChecks.heading(headings, props)?.forEach(warn);
+  useA11yWarnings(
+    () => (headings.length ? a11yChecks.heading(headings, props) : null),
+    [headings, props]
+  );
 
   return <h1 {...rest}>{children}</h1>;
 }

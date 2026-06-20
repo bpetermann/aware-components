@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { DEVELOPMENT } from '../constants';
 import { addLink, deleteLink, useAccessibility } from '../context';
-import { warn } from '../helper/consoleWarn';
+import { useA11yWarnings } from '../hooks/useA11yWarnings';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -23,7 +23,10 @@ export function A(props: Props) {
     }
   }, [dispatch, props.href]);
 
-  if (DEVELOPMENT && a11y) a11yChecks.anchor(props, links)?.forEach(warn);
+  useA11yWarnings(
+    () => (a11y ? a11yChecks.anchor(props, links) : null),
+    [props, a11y, links]
+  );
 
   return <a {...rest}>{children}</a>;
 }

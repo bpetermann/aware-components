@@ -2,7 +2,7 @@ import React from 'react';
 import { DEVELOPMENT } from '../../constants';
 import { useTable } from '../../context/table/actions';
 import TableProvider from '../../context/table/provider';
-import { warn } from '../../helper/consoleWarn';
+import { useA11yWarnings } from '../../hooks/useA11yWarnings';
 import { a11yChecks } from '../../utils/a11y';
 
 interface Props
@@ -17,7 +17,10 @@ export function Development(props: Props) {
   const { a11y = true, children, ...rest } = props;
   const { header, caption } = useTable();
 
-  if (a11y) a11yChecks?.table?.(props, header, caption)?.forEach(warn);
+  useA11yWarnings(
+    () => (a11y ? a11yChecks?.table?.(props, header, caption) : null),
+    [props, a11y, header, caption]
+  );
 
   return <table {...rest}>{children}</table>;
 }

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { DEVELOPMENT } from '../constants';
 import { addHr, deleteHr, useAccessibility } from '../context';
-import { warn } from '../helper/consoleWarn';
+import { useA11yWarnings } from '../hooks/useA11yWarnings';
 import { messages } from '../utils/messages';
 
 interface Props
@@ -21,7 +21,10 @@ export function Development(props: Props) {
     return () => dispatch(deleteHr());
   }, [dispatch]);
 
-  if (hrAmount > 3 && a11y) warn(messages.hr.amount);
+  useA11yWarnings(
+    () => (hrAmount > 3 && a11y ? [messages.hr.amount] : null),
+    [hrAmount, a11y]
+  );
 
   return <hr {...rest} />;
 }

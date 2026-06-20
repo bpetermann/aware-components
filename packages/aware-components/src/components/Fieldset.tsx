@@ -1,6 +1,5 @@
 import React from 'react';
-import { DEVELOPMENT } from '../constants';
-import { warn } from '../helper/consoleWarn';
+import { useA11yWarnings } from '../hooks/useA11yWarnings';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -14,7 +13,10 @@ interface Props
 export function Fieldset(props: Props) {
   const { a11y = true, children, ...rest } = props;
 
-  if (DEVELOPMENT && a11y) a11yChecks.fieldset(props)?.forEach(warn);
+  useA11yWarnings(
+    () => (a11y ? a11yChecks.fieldset(props) : null),
+    [props, a11y]
+  );
 
   return <fieldset {...rest}>{children}</fieldset>;
 }

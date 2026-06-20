@@ -1,7 +1,7 @@
 import React from 'react';
 import { DEVELOPMENT } from '../../constants';
 import { useTable } from '../../context/table/actions';
-import { warn } from '../../helper/consoleWarn';
+import { useA11yWarnings } from '../../hooks/useA11yWarnings';
 import { a11yChecks } from '../../utils/a11y';
 
 interface Props
@@ -16,7 +16,10 @@ export function Development(props: Props) {
   const { a11y = true, children, ...rest } = props;
   const { header } = useTable();
 
-  if (a11y && header.length) a11yChecks.td(props, header)?.forEach(warn);
+  useA11yWarnings(
+    () => (a11y && header.length ? a11yChecks.td(props, header) : null),
+    [props, a11y, header]
+  );
 
   return <td {...rest}>{children}</td>;
 }

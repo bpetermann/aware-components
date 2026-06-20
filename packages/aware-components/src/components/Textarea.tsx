@@ -1,7 +1,7 @@
 import React from 'react';
 import { DEVELOPMENT } from '../constants';
 import { useAccessibility } from '../context';
-import { warn } from '../helper/consoleWarn';
+import { useA11yWarnings } from '../hooks/useA11yWarnings';
 import { a11yChecks } from '../utils/a11y';
 
 interface Props
@@ -17,7 +17,10 @@ export function Development(props: Props) {
   const { a11y = true, id, children, ...rest } = props;
   const { labels } = useAccessibility();
 
-  if (a11y) a11yChecks.textarea(props, labels)?.forEach(warn);
+  useA11yWarnings(
+    () => (a11y ? a11yChecks.textarea(props, labels) : null),
+    [props, a11y, labels]
+  );
 
   return (
     <textarea {...rest} id={id}>
