@@ -37,4 +37,11 @@ describe('Accessibility checks for <h*> elements', () => {
     const warnings = headingChecks(['h1', 'h2', 'h4', 'h3', 'h6', 'h5'], {});
     expect(warnings.length).toEqual(0);
   });
+
+  it('does not mutate the input headings array', () => {
+    const headings = ['h1', 'h3'];
+
+    headingChecks(headings, {});
+    expect(headings).toEqual(['h1', 'h3']);
+  });
 });
