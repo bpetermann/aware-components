@@ -1,7 +1,7 @@
 import '@testing-library/jest-dom';
 import React from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { H1, H2, H3 } from '../../components';
+import { H1, H2, H3, H5 } from '../../components';
 import { messages } from '../../utils/messages';
 import { cleanup, render } from '../utils';
 
@@ -43,6 +43,27 @@ describe('Heading Component', () => {
     );
 
     expect(warnSpy).toHaveBeenLastCalledWith(messages.heading.unique + 3);
+  });
+
+  it('warns about multiple <H1> even when a lower heading is rendered last', () => {
+    const warnSpy = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    render(
+      <>
+        <H1>1</H1>
+        <H1>2</H1>
+        <H1>3</H1>
+        <H5>5</H5>
+      </>
+    );
+
+    const uniqueWarnings = warnSpy.mock.calls.filter((c) =>
+      String(c[0]).startsWith(messages.heading.unique)
+    );
+
+    // one warning per <H1>; the trailing <H5> must not emit it
+    expect(uniqueWarnings).toHaveLength(3);
+    expect(warnSpy.mock.calls).toContainEqual([messages.heading.unique + 3]);
   });
 
   it('warns when a heading level is skipped', () => {

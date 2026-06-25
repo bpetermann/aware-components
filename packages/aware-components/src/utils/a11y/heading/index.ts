@@ -5,11 +5,10 @@ import { HeadingProps } from './types/headingProps';
 
 export const headingChecks = (
   headings: string[],
-  props: HeadingProps
+  props: HeadingProps,
+  current: string = headings[headings.length - 1]
 ): string[] =>
   [
-    ...(headings[headings.length - 1] !== 'h1'
-      ? [checkPrevHeading(headings)]
-      : [checkUniqueness(headings)]),
-    checkColorContrast(props, headings[headings.length - 1]),
+    current === 'h1' ? checkUniqueness(headings) : checkPrevHeading(headings),
+    checkColorContrast(props, current),
   ].filter((check) => check !== null);

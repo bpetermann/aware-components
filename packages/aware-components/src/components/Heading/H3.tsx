@@ -19,7 +19,9 @@ export function Development(props: Props) {
 
   useA11yWarnings(
     () =>
-      headings.length ? a11yChecks.heading([...headings, H_3], props) : null,
+      headings.length
+        ? a11yChecks.heading([...headings, H_3], props, H_3)
+        : null,
     [headings, props]
   );
 
